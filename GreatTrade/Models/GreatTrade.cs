@@ -7,6 +7,8 @@ namespace GreatTrade.Models
 {
 	public class GreatTrade
 	{
+
 		private User users;
+		private Transaction transactions;
 	}
 }
