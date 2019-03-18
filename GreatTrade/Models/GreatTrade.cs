@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models
 {
-	public class GreatTrade
+	public class GreatTrade:ObjectBase
 	{
 
 		private User users;
