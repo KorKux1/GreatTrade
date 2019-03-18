@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models.Enum
 {
-    public enum Countries {
+    public enum TypeCountries
+    {
         Argentina,
         Canada,
         Estados_Unidos,

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!-- SEO -->
+    <title>@ViewData["Title"] - GreatTrade</title>
+    @RenderSection("seo", required:false)
+
+
+        <!-- CSS Bootstrap -->
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+
+        <!-- Font Awesome -->
+        <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+
+        <!-- CSS Styles -->
+        <link href="~/css/style.css" rel="stylesheet" />
+
+        <!-- Custom CSS -->
+        <link href="~/css/style.css" rel="stylesheet" />
+
+        <!-- Animate CSS -->
+        <link href="~/css/animate.css" rel="stylesheet" />
+
+        <!-- Custom CSS -->
+        <link href="~/css/custom.css" rel="stylesheet" />
+        <link href="~/css/responsive.css" rel="stylesheet" />
+        <link href="~/css/prettyPhoto.css" rel="stylesheet" />
+
+        <script src="~/js/modernizr.custom.26633.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <partial name="Header" />
+        @RenderBody()
+        <partial name="Footer" />
+        
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

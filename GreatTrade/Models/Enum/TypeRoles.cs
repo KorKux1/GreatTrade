@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models.Enum
 {
-    public enum Roles
+    public enum TypeRoles
     {
         Normal, Administrator
     }
