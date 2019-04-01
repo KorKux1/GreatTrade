@@ -42,5 +42,10 @@ namespace GreatTrade.Models
          */
         public List<Product> Purchases { get; set; }
 
-	}
+        /*
+         *This is the Photo of the user
+         */
+        public string Photo { get; set; }
+
+    }
 }
