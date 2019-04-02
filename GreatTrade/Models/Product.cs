@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models
 {
-	public class Product
+	public class Product:ObjectBase
 	{
 		public const int FINISHED = 1;
 		public const int UNAVAILABLE = 2;
@@ -18,7 +18,6 @@ namespace GreatTrade.Models
 		private double price;
 		private string title;
 		private string description;
-		private int id;
 		private int status;
 		private int units;
 		private string city;

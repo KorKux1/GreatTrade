@@ -9,8 +9,7 @@ namespace GreatTrade.Models
 {
     public abstract class ObjectBase {
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
 
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models
 {
-	public class Question
+	public class Question:ObjectBase
 	{
 		public const int ACTIVE = 1;
 		public const int EXPIRED = 2;
