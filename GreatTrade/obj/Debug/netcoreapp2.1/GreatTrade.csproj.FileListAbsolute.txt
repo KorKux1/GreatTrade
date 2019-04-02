@@ -32,5 +32,14 @@ D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netco
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.dll
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.pdb
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csproj.CopyComplete
-D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Profile\Index.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Shared\ProfileLayOut.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Users\Create.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Users\Delete.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Users\Details.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Users\Edit.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Users\Index.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Profiles\Create.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Profiles\Delete.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Profiles\Details.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Profiles\Edit.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Profiles\Index.g.cshtml.cs

@@ -24,7 +24,8 @@ namespace GreatTrade.Models
          * This is the Email of the user
          */
         [Required]
-        public EmailAddressAttribute Email { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
         /*
          * This is the role of the user. It can be administrator or Normal User
@@ -42,23 +43,13 @@ namespace GreatTrade.Models
         public bool IsActive { get; set; }
 
         /*
-         * This is the products for sale by the user
-         */
-        public List<Product> ProductsOnSale { get; set; }
-
-        /*
-         * This is the sold products of the user
-         */
-        public List<Product> SoldProducts { get; set; }
-
-        /*
-         * This is the Purchases of the user 
-         */
-        public List<Product> Purchases { get; set; }
-
-        /*
          * This is the profile of the user
          */
-        public Profile Profile { get; set; }
+        public virtual List<Profile> Profiles { get; set; }
+
+        public string FullName()
+        {
+            return FirstName + " " + LastName;
+        }
     }
 }

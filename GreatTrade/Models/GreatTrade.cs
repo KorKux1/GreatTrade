@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models
 {
-	public class GreatTrade:ObjectBase
-	{
+	//public class GreatTrade:ObjectBase
+	//{
 
-		private User users;
-		private Transaction transactions;
-	}
+	//	private User users;
+	//	private Transaction transactions;
+	//}
 }
