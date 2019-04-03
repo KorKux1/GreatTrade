@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreatTrade.Models.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,20 +12,21 @@ namespace GreatTrade.Models
 		public const int UNAVAILABLE = 2;
 		public const int ACTIVE = 3;
 
-		private DateTime date;
-		private List<string> tags;
-		private int subCategories;
-		private int category;
-		private double price;
-		private string title;
-		private string description;
-		private int status;
-		private int units;
-		private string city;
-		private string[] photos;
-		private List<string> relatedCities;
 
-		private Question questions;
+        public DateTime Date { get; set; }
+        public TypeTags Tags { get; set; }
+        public int SubCategories { get; set; }
+        public int Category { get; set; }
+        public double Price { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int Status { get; set; }
+        public int Units { get; set; }
+       
+        public List<Photo> Photos { get; set; }
+        public List<City> RelatedCities { get; set; }
 
-	}
+        public Question Questions { get; set; }
+
+    }
 }
