@@ -23,10 +23,10 @@ namespace GreatTrade.Models
         public int Status { get; set; }
         public int Units { get; set; }
        
-        public List<Photo> Photos;
+        public List<Photo> Photos { get; set; }
         public List<City> RelatedCities { get; set; }
 
-        public Question questions;
+        public Question Questions { get; set; }
 
-	}
+    }
 }

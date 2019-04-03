@@ -49,9 +49,11 @@ namespace GreatTrade.Models
 
         public string Photo { get; set; }
 
+       
         public string FullName()
         {
             return FirstName + " " + LastName;
         }
+        
     }
 }
