@@ -11,10 +11,11 @@ namespace GreatTrade.Models
 		public const int EXPIRED = 2;
 		public const int ANSWERED = 3;
 
-		private string question;
-		private string answer;
-		private User questioner;
-		private int status;
-		private int id;
-	}
+        public string Questionn { get; set; }
+        public Answer Answere { get; set; }
+		public int Status { get; set; }
+        public int ProductId { get; set; }
+        public Product Product { get; set; }
+
+    }
 }
