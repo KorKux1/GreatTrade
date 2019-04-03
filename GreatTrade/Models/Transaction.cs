@@ -7,15 +7,15 @@ namespace GreatTrade.Models
 {
 	public class Transaction
 	{
-		private int id;
-		private int idSeller;
-		private int idBuyer;
-		private int idProduct;
+        public int Id { get; set; }
+        public int SellerId { get; set; }
+        public int BuyerId { get; set; }
+        public int ProductId { get; set; }
 
 
-		private User buyer;
-		private User seller;
-		private Product product;
+        public User Seler { get; set; }
+        public User Buyer { get; set; }
+        public Product Product { get; set; }
 
-	}
+    }
 }

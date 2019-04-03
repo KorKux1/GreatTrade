@@ -47,6 +47,8 @@ namespace GreatTrade.Models
          */
         public virtual List<Profile> Profiles { get; set; }
 
+        public string Photo { get; set; }
+
         public string FullName()
         {
             return FirstName + " " + LastName;
