@@ -1,4 +1,3 @@
-D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csprojAssemblyReference.cache
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csproj.CoreCompileInputs.cache
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.RazorAssemblyInfo.cache
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.RazorAssemblyInfo.cs
