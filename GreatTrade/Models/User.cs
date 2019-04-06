@@ -45,11 +45,15 @@ namespace GreatTrade.Models
         /*
          * This is the profile of the user
          */
-        public virtual List<Profile> Profiles { get; set; }
+        public virtual Profile Profile { get; set; }
 
-        public string Photo { get; set; }
+        public List<Product> Products { get; set; }
 
-       
+        public List<Notification> Notifications { get; set; }
+
+        public List<Alert> Alerts { get; set; }
+
+
         public string FullName()
         {
             return FirstName + " " + LastName;

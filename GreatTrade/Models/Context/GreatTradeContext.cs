@@ -130,8 +130,5 @@ namespace GreatTrade.Models.Context
             };
             return profile;
         }
-
-
-
     }
 }

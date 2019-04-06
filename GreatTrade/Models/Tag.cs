@@ -5,20 +5,12 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models
 {
-	public class Question:ObjectBase
-	{
-		public const int ACTIVE = 1;
-		public const int EXPIRED = 2;
-		public const int ANSWERED = 3;
-
+    public class Tag:ObjectBase
+    {
         public string Description { get; set; }
-
-        public Answer Answer { get; set; }
-
-		public int Status { get; set; }
-
         public int ProductId { get; set; }
         public Product Product { get; set; }
-
+        public int AlertId { get; set; }
+        public Alert Alert { get; set; }
     }
 }

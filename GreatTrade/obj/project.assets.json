@@ -12603,5 +12603,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\Estudio\\Integrador\\2019-1\\Trabajo Final\\GreatTrade\\GreatTrade\\obj\\GreatTrade.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
