@@ -1,16 +1,16 @@
-﻿using System;
+﻿using GreatTrade.Models.Enum;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace GreatTrade.Models
 {
-    public class City
+    public class City:ObjectBase
     {
-        public int Id { get; set; }
-        public int ProductId { get; set; }
-        public virtual Product Product { get; set; }
-       
+
+        public virtual List<Product> Product { get; set; }
+        public TypeCountries Contry { get; set; }
         public string Name { get; set; }
     }
 }

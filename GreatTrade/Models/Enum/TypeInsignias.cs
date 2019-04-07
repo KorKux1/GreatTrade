@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models.Enum
 {
-    public enum TypeTags
+    public enum TypeInsignias
     {
-       Top,
-       New
+        New,
+        Top
     }
 }

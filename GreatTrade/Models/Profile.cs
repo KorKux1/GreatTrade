@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace GreatTrade.Models
 {
@@ -23,5 +25,28 @@ namespace GreatTrade.Models
          * This is the description of the profile
          */
         public string Description { get; set; }
+
+        /**
+         * Url of User's Facebook Profile 
+         */
+        [Url]
+        public string Facebook { get; set; }
+
+        /**
+         * Url of User's Twitter Profile 
+         */
+        [Url]
+        public string Twitter { get; set; }
+
+        /**
+         * Url of User's Instagram Profile 
+         */
+        [Url]
+        public string Instagram { get; set; }
+
+        /*
+         * Avatar of the user
+         */
+        public string Avatar { get; set; }
     }
 }
