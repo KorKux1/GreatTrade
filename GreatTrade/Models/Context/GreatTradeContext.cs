@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GreatTrade.Models.Context
 {
-    public class GreatTradeContext:DbContext {
+    public class GreatTradeContext : DbContext {
         /*
          * Table that reference the users on the database
          */
@@ -16,39 +16,136 @@ namespace GreatTrade.Models.Context
          * The table that reference the Profiles on the database
          */
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Alert> Alerts { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
 
-        public GreatTradeContext(DbContextOptions<GreatTradeContext> options): base (options ) {
+        public GreatTradeContext(DbContextOptions<GreatTradeContext> options) : base(options) {
 
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
 
+            var profiles = new List<Profile>()
+            {
+                new Profile(){ Id=1, UserId = 1, Avatar = "~/images/avatar.jpg" },
+                new Profile(){ Id=2, UserId = 2, Avatar = "~/images/avatar.jpg" },
+                new Profile(){ Id=3, UserId = 3, Avatar = "~/images/avatar.jpg" },
+                new Profile(){ Id=4, UserId = 4, Avatar = "~/images/avatar.jpg" },
+                new Profile(){ Id=5, UserId = 5, Avatar = "~/images/avatar.jpg" },
+            };
+
+            var users = new List<User>()
+            {
+               new User(){ Id = 1, FirstName= "Juan Carlos", LastName="Ruiz",Email="juan_carlos@globant.com",Country= Enum.TypeCountries.Colombia},
+               new User(){ Id = 2, FirstName= "Sara", LastName="Cabrera",Email="s.cabreara@globant.com",Country= Enum.TypeCountries.Chile},
+               new User(){ Id = 3, FirstName= "Jorge", LastName="Espinosa",Email="jorge_espinosa@globant.com",Country= Enum.TypeCountries.Costa_Rica},
+               new User(){ Id = 4, FirstName= "Carlos", LastName="Sanchez",Email="carlos.san@globant.com",Country= Enum.TypeCountries.Argentina},
+               new User(){ Id = 5, FirstName= "Roberto", LastName="Diaz",Email="rdiaz@globant.com",Country= Enum.TypeCountries.Colombia},
+            };
+
+            var notifcations = new List<Notification>()
+            {
+                new Notification(){ Id=1, UserId=1, Messasge="Carlos está interesado en tu producto", Checked=false},
+                new Notification(){ Id=2, UserId=1, Messasge="Notificación de prueba 1", Checked=true},
+                new Notification(){ Id=3, UserId=2, Messasge="Notificación 2", Checked=true},
+                new Notification(){ Id=4, UserId=4, Messasge="Notificación 3", Checked=false},
+                new Notification(){ Id=5, UserId=3, Messasge="Roberto está interesado en tu producto", Checked=true},
+                new Notification(){ Id=6, UserId=5, Messasge="Sara está interesado en tu producto", Checked=false},
+                new Notification(){ Id=7, UserId=6, Messasge="Jorge está interesado en tu producto", Checked=false},
+            };
+
+            var subcategories = new List<SubCategory>() {
+                new SubCategory(){ Id = 1, CategoryId=1, Name="Celulares" },
+            };
+
+            var categories = new List<Category>() {
+                new Category(){  Id= 1, Name="Tecnología", },
+                new Category(){  Id= 2, Name="Ropa", },
+                new Category(){  Id= 3, Name="Fantasia", },
+            };
+
+
+            var products = new List<Product>() {
+                new Product( ){ Id = 1, SubCategoryId = 1, Title="Samsung S7",
+                    Status = Enum.ProductStatus.Active, BuyerId=1, SellerId=2, CityId=1,  Description="Samsung Galaxy S7",},
+                new Product( ){ Id = 2, SubCategoryId = 1, Title="Samsung S6",
+                    Status = Enum.ProductStatus.Active, BuyerId=1, SellerId=2, CityId=1,  Description="Samsung Galaxy S6"},
+                new Product( ){ Id = 3, SubCategoryId = 1, Title="Samsung S5",
+                    Status = Enum.ProductStatus.Active, BuyerId=1, SellerId=2, CityId=1,  Description="Samsung Galaxy S5"},
+            };
+
+            var questions = new List<Question>() {
+                new Question(){ Id=1,  Description="¿Cómo hago para comprar este producto?", ProductId=1 },
+            };
+            var answers = new List<Answer>()
+            {
+                new Answer(){ Id=1, QuestionId=1, Description="Le das en el botón de comprar" }
+            };
+
+            var photos = new List<Photo>() {
+                new Photo(){ Id=1, ProductId=1, Route="~/images/celular.jpg"},
+                new Photo(){ Id=2, ProductId=1, Route="~/images/celular.jpg"},
+                new Photo(){ Id=3, ProductId=2, Route="~/images/celular.jpg"},
+                new Photo(){ Id=4, ProductId=3, Route="~/images/celular.jpg"},
+
+            };
+
+            var tags = new List<Tag>() {
+                new Tag(){  Id= 1, ProductId=1, Description="Samsung", AlertId=1},
+            };
+
+
 
             /*Load Users */
-            var users = LoadUsers();
+            // var users = LoadUsers();
 
             /*Load the profiles*/
-            var profiles = GenerateProfiles(users);
+            // var profiles = GetProfiles(users);
+
+
 
             modelBuilder.Entity<User>().HasData(users.ToArray());
             modelBuilder.Entity<Profile>().HasData(profiles.ToArray());
+            modelBuilder.Entity<Answer>().HasData(answers.ToArray());
+            modelBuilder.Entity<Category>().HasData(categories.ToArray());
+            modelBuilder.Entity<Question>().HasData(questions.ToArray());
+            modelBuilder.Entity<SubCategory>().HasData(subcategories.ToArray());
+            modelBuilder.Entity<Tag>().HasData(tags.ToArray());
+            modelBuilder.Entity<Product>().HasData(products.ToArray());
+
+            
+
+
+           /* modelBuilder.Entity<Match>()
+                    .HasRequired(m => m.HomeTeam)
+                    .WithMany(t => t.HomeMatches)
+                    .HasForeignKey(m => m.HomeTeamId)
+                    .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Match>()
+                        .HasRequired(m => m.GuestTeam)
+                        .WithMany(t => t.AwayMatches)
+                        .HasForeignKey(m => m.GuestTeamId)
+                        .WillCascadeOnDelete(false);*/
         }
 
-       /* private List<Profile> LoadProfies(List<User> users)
+        private List<Profile> GetProfiles(List<User> users)
         {
             var profiles = new List<Profile>();
-
-            foreach (var user in users)
-            {
-                var profile = GenerateProfile(user);
-                Profiles.Append(profile);
+            foreach (var user in users) {
+                profiles.Add(user.Profile);
             }
-        }*/
-
-        /*private List<Profile> LoadProfie() {
-            return GenerateProfiles(20);
-        }*/
+            return profiles;
+        }
 
         private List<User> LoadUsers()
         {
@@ -56,18 +153,23 @@ namespace GreatTrade.Models.Context
             for (int i = 0; i < listUsers.Count(); i++)
             {
                 var user = listUsers[i];
-                user.Id = i+1;
-                //user.Profile = GenerateProfile(user);
+                user.Id = i + 1;
+                user.Profile = GenerateProfile(user);
             }
             return listUsers;
         }
 
+        private List<Notification> GenerateNotifacations(int cant) {
+            List<Notification> notifications = new List<Notification>();
+            for (int i = 0; i < cant; i++)
+            {
+                notifications.Add(new Notification() {
+                    Messasge = "Notificaión Número " +(i+1)
+                });
 
-
-        /*private List<Profile> LoadProfiles(List<User> users) {
-            var profiles = users.Select(user => user.Profile).ToList();
-            return profiles;
-        }*/
+            }
+            return notifications;
+        }
 
         private List<User> GenerateUsers(int cant)
         {
@@ -75,16 +177,36 @@ namespace GreatTrade.Models.Context
             string[] last_name1 = { "Ruiz", "Sarmiento", "Uribe", "Maduro", "Trump", "Toledo", "Herrera" };
             string[] last_name2 = { "Freddy", "Anabel", "Rick", "Murty", "Silvana", "Diomedes", "Nicomedes", "Teodoro" };
 
-            var userList =  from n1 in name1
-                            from n2 in last_name2
-                            from a1 in last_name1
-                            select new User {
-                                FirstName = $"{n1} {n2}",
-                                LastName = $"{a1}",
-                                Email = $"{n1.ToLower()}_{n2.ToLower()}_{a1.ToLower()}@globant.com",
-                            };
+            var userList = from n1 in name1
+                           from n2 in last_name2
+                           from a1 in last_name1
+                           select new User
+                           {
+                               FirstName = $"{n1} {n2}",
+                               LastName = $"{a1}",
+                               Email = $"{n1.ToLower()}_{n2.ToLower()}_{a1.ToLower()}@globant.com",
+                           };
             return userList.OrderBy((user) => user.Id).Take(cant).ToList();
         }
+
+        
+
+
+
+
+
+
+        private List<Category> GenerateCategories(){
+            var categories = new List<Category>() {
+                new Category() {
+                    Name = "Ropa",
+                    
+                },
+            };
+            return categories;
+        }
+
+
 
         private List<Profile> GenerateProfiles(List<User> users)
         {
@@ -104,29 +226,13 @@ namespace GreatTrade.Models.Context
             profiles.AddRange(temp);
 
             return profiles;
-
-            /*for (int i = 0; i < profiles.Count(); i++)
-            {
-                var profile = new Profile()
-                {
-                    Id = i+1,
-                    UserId = user.Id,
-                    Description = " Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. " +
-                    "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Pellentesque in ipsum id orci porta dapibus. " +
-                    "Proin eget tortor risus.",
-                };
-                profiles.Append(profile);*/
-            /*}*/    
         }
 
         private Profile GenerateProfile(User user) {
             var profile = new Profile() {
                 Id = user.Id,
                 UserId = user.Id,
-                Description = /*"Yo soy "+user.FullName()+*/
-            " Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. " +
-                "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Pellentesque in ipsum id orci porta dapibus. " +
-                "Proin eget tortor risus.",
+                Description = "Hola, mi nombre es "+user.FullName(),
             };
             return profile;
         }

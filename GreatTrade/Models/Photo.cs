@@ -10,8 +10,6 @@ namespace GreatTrade.Models
         public int Id { get; set; }
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
-
-
         public string Route { get; set; }
 
     }

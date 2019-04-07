@@ -40,16 +40,6 @@ namespace GreatTrade.Controllers
                 return NotFound();
             }
 
-            var profile = user.Profiles;
-
-            if (profile == null)
-            {
-                ViewBag.Profile = "esta mird no funciona";
-            }
-            else {
-                ViewBag.Profile = profile.FirstOrDefault().Description;
-            }
-
             return View(user);
         }
 

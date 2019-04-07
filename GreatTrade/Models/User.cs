@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,7 +48,12 @@ namespace GreatTrade.Models
          */
         public virtual Profile Profile { get; set; }
 
-        public List<Product> Products { get; set; }
+        [InverseProperty("Seller")]
+
+        public virtual List<Product> SoldProducts { get; set; }
+        [InverseProperty("Buyer")]
+
+        public virtual List<Product> ProductsPurchased { get; set; }
 
         public List<Notification> Notifications { get; set; }
 

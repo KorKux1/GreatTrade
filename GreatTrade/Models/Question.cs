@@ -7,9 +7,7 @@ namespace GreatTrade.Models
 {
 	public class Question:ObjectBase
 	{
-		public const int ACTIVE = 1;
-		public const int EXPIRED = 2;
-		public const int ANSWERED = 3;
+		
 
         public string Description { get; set; }
 

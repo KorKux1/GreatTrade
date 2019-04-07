@@ -9,7 +9,7 @@ namespace GreatTrade.Models
     {
 
         public string Description { get; set; }
-        public string QuestionId { get; set; }
+        public int QuestionId { get; set; }
         public Question Question { get; set; }
     }
 }
