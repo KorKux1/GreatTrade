@@ -33,10 +33,16 @@ namespace GreatTrade.Controllers
             {
                 return NotFound();
             }
+           
+            var profile = await _context.Profiles.Include(p=> p.User).
+                ThenInclude(p=> p.Publications).
+                ThenInclude(pr => pr.Product).
+                ThenInclude(photo => photo.Photos).
+                Include(p=> p.User).ThenInclude(u => u.PurchaseTransactions).
+                Include(p => p.User).ThenInclude(u => u.SalesTransactions).
+                Include(p => p.User).ThenInclude(u => u.City).
+                FirstOrDefaultAsync(m => m.Id == id);
 
-            var profile = await _context.Profiles
-                .Include(p => p.User)
-                .FirstOrDefaultAsync(m => m.Id == id);
             if (profile == null)
             {
                 return NotFound();
@@ -77,12 +83,13 @@ namespace GreatTrade.Controllers
                 return NotFound();
             }
 
-            var profile = await _context.Profiles.FindAsync(id);
+            var profile = await _context.Profiles.Include(p=> p.User).FirstOrDefaultAsync(m=> m.Id == id);
             if (profile == null)
             {
                 return NotFound();
             }
             ViewData["UserId"] = new SelectList(_context.Users, "Id", "Email", profile.UserId);
+            ViewData["Cities"] = new SelectList(_context.Cities, "Id", "Name", profile.User.City);
             return View(profile);
         }
 

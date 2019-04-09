@@ -20,6 +20,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: SubCategories
+        [Route("/Admin/SubCategories")]
         public async Task<IActionResult> Index()
         {
             var greatTradeContext = _context.SubCategories.Include(s => s.Category);
@@ -27,6 +28,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: SubCategories/Details/5
+        [Route("Admin/SubCategories/Details/")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,6 +48,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: SubCategories/Create
+        [Route("Admin/SubCategories/Create/")]
         public IActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Id");
@@ -57,6 +60,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Admin/SubCategories/Create/")]
         public async Task<IActionResult> Create([Bind("CategoryId,Name,Id")] SubCategory subCategory)
         {
             if (ModelState.IsValid)
@@ -70,6 +74,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: SubCategories/Edit/5
+        [Route("Admin/SubCategories/Edit/")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,6 +96,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Admin/SubCategories/Edit/")]
         public async Task<IActionResult> Edit(int id, [Bind("CategoryId,Name,Id")] SubCategory subCategory)
         {
             if (id != subCategory.Id)
@@ -123,6 +129,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: SubCategories/Delete/5
+        [Route("Admin/SubCategories/Delete/")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -144,6 +151,7 @@ namespace GreatTrade.Controllers
         // POST: SubCategories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("Admin/SubCategories/Delete/")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var subCategory = await _context.SubCategories.FindAsync(id);

@@ -14,11 +14,13 @@ namespace GreatTrade.Models
          * This is the first name of the user
          */
         [Required]
+        [Display(Name ="Nombres")]
         public string FirstName { get; set; }
 
         /*
          * This is the first name of the user
          */
+         [Display(Name ="Apellidos")]
         public string LastName { get; set; }
 
         /*
@@ -31,11 +33,13 @@ namespace GreatTrade.Models
         /*
          * This is the role of the user. It can be administrator or Normal User
          */
+         [Display(Name ="Rol")]
         public TypeRoles Role { get; set; }
 
         /*
          * This is the country of the user
          */
+         [Display(Name ="País")]
         public TypeCountries Country { get; set; }
 
         /*
@@ -47,13 +51,16 @@ namespace GreatTrade.Models
          * This is the profile of the user
          */
         public virtual Profile Profile { get; set; }
+        [Display(Name ="Ciudad")]
+        public City City { get; set; }
+        public int CityId { get; set; }
 
         [InverseProperty("Seller")]
-
-        public virtual List<Product> SoldProducts { get; set; }
+        public virtual List<Transaction> PurchaseTransactions { get; set; }
         [InverseProperty("Buyer")]
+        public virtual List<Transaction> SalesTransactions { get; set; }
 
-        public virtual List<Product> ProductsPurchased { get; set; }
+        public List<Publication> Publications { get; set; }
 
         public List<Notification> Notifications { get; set; }
 

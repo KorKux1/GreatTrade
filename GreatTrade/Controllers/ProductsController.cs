@@ -22,7 +22,7 @@ namespace GreatTrade.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var greatTradeContext = _context.Products.Include(p => p.Buyer).Include(p => p.City).Include(p => p.Seller).Include(p => p.SubCategory);
+            var greatTradeContext = _context.Products.Include(p => p.City).Include(p => p.Publication).Include(p => p.SubCategory);
             return View(await greatTradeContext.ToListAsync());
         }
 
@@ -35,9 +35,8 @@ namespace GreatTrade.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.Buyer)
                 .Include(p => p.City)
-                .Include(p => p.Seller)
+                .Include(p => p.Publication)
                 .Include(p => p.SubCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
@@ -51,9 +50,8 @@ namespace GreatTrade.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["BuyerId"] = new SelectList(_context.Users, "Id", "Email");
             ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id");
-            ViewData["SellerId"] = new SelectList(_context.Users, "Id", "Email");
+            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id");
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id");
             return View();
         }
@@ -63,7 +61,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Date,Insignia,Status,Title,Description,Price,Units,CityId,SellerId,BuyerId,SubCategoryId,Id")] Product product)
+        public async Task<IActionResult> Create([Bind("Date,Insignia,Status,Title,Description,Price,Units,CityId,PublicationId,SubCategoryId,Id")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -71,9 +69,8 @@ namespace GreatTrade.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BuyerId"] = new SelectList(_context.Users, "Id", "Email", product.BuyerId);
             ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", product.CityId);
-            ViewData["SellerId"] = new SelectList(_context.Users, "Id", "Email", product.SellerId);
+            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id", product.PublicationId);
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id", product.SubCategoryId);
             return View(product);
         }
@@ -91,9 +88,8 @@ namespace GreatTrade.Controllers
             {
                 return NotFound();
             }
-            ViewData["BuyerId"] = new SelectList(_context.Users, "Id", "Email", product.BuyerId);
             ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", product.CityId);
-            ViewData["SellerId"] = new SelectList(_context.Users, "Id", "Email", product.SellerId);
+            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id", product.PublicationId);
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id", product.SubCategoryId);
             return View(product);
         }
@@ -103,7 +99,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Date,Insignia,Status,Title,Description,Price,Units,CityId,SellerId,BuyerId,SubCategoryId,Id")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Date,Insignia,Status,Title,Description,Price,Units,CityId,PublicationId,SubCategoryId,Id")] Product product)
         {
             if (id != product.Id)
             {
@@ -130,9 +126,8 @@ namespace GreatTrade.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BuyerId"] = new SelectList(_context.Users, "Id", "Email", product.BuyerId);
             ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", product.CityId);
-            ViewData["SellerId"] = new SelectList(_context.Users, "Id", "Email", product.SellerId);
+            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id", product.PublicationId);
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id", product.SubCategoryId);
             return View(product);
         }
@@ -146,9 +141,8 @@ namespace GreatTrade.Controllers
             }
 
             var product = await _context.Products
-                .Include(p => p.Buyer)
                 .Include(p => p.City)
-                .Include(p => p.Seller)
+                .Include(p => p.Publication)
                 .Include(p => p.SubCategory)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)

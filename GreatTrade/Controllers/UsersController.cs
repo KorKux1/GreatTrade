@@ -22,7 +22,8 @@ namespace GreatTrade.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            var greatTradeContext = _context.Users.Include(u => u.City);
+            return View(await greatTradeContext.ToListAsync());
         }
 
         // GET: Users/Details/5
@@ -34,6 +35,7 @@ namespace GreatTrade.Controllers
             }
 
             var user = await _context.Users
+                .Include(u => u.City)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -46,6 +48,7 @@ namespace GreatTrade.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,Email,Role,Country,IsActive,Id")] User user)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,Email,Role,Country,IsActive,CityId,Id")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace GreatTrade.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name", user.CityId);
             return View(user);
         }
 
@@ -78,6 +82,7 @@ namespace GreatTrade.Controllers
             {
                 return NotFound();
             }
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", user.CityId);
             return View(user);
         }
 
@@ -86,7 +91,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Email,Role,Country,IsActive,Id")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Email,Role,Country,IsActive,CityId,Id")] User user)
         {
             if (id != user.Id)
             {
@@ -113,6 +118,7 @@ namespace GreatTrade.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", user.CityId);
             return View(user);
         }
 
@@ -125,6 +131,7 @@ namespace GreatTrade.Controllers
             }
 
             var user = await _context.Users
+                .Include(u => u.City)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {

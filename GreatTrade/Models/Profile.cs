@@ -24,6 +24,7 @@ namespace GreatTrade.Models
         /*
          * This is the description of the profile
          */
+         [Display(Name ="Descripción")]
         public string Description { get; set; }
 
         /**

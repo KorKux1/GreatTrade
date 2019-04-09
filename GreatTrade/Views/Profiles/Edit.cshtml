@@ -2,10 +2,182 @@
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/ProfileLayout.cshtml";
 }
 
-<h2>Edit</h2>
+
+
+<section class="section single-wrap">
+    <div class="container">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-sx-12 text-center">
+                    <h3>Edit Account</h3>
+                    <div class="bread">
+                        <ol class="breadcrumb">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Profile</a></li>
+                            <li class="active">Edit Account</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content boxs">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="widget-title">
+                        <h4>Profile Details</h4>
+                    </div><!-- end widget-title -->
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form asp-action="Edit">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div style="display:none;" class="form-group">
+                                    <label asp-for="UserId" class="control-label"></label>
+                                    <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                                    <span asp-validation-for="UserId" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Description" class="control-label"></label>
+                                    <input asp-for="Description" class="form-control" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Facebook" class="control-label"></label>
+                                    <input asp-for="Facebook" class="form-control" />
+                                    <span asp-validation-for="Facebook" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Twitter" class="control-label"></label>
+                                    <input asp-for="Twitter" class="form-control" />
+                                    <span asp-validation-for="Twitter" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Instagram" class="control-label"></label>
+                                    <input asp-for="Instagram" class="form-control" />
+                                    <span asp-validation-for="Instagram" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Avatar" class="control-label"></label>
+                                    <input asp-for="Avatar" class="form-control" />
+                                    <span asp-validation-for="Avatar" class="text-danger"></span>
+                                </div>
+                                <input type="hidden" asp-for="Id" />
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-default" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    @*<form asp-action="Edit" class="uploaditem">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="UserId" class="control-label"></label>
+            <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+            <span asp-validation-for="UserId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="User.FirstName" class="control-label"></label>
+            <input asp-for="User.FirstName" class="form-control" />
+            <span asp-validation-for="User.FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="User.LastName" class="control-label"></label>
+            <input asp-for="User.LastName" class="form-control" />
+            <span asp-validation-for="User.LastName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Avatar" class="control-label"></label>
+            <input asp-for="Avatar" class="form-control" />
+            <span asp-validation-for="Avatar" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="User.Email" class="control-label"></label>
+            <input asp-for="User.Email" class="form-control" />
+            <span asp-validation-for="User.Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="User.Country" class="control-label"></label>
+            @Html.DropDownList(
+            "Pais", Html.GetEnumSelectList<GreatTrade.Models.Enum.TypeCountries>(),
+            "Selecione un País",
+            new { @class = "form-control" }
+            );
+            <input asp-for="User.Country" class="form-control" /
+            <span asp-validation-for="User.Country" class="text-danger"></span>
+        </div>>
+
+                    <div class="form-group">
+                        <label asp-for="User.City" class="control-label"></label>
+                        <select asp-for="User.City" class="form-control" asp-items="ViewBag.Cities"></select>
+                        <span asp-validation-for="User.City" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                    </form>*@
+                </div>
+                <div class="col-md-4">
+                    <div class="widget-title">
+                        <h4>Social Profiles</h4>
+                    </div><!-- end widget-title -->
+                    @*<form asp-action="Edit" class="uploaditem">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Facebook" class="control-label"></label>
+                            <input asp-for="Facebook" class="form-control" />
+                            <span asp-validation-for="Facebook" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Twitter" class="control-label"></label>
+                            <input asp-for="Twitter" class="form-control" />
+                            <span asp-validation-for="Twitter" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Instagram" class="control-label"></label>
+                            <input asp-for="Instagram" class="form-control" />
+                            <span asp-validation-for="Instagram" class="text-danger"></span>
+                        </div>
+                        <input type="hidden" asp-for="Id" />
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-default" />
+                        </div>
+                    </form>*@
+                </div><!-- end col -->
+            </div><!-- end row -->
+
+        </div><!-- end content -->
+        <br>
+        <div class="content-message boxs">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <h2>See why over 10,000 designers and developers trust Catalog. Ready to take your marketplace to the next level?</h2>
+                    <a href="#" class="btn btn-default btn-lg">Join Today</a>
+                </div>
+            </div><!-- end row -->
+        </div><!-- end content message -->
+    </div><!-- end container -->
+</section>
+
+@*<h2>Edit</h2>
 
 <h4>Profile</h4>
 <hr />
@@ -49,7 +221,7 @@
             </div>
         </form>
     </div>
-</div>
+</div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>
