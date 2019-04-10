@@ -1,0 +1,41 @@
+﻿@model Publication
+<div class="col-md-3 col-sm-6">
+    <div class="item-box">
+        <div class="item-media entry">
+            @if (Model.Product != null)
+            {
+                @if (Model.Product.Photos != null)
+                {
+                    <img src="@Model.Product.Photos.FirstOrDefault().Route" alt="" class="img-responsive" />
+                }
+                <div class="theme__button">
+                    <p><a href="single-item.html" title="">@Model.Product.Price</a></p>
+                </div>
+            }
+
+        </div><!-- end item-media -->
+        <div>
+            @if (Model.Product != null)
+            {
+                <h4><a href="single-item.html">@Model.Product.Title</a></h4>
+                <small>
+                    @if (Model.Views != null)
+                    {
+                        <a href="single-item.html">
+                            <i class="fa fa-eye"></i>@Model.Views.Count()
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="single-item.html">
+                            <i class="fa fa-eye"></i>0
+                        </a>
+                    }
+                </small>
+
+            }
+
+            <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
+            </div>
+    </div><!-- end item-box -->
+</div><!-- end col -->

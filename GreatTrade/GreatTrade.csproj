@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Shared\ItemPublication.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\ProfileLayout.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

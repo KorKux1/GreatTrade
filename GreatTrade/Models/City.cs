@@ -12,5 +12,6 @@ namespace GreatTrade.Models
         public virtual List<Product> Product { get; set; }
         public TypeCountries Contry { get; set; }
         public string Name { get; set; }
+        public List<User> Users { get; set; }
     }
 }
