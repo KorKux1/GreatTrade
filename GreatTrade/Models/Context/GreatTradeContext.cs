@@ -48,7 +48,7 @@ namespace GreatTrade.Models.Context
             var users = new List<User>()
             {
                new User(){ Id = 1, FirstName= "KorKux", Role=Enum.TypeRoles.Administrator,  Email="korkux@globant.com",Country= Enum.TypeCountries.Colombia, CityId=3, }, 
-               new User(){ Id = 2, FirstName= "Sara", Role=Enum.TypeRoles.Administrator ,LastName="Cabrera",Email="s.cabreara@globant.com",Country= Enum.TypeCountries.Colombia, CityId=2},
+               new User(){ Id = 2, FirstName= "Sara", IsActive=true, Role=Enum.TypeRoles.Administrator ,LastName="Cabrera",Email="s.cabreara@globant.com",Country= Enum.TypeCountries.Colombia, CityId=2},
                new User(){ Id = 3, FirstName= "Sara", LastName="Garcia",Email="sara_garcia@globant.com",Country= Enum.TypeCountries.Colombia, CityId=1},
                new User(){ Id = 4, FirstName= "Carlos", Role=Enum.TypeRoles.Administrator, LastName="Sanchez",Email="carlos.san@globant.com",Country= Enum.TypeCountries.Argentina, CityId=5},
                new User(){ Id = 5, FirstName= "Roberto", LastName="Diaz",Email="rdiaz@globant.com",Country= Enum.TypeCountries.Colombia, CityId=4},
@@ -88,6 +88,7 @@ namespace GreatTrade.Models.Context
 
             var subcategories = new List<SubCategory>() {
                 new SubCategory(){ Id = 1, CategoryId=1, Name="Celulares" },
+                new SubCategory(){ Id = 2, CategoryId=2, Name="Vehiculos" },
             };
 
             var products = new List<Product>() {
@@ -301,5 +302,11 @@ namespace GreatTrade.Models.Context
         public DbSet<GreatTrade.Models.Publication> Publication { get; set; }
 
         public DbSet<GreatTrade.Models.Transaction> Transaction { get; set; }
+
+
+        public User UserActive()
+        {
+            return Users.First(x => x.IsActive);
+        }
     }
 }

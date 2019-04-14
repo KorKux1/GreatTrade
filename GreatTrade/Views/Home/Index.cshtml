@@ -1,94 +1,233 @@
-﻿@{
+﻿@model GreatTrade.Models.Context.GreatTradeContext
+
+
+@{
     ViewData["Title"] = "Home Page";
+    IEnumerable<Notification> lista = Model.Notifications.Where(x => x.UserId == Model.UserActive().Id);
+    IEnumerable<Product> Products = Model.Products;
+
 }
+@if (Model != null)
+{
+    <div class="boxr">
+        <div class="notifications">
+            <i class="fa fa-bell"></i>
+            <span class="num">@lista.Count()</span>
+            <ul class="ul">
+                @for (int i = 0; i < lista.Count(); i++)
+                {
+                    <li class="li">
+                        <span class="icon"><i class="fa fa-question "></i></span>
+                        <span class="text">: @lista.ElementAt(i).Messasge</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+<link rel="stylesheet" type="text/css" href="~/css/site.css">
+<body>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how to build ASP.NET apps that can run anywhere.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    There are powerful new features in Visual Studio for building modern web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="Microsoft Azure" class="img-responsive" />
-            <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
-                    </a>
-                </p>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
+    <!-- START SITE -->
+    <div id="wrapper">
 
-<div class="row">
-    <div class="col-md-3">
-        <h2>Application uses</h2>
-        <ul>
-            <li>Sample pages using ASP.NET Core MVC</li>
-            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>How to</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Overview</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-        </ul>
-    </div>
-    <div class="col-md-3">
-        <h2>Run &amp; Deploy</h2>
-        <ul>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-        </ul>
-    </div>
-</div>
+
+
+        <section class="section single-wrap">
+            <div class="container">
+                <div class="page-title public-profile-title">
+                    <div class="row">
+                        <div class="col-sx-12 text-center">
+                            <h3>Bienvenido</h3>
+                            <p>Cientos de productos, las categorias que necesitas y cuando lo necesitas<br></p>
+                            <a href="#" class="followbtn">Create Store</a> <span>-</span> <a href="#" class="followbtn">Upload Work</a> <span>-</span> <a href="#" class="followbtn">Earn Money</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-top">
+                    <div class="row">
+                        <div class="col-sx-6 col-sm-6">
+                            <div class="custommenu hidden-xs">
+                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="~/lib/theme/upload/fav.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12 cen-xs text-right">
+                            <ul class="list-inline social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content top -->
+
+                <div class="content-before">
+                    <div class="row">
+                        <div class="col-md-6 col-sx-12 cen-xs">
+                            <form class="dropForm">
+                                <div class="input-prepend">
+                                    <input type="text" class="form-control" placeholder="Search anything here.">
+                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6 text-right hidden-xs">
+                            <div class="catalog-order">
+                                <select name="orderby" class="selectpicker">
+                                    <option value="popularity">Sort by Popularity</option>
+                                    <option value="rating">Sort by Average Rating</option>
+                                    <option value="date" selected='selected'>Sort by Newness</option>
+                                    <option value="price">Sort by Price: Low to High</option>
+                                    <option value="price-desc">Sort by Price: High to Low</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content before -->
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12 general-title">
+                            <h4>Recent Items <span class="hidden-xs"><a href="shop-four.html">View all</a></span></h4>
+                            <hr>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                    <div class="row">
+                        @for (int i = 0; i < Products.Count(); i++)
+                        {
+                            
+                        <div class="col-md-3 col-sm-6">
+                            <div class="item-box">
+                                <div class="item-media entry">
+                                    <img src="~/lib/theme/upload/item_01.jpg" alt="" class="img-responsive">
+                                    <div class="magnifier">
+                                        <div class="item-author">
+                                            <a href="public-profile.html"><img src="~/lib/theme/upload/member_01.jpg" class="img-circle" alt=""> Amanda</a>
+                                        </div><!-- end author -->
+                                    </div>
+                                    <div class="theme__button">
+                                        <p><a href="single-item.html" title="">@Products.ElementAt(i).Price</a></p>
+                                    </div>
+                                </div><!-- end item-media -->
+                                <h4><a href="single-item.html">@Products.ElementAt(i).Title</a></h4>
+                                <small><a href="single-item.html"><i class="fa fa-question"></i> 1</a></small>
+                            </div><!-- end item-box -->
+                        </div><!-- end col -->
+                        }
+
+                    </div><!-- end row -->
+                </div><!-- end content -->
+
+                <div class="content-after text-center boxs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="pagination-wrapper">
+                                <ul class="pagination">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content after -->
+
+                <div class="stores boxs">
+                    <div class="row">
+                        <div class="col-md-12 general-title">
+                            <h4>Featured Store <span class="hidden-xs"><a href="stores.html">View all</a></span></h4>
+                            <hr>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+
+                    <div class="row homefeatured">
+                        <div class="col-md-12">
+                            <div class="storelist panel panel-info">
+                                <div class="panel-body">
+                                    <div class="form-group row">
+                                        <div class="col-sm-3 col-xs-12">
+                                            <img alt="" class="img-responsive img-thumbnail" src="~/lib/theme/upload/store_09.jpg">
+                                        </div>
+                                        <div class="col-sm-2 col-xs-12">
+                                            <h4><a href="public-profile.html">MockupZone</a></h4>
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
+                                                <li><a href="public-profile.html"><i class="fa fa-image"></i> 123 Items</a></li>
+                                                <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 2021 Sales</a></li>
+                                                <li><i class="fa fa-map-marker"></i> Amsterdam</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-5 col-xs-12">
+                                            <ul class="list-inline">
+                                                <li><a href="single-item.html" class="screenshot" data-gal="~/lib/theme/upload/item_01.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="~/lib/theme/upload/item_01.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="~/lib/theme/upload/item_02.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="~/lib/theme/upload/item_02.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="~/lib/theme/upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="~/lib/theme/upload/item_03.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="~/lib/theme/upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="~/lib/theme/upload/item_04.jpg" alt=""></a></li>
+                                                <li><a href="single-item.html" class="screenshot" data-gal="~/lib/theme/upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="~/lib/theme/upload/item_05.jpg" alt=""></a></li>
+                                            </ul>
+                                        </div><!-- end col -->
+                                        <div class="col-sm-2 col-xs-12 text-center">
+                                            <ul>
+                                                <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
+                                                <li><a href="public-profile.html" title="">192 Followers</a></li>
+                                                <li><a href="public-profile.html" title="">44 Following</a></li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- end form-group -->
+                                </div>
+                            </div>
+                        </div><!-- end col -->
+                    </div><!-- end r0w -->
+                </div><!-- end stores -->
+
+                <div class="refer-messages">
+                    <div class="row text-center">
+                        <div class="col-md-6">
+                            <div class="boxes boxs">
+                                <i class="fa fa-line-chart"></i>
+                                <h3>Sell your Handcrafts</h3>
+                                <p>Create your account, build your store and sell your custom works with tons of clients.</p>
+                                <a href="#" class="btn btn-primary">Upload Your Work</a>
+                            </div>
+                        </div><!-- end col -->
+
+                        <div class="col-md-6">
+                            <div class="boxes boxs">
+                                <i class="fa fa-money"></i>
+                                <h3>Refer Your Friends</h3>
+                                <p>We pay you 30% on every sale you generate. If you run a website, or have a place to display a banner.</p>
+                                <a href="#" class="btn btn-primary">Get Your Link</a>
+                            </div>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end refer-messages -->
+
+                <div class="content-message boxs">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <h2>See why over 10,000 designers and developers trust Catalog. Ready to take your marketplace to the next level?</h2>
+                            <a href="#" class="btn btn-default btn-lg">Join Today</a>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+            </div><!-- end container -->
+        </section>
+
+      er -->
+    </div><!-- end wrapper -->
+    <!-- END SITE -->
+
+
+</body>
