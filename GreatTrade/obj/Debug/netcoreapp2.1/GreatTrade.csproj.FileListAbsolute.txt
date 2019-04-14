@@ -210,3 +210,4 @@ C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.View
 C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.dll
 C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.pdb
 C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csproj.CopyComplete
+C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Products\ShowProduct.g.cshtml.cs
