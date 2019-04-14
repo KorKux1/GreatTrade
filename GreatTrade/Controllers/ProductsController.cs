@@ -22,7 +22,7 @@ namespace GreatTrade.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var greatTradeContext = _context.Products.Include(p => p.City).Include(p => p.Publication).Include(p => p.SubCategory);
+            var greatTradeContext = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile).Include(p => p.SubCategory).Include(p =>p.Photos);
             return View(await greatTradeContext.ToListAsync());
         }
 
