@@ -35,6 +35,8 @@ namespace GreatTrade
             }
             host.Run();
 
+
+
         }
 
 		public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

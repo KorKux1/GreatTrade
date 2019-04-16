@@ -7,16 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GreatTrade.Models;
 using GreatTrade.Models.Context;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace GreatTrade.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly GreatTradeContext _context;
+        private readonly IHostingEnvironment _environment;
 
-        public ProductsController(GreatTradeContext context)
+
+        public ProductsController(GreatTradeContext context, IHostingEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         // GET: Products
@@ -50,9 +56,8 @@ namespace GreatTrade.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
-            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id");
-            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id");
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+            ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Name");
             return View();
         }
 
@@ -61,17 +66,35 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Date,Insignia,Status,Title,Description,Price,Units,CityId,PublicationId,SubCategoryId,Id")] Product product)
+        public async Task<IActionResult> Create([Bind("Title,Description,Tags,RelatedCities,Price,Units,CategoryId,SubCategoryId,IsExpress,ExpiryDate,Id")] Product product, IFormFile image)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
+                product.PublicationId = 1;
+                product.CityId = 1;
+                product.Insignia = Models.Enum.TypeInsignias.New;
+                product.Date = new DateTime();
+                product.Status = Models.Enum.ProductStatus.Active;
+
+                if (image != null && image.Length > 0)
+                {
+                    var fileName = Path.Combine(_environment.WebRootPath, "users", image.FileName);
+
+                    await image.CopyToAsync(new FileStream(fileName, FileMode.Create));
+                    product.Photo = "/users/" + image.FileName;
+                }
+
+                if (product.IsExpress == false)
+                {
+                    product.ExpiryDate = null;
+                }
+                _context.Products.Add(product);
+                Notification n = new Notification { UserId = _context.UserActive().Id, Checked = false, Messasge = "Se ha añadido un producto: " + product.Title };
+                _context.Notifications.Add(n);
+                 await  _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", product.CityId);
-            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id", product.PublicationId);
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id", product.SubCategoryId);
+            
             return View(product);
         }
 
@@ -168,6 +191,8 @@ namespace GreatTrade.Controllers
         {
             return _context.Products.Any(e => e.Id == id);
         }
+
+
         public IActionResult ShowProduct(int id)
         {
 
