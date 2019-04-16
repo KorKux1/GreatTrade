@@ -22,7 +22,7 @@ namespace GreatTrade.Controllers
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            var greatTradeContext = _context.Products.Include(p => p.City).Include(p => p.Publication).Include(p => p.SubCategory);
+            var greatTradeContext = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile).Include(p => p.SubCategory).Include(p =>p.Photos);
             return View(await greatTradeContext.ToListAsync());
         }
 
@@ -167,6 +167,24 @@ namespace GreatTrade.Controllers
         private bool ProductExists(int id)
         {
             return _context.Products.Any(e => e.Id == id);
+        }
+        public IActionResult ShowProduct(int id)
+        {
+
+            var product2 = _context.Products.Include(p => p.Publication.User).Include(p => p.Photos)
+                .Include(p => p.SubCategory.Category).Include(p => p.City).First(i => i.Id == id);
+
+            var product = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile)
+                .Include(p => p.SubCategory).Include(p => p.Photos).First(i => i.Id == id);
+
+
+            ViewData["Photos"] = _context.Photos.Where(m => m.ProductId == id);
+            ViewData["Tags"] = _context.Tags.Where(m => m.ProductId == id);
+            ViewData["Cities"] = product.City;
+          
+            //// ViewData["Name"] = _context.Product.First(m => m.Id == id).User.Name;
+            return View(product);
+            // return View(product);
         }
     }
 }
