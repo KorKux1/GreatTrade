@@ -1,0 +1,240 @@
+﻿@model IEnumerable<GreatTrade.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<link rel="stylesheet" href="~/lib/Tags/bootstrap-tagsinputxxx.css">
+<link rel="stylesheet" href="~/js/daterangepicker.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<script src="~/lib/Tags/bootstrap-tagsinput.min.js"></script>
+<script src="~/lib/Tags/bootstrap-tagsinput-angular.min.js"></script>
+<script src="~/js/daterangepicker.js"></script>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.1/moment.min.js"></script>/>
+
+<<body>
+
+    <!-- START SITE -->
+    <div id="wrapper">
+
+
+        <section class="section single-wrap">
+            <div class="container">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-sx-12 text-center">
+                            <h3>Search Results</h3>
+                            <div class="bread">
+                                <ol class="breadcrumb">
+                                    <li><a href="#">Home</a></li>
+                                    <li class="active">Search</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-top">
+                    <div class="row">
+                        <div class="col-sx-6 col-sm-6">
+                            <div class="custommenu hidden-xs">
+                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="~/lib/theme/upload/fav.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12 cen-xs text-right">
+                            <ul class="list-inline social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content top -->
+
+                <div class="content-before">
+                    <div class="row">
+                        <div class="col-md-12 col-sx-12 cen-xs">
+                            <form class="dropForm" asp-action="Search" enctype="multipart/form-data" method="post">
+                                <div class="input-prepend">
+                                    <input name="words" type="text" class="form-control" value="@ViewBag.Words">
+                                    <button type="submit" class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6 text-right hidden-xs">
+
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content before -->
+
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12">
+                            <div class="storelist panel panel-info">
+                                <div class="panel-body">
+
+                                
+                                    @foreach (var item in Model)
+                                    {
+                                            var url = "";
+                                            var a = item.Photos;
+                                            if (a != null && a.Count() > 0)
+                                            {
+
+                                                url = a.ElementAt(0).Route;
+
+                                            }
+                                            else
+                                            {
+                                                url = "/lib/theme/upload/item_01.jpg";
+                                            }
+                                        
+
+                                        <div class="form-group row wow fadeIn">
+                                            <div class="col-sm-2 col-xs-12">
+                                                <a href="single-item.html" class="screenshot" data-gal="@url" title="@item.Title <span>@item.Price</span>"><img class="img-responsive img-thumbnail" src="@url" alt=""></a>
+                                            </div>
+                                            <div class="col-sm-7 col-xs-12">
+                                                <h4><a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id" >@item.Title</a></h4>
+                                                <ul>
+                                                    <li><a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id" ><i class="fa fa-user"></i> @item.Description</a></li>
+                                                
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3 col-xs-12 text-center">
+                                                <ul>
+                                                    <li><a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id" class="btn btn-primary btn-block">Buy Now</a></li>
+                                                    <li><a href="public-profile.html" title="">221 Sales</a></li>
+                                                    <li>
+                                                        <div class="rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- end form-group -->
+
+                                        <hr>
+                                    }
+
+                                </div><!-- end panel-body -->
+                            </div><!-- end storelist -->
+                        </div><!-- end col -->
+
+                        <div id="sidebar" class="col-md-3 col-xs-12">
+
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Ciudades relacionadas</h4>
+                                </div><!-- end widget-title -->
+                                <div class="col-12 text-center">
+                                    <input class="bg-light" type="text" value="Cali,Medellin" data-role="tagsinput" />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Tags</h4>
+                                </div><!-- end widget-title -->
+                                <div class="col-12 text-center">
+                                    <input class="bg-light" type="text" value="Hogar" data-role="tagsinput" />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Creador</h4>
+                                </div><!-- end widget-title -->
+                                <div class="col-12 text-center">
+                                    <input class="bg-light" type="text" value="Nicolas Martinez" data-role="tagsinput" />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Rango de precios</h4>
+                                </div><!-- end widget-title -->
+                                <div class="col-lg-6">
+                                    <p>
+                                        <label for="minInput">min</label>
+                                        <input type="number" value="4.5" data-decimals="2" min="0" max="9" step="0.1" />
+                                    </p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <p>
+                                        <label for="maxInput">max</label>
+                                        <input type="number" value="1000000000.5" data-decimals="2" min="0" max="9" step="0.1" />
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Rango de fechas</h4>
+                                </div><!-- end widget-title -->
+                                <div class="col-12 text-center">
+                                    <input type="text" name="demo" id="demo" />
+                                </div>
+                                <span class="text-danger"></span>
+                            </div>
+
+
+
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end content -->
+
+                <div class="content-after text-center boxs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="pagination-wrapper">
+                                <ul class="pagination">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content after -->
+
+                <div class="content-message boxs">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <h2>See why over 10,000 designers and developers trust Catalog. Ready to take your marketplace to the next level?</h2>
+                            <a href="#" class="btn btn-default btn-lg">Join Today</a>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+            </div><!-- end container -->
+        </section>
+
+
+    </div><!-- end wrapper -->
+    <!-- END SITE -->
+
+
+</body>

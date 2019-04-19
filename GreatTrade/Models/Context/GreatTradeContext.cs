@@ -88,7 +88,7 @@ namespace GreatTrade.Models.Context
 
             var subcategories = new List<SubCategory>() {
                 new SubCategory(){ Id = 1, CategoryId=1, Name="Celulares" },
-                new SubCategory(){ Id = 2, CategoryId=2, Name="Vehiculos" },
+                new SubCategory(){ Id = 2, CategoryId=2, Name="Vehiculos" }, 
             };
 
             var products = new List<Product>() {
@@ -125,6 +125,7 @@ namespace GreatTrade.Models.Context
                 new Photo(){ Id=8, ProductId=8, Route="/images/celular.jpg"},
                 new Photo(){ Id=9, ProductId=9, Route="/images/celular.jpg"},
                 new Photo(){ Id=10, ProductId=10, Route="/images/celular.jpg"},
+
             };
 
             var questions = new List<Question>() {

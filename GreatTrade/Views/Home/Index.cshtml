@@ -1,10 +1,11 @@
 ﻿@model GreatTrade.Models.Context.GreatTradeContext
+@using Microsoft.EntityFrameworkCore;
 
 
 @{
     ViewData["Title"] = "Home Page";
     IEnumerable<Notification> lista = Model.Notifications.Where(x => x.UserId == Model.UserActive().Id);
-    IEnumerable<Product> Products = Model.Products;
+    IEnumerable<Product> Products = Model.Products.Include(p => p.City).Include(p => p.Publication.User.Profile).Include(p => p.SubCategory).Include(p => p.Photos);
 
 }
 @if (Model != null)
@@ -69,10 +70,10 @@
                 <div class="content-before">
                     <div class="row">
                         <div class="col-md-6 col-sx-12 cen-xs">
-                            <form class="dropForm">
+                            <form class="dropForm" asp-action="Search" enctype="multipart/form-data" method="post">
                                 <div class="input-prepend">
-                                    <input type="text" class="form-control" placeholder="Search anything here.">
-                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
+                                    <input name="words"  type="text" class="form-control" placeholder="Search anything here.">
+                                    <button type="submit" class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -98,26 +99,56 @@
                         </div><!-- end col -->
                     </div><!-- end row -->
                     <div class="row">
-                        @for (int i = 0; i < Products.Count(); i++)
+                        @foreach (var item in Products)
                         {
-                            
-                        <div class="col-md-3 col-sm-6">
-                            <div class="item-box">
-                                <div class="item-media entry">
-                                    <img src="~/lib/theme/upload/item_01.jpg" alt="" class="img-responsive">
-                                    <div class="magnifier">
-                                        <div class="item-author">
-                                            <a href="public-profile.html"><img src="~/lib/theme/upload/member_01.jpg" class="img-circle" alt=""> Amanda</a>
-                                        </div><!-- end author -->
-                                    </div>
-                                    <div class="theme__button">
-                                        <p><a href="single-item.html" title="">@Products.ElementAt(i).Price</a></p>
-                                    </div>
-                                </div><!-- end item-media -->
-                                <h4><a href="single-item.html">@Products.ElementAt(i).Title</a></h4>
-                                <small><a href="single-item.html"><i class="fa fa-question"></i> 1</a></small>
-                            </div><!-- end item-box -->
-                        </div><!-- end col -->
+
+
+
+                            <div class="col-md-3 col-sm-6">
+                                <div class="item-box">
+                                    <div class="item-media entry">
+
+                                        <a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id">
+                                            @{
+                                                var url = "";
+                                                var a = item.Photos;
+                                                if (a != null && a.Count() > 0)
+                                                {
+
+                                                    url = a.ElementAt(0).Route;
+
+                                                }
+                                                else
+                                                {
+                                                    url = "/lib/theme/upload/item_01.jpg";
+                                                }
+                                            }
+                                            <img src="@url" alt="" class="img-responsive">
+                                        </a>
+                                        <div class="magnifier">
+                                            <div class="item-author">
+
+
+                                                <a href="public-profile.html"><img src="@Html.DisplayFor(modelItem => item.Publication.User.Profile.Avatar)" class="img-circle" alt="">  @Html.DisplayFor(modelItem => item.Publication.User.FirstName)</a>
+
+                                            </div><!-- end author -->
+                                        </div>
+                                        <div class="theme__button">
+                                            <p><a href="single-item.html" title=""> @Html.DisplayFor(modelItem => item.Price)</a></p>
+                                            <!----<p>
+                            <a asp-action="Mostrar">
+                                ¿
+                            </a>
+                        </p>-->
+
+                                        </div>
+                                    </div><!-- end item-media -->
+                                    <h4><a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a></h4>
+                                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
+                                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 04</a></small>
+                                </div><!-- end item-box -->
+                            </div><!-- end col -->
+
                         }
 
                     </div><!-- end row -->

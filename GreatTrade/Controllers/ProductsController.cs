@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +22,9 @@ namespace GreatTrade.Controllers
         {
             _context = context;
             _environment = environment;
+
+
+
         }
 
         // GET: Products
@@ -70,10 +72,17 @@ namespace GreatTrade.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.PublicationId = 1;
-                product.CityId = 1;
+                product.Id = 11;
+
+                while (_context.Products.Select(x => x.Id).Contains(product.Id)) {
+                    Random a = new Random();
+                    product.Id = (int)a.Next(12, 10000);
+                }
+
+                product.PublicationId = 11;
+                product.CityId = _context.UserActive().CityId;
                 product.Insignia = Models.Enum.TypeInsignias.New;
-                product.Date = new DateTime();
+                product.Date = (DateTime.Now);
                 product.Status = Models.Enum.ProductStatus.Active;
 
                 if (image != null && image.Length > 0)
@@ -81,12 +90,14 @@ namespace GreatTrade.Controllers
                     var fileName = Path.Combine(_environment.WebRootPath, "users", image.FileName);
 
                     await image.CopyToAsync(new FileStream(fileName, FileMode.Create));
-                    product.Photo = "/users/" + image.FileName;
+                    Photo  a = new Photo() { ProductId = product.Id, Route = "/users/" + image.FileName };
+                    _context.Add(a);
                 }
 
                 if (product.IsExpress == false)
                 {
                     product.ExpiryDate = null;
+                    product.Insignia = Models.Enum.TypeInsignias.VentaExpress;
                 }
                 _context.Products.Add(product);
                 Notification n = new Notification { UserId = _context.UserActive().Id, Checked = false, Messasge = "Se ha añadido un producto: " + product.Title };

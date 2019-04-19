@@ -4,6 +4,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
+
 }
 
 @*<h2>Index</h2>
@@ -174,20 +175,10 @@
                 <div class="content-before">
                     <div class="row">
                         <div class="col-md-6 col-sx-12 cen-xs">
-                            <form class="dropForm">
+                            <form class="dropForm" asp-controller="Home" asp-action="Search" enctype="multipart/form-data" method="post">
                                 <div class="input-prepend">
-                                    <div class="btn-group">
-                                        <select name="orderby" class="selectpicker">
-                                            <option>All Platforms</option>
-                                            <option>IOS Apps</option>
-                                            <option>Android Apps</option>
-                                            <option>UI Kits</option>
-                                            <option>Site Templates</option>
-                                            <option>WordPress Themes</option>
-                                        </select>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Search anything here.">
-                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
+                                    <input name="words" type="text" class="form-control" placeholder="Search anything here.">
+                                    <button type="submit" class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -217,7 +208,20 @@
                                     <div class="item-media entry">
                                     
                                         <a asp-action="ShowProduct" asp-route-id="@item.Id">
-                                            <img src="@Html.DisplayFor(modelItem => item.Photos.ElementAt(0).Route)" alt="" class="img-responsive">
+                                            @{
+                                                var url = "";
+                                                var a = item.Photos;
+                                                if (a != null && a.Count()>0) {
+
+                                                        url = a.ElementAt(0).Route;
+
+                                                }
+                                                else
+                                                {
+                                                    url = "/lib/theme/upload/item_01.jpg";
+                                                }
+                                             }
+                                            <img src="@url" alt="" class="img-responsive">
                                         </a>
                                         <div class="magnifier">
                                             <div class="item-author">

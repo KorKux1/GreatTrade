@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using GreatTrade.Models;
 using GreatTrade.Models.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace GreatTrade.Controllers
 {
@@ -17,6 +18,7 @@ namespace GreatTrade.Controllers
         {
             _context = context;
         }
+
 
         public IActionResult Index()
         {
@@ -47,5 +49,26 @@ namespace GreatTrade.Controllers
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 		}
-	}
+
+
+
+        public IActionResult Search(String words)
+        {
+            ViewData["Words"] = words;
+            var products = _context.Products.Include(p => p.Publication.User).Include(p => p.Photos)
+                  .Include(p => p.SubCategory.Category).Include(p => p.City);
+            if (words != null)
+            {
+
+                var z = products.Where(x => x.Title.Contains(words) || x.Description.Contains(words));
+
+                return View(z);
+            }
+            else {
+                return View(products);
+
+            }
+        }
+
+    }
 }
