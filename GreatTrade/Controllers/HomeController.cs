@@ -15,7 +15,12 @@ namespace GreatTrade.Controllers
 			return View();
 		}
 
-		public IActionResult About()
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult About()
 		{
 			ViewData["Message"] = "Your application description page.";
 

@@ -98,7 +98,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Description,Facebook,Twitter,Instagram,Avatar,Id")] Profile profile)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Description,Interests,Avatar,Facebook,Twitter,Instagram,Id")] Profile profile)
         {
             if (id != profile.Id)
             {

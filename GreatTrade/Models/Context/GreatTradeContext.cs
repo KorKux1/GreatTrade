@@ -77,9 +77,9 @@ namespace GreatTrade.Models.Context
             };
 
             var categories = new List<Category>() {
-                new Category(){  Id= 1, Name="Tecnología", AlertId=1 },
-                new Category(){  Id= 2, Name="Ropa",  AlertId=1},
-                new Category(){  Id= 3, Name="Fantasia",  AlertId=1},
+                new Category(){  Id= 1, Name="Tecnología", },
+                new Category(){  Id= 2, Name="Ropa",  },
+                new Category(){  Id= 3, Name="Fantasia", },
             };
 
             var alerts = new List<Alert>() {

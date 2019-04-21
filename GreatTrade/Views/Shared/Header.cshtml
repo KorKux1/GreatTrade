@@ -18,7 +18,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                             <div class="navbar-cell">
                                 <ul class="nav navbar-nav navbar-center">
-                                    <li><a class="active" href="index.html" title="">Home</a></li>
+                                    <li><a asp-controller="Home" asp-action="Index" class="active">Home</a></li>
                                     <li class="dropdown megamenu yamm-half hovermenu">
                                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Features <b class="fa fa-angle-down"></b></a>
                                         <ul class="dropdown-menu">
@@ -120,11 +120,12 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="upload/member.png" alt="" class="img-circle"> <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-header">Profile</li>
-                                            <li><a href="edit-account.html">Edit Account</a></li>
+                                            <li><a asp-controller="Users" asp-action="Edit" asp-route-id="1">Edit Account</a></li>
+                                            <li><a asp-controller="Profiles" asp-action="Edit" asp-route-id="1" >Editar Perfil</a></li>
                                             <li><a href="#">Logout</a></li>
                                             <li><hr></li>
                                             <li class="dropdown-header">Dashboard</li>
-                                            <li><a href="public-profile.html">Public profile</a></li>
+                                            <li><a asp-controller="Profiles" asp-action="Details" asp-route-id="1">Public profile</a></li>
                                             <li><a href="sales.html">My Sales</a></li>
                                             <li><a href="messages.html">Messages</a></li>
                                             <li><a href="upload-item.html">Upload Item</a></li>

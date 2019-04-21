@@ -20,22 +20,22 @@
                     <img src="@Html.DisplayFor(model => model.Avatar)" alt="" class="img-circle">
                     <h3>@Model.User.FullName()</h3>
                     <p>@Html.DisplayFor(model => model.User.City.Name) - @Html.DisplayFor(model => model.User.Country)</p>
-                        <p>@Html.DisplayFor(model => model.Description)</p>
-                        <ul class="list-inline social">
-                            @if (Model.Facebook != null && Model.Facebook != "")
-                            {
-                                <li><a href="@Model.Facebook" title="Sigueme en Facebook"><i class="fa fa-facebook"></i></a></li>
-                            }
-                            @if (Model.Twitter != null && Model.Twitter != "")
-                            {
-                                <li><a href="@Model.Twitter" title="Sigueme en Twritter"><i class="fa fa-twitter"></i></a></li>
-                            }
-                            @if (Model.Instagram != null && Model.Instagram != "")
-                            {
-                                <li><a href="@Model.Twitter" title="Sigueme en Instagram"><i class="fa fa-instagram"></i></a></li>
-                            }
-                        </ul>
-                        <a href="#" class="followbtn">Contact</a> <span>-</span> <a href="#" class="followbtn">Follow</a>
+                    <p>@Html.DisplayFor(model => model.Description)</p>
+                    <ul class="list-inline social">
+                        @if (Model.Facebook != null && Model.Facebook != "")
+                        {
+                            <li><a href="@Model.Facebook" title="Sigueme en Facebook"><i class="fa fa-facebook"></i></a></li>
+                        }
+                        @if (Model.Twitter != null && Model.Twitter != "")
+                        {
+                            <li><a href="@Model.Twitter" title="Sigueme en Twritter"><i class="fa fa-twitter"></i></a></li>
+                        }
+                        @if (Model.Instagram != null && Model.Instagram != "")
+                        {
+                            <li><a href="@Model.Twitter" title="Sigueme en Instagram"><i class="fa fa-instagram"></i></a></li>
+                        }
+                    </ul>
+                    <a href="#" class="followbtn">Contact</a> <span>-</span> <a href="#" class="followbtn">Follow</a>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                 <div class="col-sm-6 col-xs-12 cen-xs text-right">
                     <div class="bread">
                         <ol class="breadcrumb">
-                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Cuenta</a></li>
                             <li class="active">Perfil</li>
                         </ol>
                     </div>
@@ -64,16 +64,14 @@
                             <li role="presentation" class="active"><a href="#publications" aria-controls="products" role="tab" data-toggle="tab">Publicaciones (@Model.User.Publications.Count())</a></li>
                             <li role="presentation" class=""><a href="#purchase_transactions" aria-controls="products" role="tab" data-toggle="tab">Productos Comprados (@Model.User.PurchaseTransactions.Count())</a></li>
                             <li role="presentation" class=""><a href="#sales_transactions" aria-controls="products" role="tab" data-toggle="tab">Productos Vendidos (@Model.User.SalesTransactions.Count())</a></li>
-
-
-                            <li role="presentation"><a href="#following" aria-controls="following" role="tab" data-toggle="tab">Following (221)</a></li>
-                            <li role="presentation"><a href="#followers" aria-controls="followers" role="tab" data-toggle="tab">Followers (4412)</a></li>
                         </ul>
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="publications">
                                 <div class="row">
-                                    @if (Model.User.Publications != null) {
-                                        @foreach (var publication in Model.User.Publications) {
+                                    @if (Model.User.Publications != null)
+                                    {
+                                        @foreach (var publication in Model.User.Publications)
+                                        {
                                             <partial name="ItemPublication" model="publication"></partial>
                                         }
                                     }
@@ -87,7 +85,7 @@
                                         {
                                             @if (purchase != null)
                                             {
-                                             <partial name="ItemPublication" model="purchase.Product.Publication"></partial>
+                                                <partial name="ItemPublication" model="purchase.Product.Publication"></partial>
                                             }
                                         }
                                     }
@@ -95,519 +93,12 @@
                             </div>
                             <div role="tabpanel" class="tab-pane active" id="sales_transactions">
                                 <div class="row">
-                                    @foreach (var sale in Model.User.SalesTransactions) {
-          
+                                    @foreach (var sale in Model.User.SalesTransactions)
+                                    {
+
                                         <partial name="ItemPublication" model="sale.Product.Publication"></partial>
                                     }
                                 </div><!-- end row -->
-                            </div>
-
-                            <div role="tabpanel" class="tab-pane" id="following">
-                                <div class="storelist panel panel-info">
-                                    <div class="panel-body">
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_01.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">MockupZone</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 123 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 2021 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> Amsterdam</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_01.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_01.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_02.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_02.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_03.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_04.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_05.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">192 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">44 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_02.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Design Studio</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 24 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 331 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> Istanbul</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_03.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_04.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_05.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">65 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">04 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_03.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Artnook</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 65 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 2221 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> Londra</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_06.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_06.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_07.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_07.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_08.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_08.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_09.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_09.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">441 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">12 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_04.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">SmartIcons</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 12 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 55 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_10.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_10.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_11.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_11.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_12.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_12.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_13.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_13.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">331 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">09 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_05.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Bring Design</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 221 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 4412 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_01.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_01.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_02.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_02.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_03.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">331 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">555 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_06.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Monoco Devs</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 123 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 551 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_13.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_13.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_04.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_05.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_06.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_06.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">331 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">221 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_07.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">New Face Edition</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 31 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 55 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> Amsterdam</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_06.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_06.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_07.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_07.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_08.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_08.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">441 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">12 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_08.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Regular Bold</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 31 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 44 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_08.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_08.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_09.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_09.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">42 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">66 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_09.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Dream Stele</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 3123 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 55 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_10.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_10.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_11.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_11.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">123 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">55 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                    </div><!-- end panel-body -->
-                                </div><!-- end panel -->
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="followers">
-                                <div class="storelist panel panel-info">
-                                    <div class="panel-body">
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_06.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Monoco Devs</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 123 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 551 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_13.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_13.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_04.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_05.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_06.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_06.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">331 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">221 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_07.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">New Face Edition</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 31 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 55 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> Amsterdam</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_06.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_06.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_07.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_07.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_08.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_08.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">441 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">12 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_08.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Regular Bold</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 31 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 44 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_08.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_08.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_09.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_09.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">42 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">66 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_09.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Dream Stele</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 3123 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 55 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_10.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_10.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_11.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_11.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">123 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">55 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_02.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Design Studio</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 24 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 331 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> Istanbul</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_03.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_04.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_04.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_05.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_05.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">65 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">04 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_03.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Artnook</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 65 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 2221 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> Londra</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_06.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_06.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_07.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_07.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_08.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_08.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_09.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_09.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">441 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">12 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_04.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">SmartIcons</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 12 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 55 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_10.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_10.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_11.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_11.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_12.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_12.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_13.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_13.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">331 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">09 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                        <hr>
-                                        <div class="form-group row">
-                                            <div class="col-md-3 col-xs-12">
-                                                <img alt="" class="img-responsive img-thumbnail" src="upload/store_05.jpg">
-                                            </div>
-                                            <div class="col-md-2 col-xs-12">
-                                                <h4><a href="public-profile.html">Bring Design</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="public-profile.html"><i class="fa fa-image"></i> 221 Items</a></li>
-                                                    <li><a href="single-item.html"><i class="fa fa-shopping-cart"></i> 4412 Sales</a></li>
-                                                    <li><i class="fa fa-map-marker"></i> India</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-5 col-xs-12">
-                                                <ul class="list-inline">
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_01.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_01.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_02.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_02.jpg" alt=""></a></li>
-                                                    <li><a href="single-item.html" class="screenshot" data-gal="upload/item_03.jpg" title="This is an item title <span>$12.00</span>"><img class="img-responsive img-thumbnail" src="upload/item_03.jpg" alt=""></a></li>
-                                                </ul>
-                                            </div><!-- end col -->
-                                            <div class="col-md-2 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Follow Store</a></li>
-                                                    <li><a href="public-profile.html" title="">331 Followers</a></li>
-                                                    <li><a href="public-profile.html" title="">555 Following</a></li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                    </div><!-- end panel-body -->
-                                </div><!-- end panel -->
                             </div>
                         </div>
                     </div>
@@ -620,10 +111,6 @@
                     <nav class="pagination-wrapper">
                         <ul class="pagination">
                             <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
                             <li>
                                 <a href="#" aria-label="Next">
                                     <span aria-hidden="true">&raquo;</span>
@@ -634,59 +121,20 @@
                 </div>
             </div><!-- end row -->
         </div><!-- end content after -->
-        <div class="content-message boxs">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1 text-center">
-                    <h2>See why over 10,000 designers and developers trust Catalog. Ready to take your marketplace to the next level?</h2>
-                    <a href="#" class="btn btn-default btn-lg">Join Today</a>
-                </div>
-            </div><!-- end row -->
-        </div><!-- end content message -->
+        @if (Model.Interests != null && Model.Interests != "")
+        {
+            <div class="content-message boxs">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 text-center">
+                        <h3>Mis intereses</h3>
+                        <h2>@Html.DisplayFor(model => model.Interests)</h2>
+                    </div>
+                </div><!-- end row -->
+            </div><!-- end content message -->
+        }
     </div><!-- end container -->
 </section>
 
-@*<div>
-    <h4>Profile</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.User.Email)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Facebook)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Facebook)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Twitter)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Twitter)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Instagram)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Instagram)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Avatar)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Avatar)
-        </dd>
-    </dl>
-</div>*@
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>

@@ -53,6 +53,7 @@ namespace GreatTrade.Models
         public virtual Profile Profile { get; set; }
         [Display(Name ="Ciudad")]
         public City City { get; set; }
+        [Display( Name ="Ciudad")]
         public int CityId { get; set; }
 
         [InverseProperty("Seller")]
