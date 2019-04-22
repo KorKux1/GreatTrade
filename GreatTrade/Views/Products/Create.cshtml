@@ -107,16 +107,16 @@
                             <form class="uploaditem" asp-action="Create" enctype="multipart/form-data" methoD="post">
                                 <div class="space">
                                     <label>Categoria: </label>
-                                    <select asp-for="CategoryId" id="PCategory" class="form-control" asp-items="ViewBag.CategoryId">
+                                    <select asp-for="CategoryId" name="CategoryId" id="PCategory" class="form-control" asp-items="ViewBag.CategoryId">
                                     </select>
-                                    <span asp-validation-for="Category" class="text-danger"></span>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
                                 </div>
 
                                 <div class="space">
                                     <label>Subcategoria: </label>
-                                    <select asp-for="SubCategoryId" id="PSubCategory" name="product_subcategorie" class="form-control" asp-items="ViewBag.SubCategoryId">
+                                    <select asp-for="SubCategoryId" id="PSubCategory" name="SubCategoryId" class="form-control" asp-items="ViewBag.SubCategoryId">
                                     </select>
-                                    <span asp-validation-for="SubCategory" class="text-danger"></span>
+                                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
                                 </div>
 
                                 <div class="space">

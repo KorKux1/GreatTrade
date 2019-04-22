@@ -30,6 +30,7 @@ namespace GreatTrade.Models
 
         public Publication Publication { get; set; }
         public int PublicationId { get; set; }
+
         public List<Question> Questions { get; set; }
 
         public Category Category { get; set; }
