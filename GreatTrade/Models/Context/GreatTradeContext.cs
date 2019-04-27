@@ -65,7 +65,6 @@ namespace GreatTrade.Models.Context
                 new Publication(){ Id=8, UserId=2, },
                 new Publication(){ Id=9, UserId=3, },
                 new Publication(){ Id=10, UserId=5, },
-                new Publication(){ Id=11, UserId=2, },
             };
 
             var cities = new List<City>() {
@@ -152,7 +151,7 @@ namespace GreatTrade.Models.Context
             {
                 new Notification(){ Id=1, UserId=1, Messasge="Carlos está interesado en tu producto", Checked=false},
                 new Notification(){ Id=2, UserId=1, Messasge="Notificación de prueba 1", Checked=true},
-                new Notification(){ Id=3, UserId=2, Messasge="Notificación 2", Checked=true},
+                new Notification(){ Id=3, UserId=2, Messasge="Notificación 2", Checked=false},
                 new Notification(){ Id=4, UserId=4, Messasge="Notificación 3", Checked=false},
                 new Notification(){ Id=5, UserId=3, Messasge="Roberto está interesado en tu producto", Checked=true},
                 new Notification(){ Id=6, UserId=5, Messasge="Sara está interesado en tu producto", Checked=false},
