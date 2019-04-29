@@ -20,10 +20,85 @@ namespace GreatTrade.Controllers
         }
 
         // GET: Questions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
+        {    
+
+            var sqlQ = from q in _context.Questions
+                       where q.ProductId == id
+                       select q;
+            var sqlA = from a in _context.Answers
+                       where a.Question.ProductId == id
+                       select a;
+
+            Dictionary<int, string[]> myDict = new Dictionary<int, string[]>();
+            foreach (var s in sqlQ)
+            {
+
+                string[] arr = new string[2];
+                arr[0] = s.Description;
+                arr[1] = " ";
+                Console.WriteLine();
+                myDict.Add(s.Id, arr);
+            }
+            foreach (var a in sqlA)
+            {
+
+                string[] arr = myDict[a.QuestionId];
+                arr[1] = a.Description;
+            }
+            
+            return View(myDict);
+        }
+        // GET: Questions/MakeQuestions
+        public IActionResult MakeQuestions()
         {
-            var greatTradeContext = _context.Questions.Include(q => q.Product);
-            return View(await greatTradeContext.ToListAsync());
+            //var applicationDbContext = _context.Question.Include(q => q.Product);
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MakeQuestions([Bind("Description,Status,ProductId,Id")] Question question)
+        {
+            Product p = _context.Products.Select(r => r).Where(a => a.Id)
+            if (_context.Questions.First() == null)
+            {
+                question.Id = 1;
+            }
+            else
+            {
+                question.Id = _context.Questions.Last().Id + 1;
+            }
+
+            //question.Answer = new Answer
+            //{
+            //    Description = "Yes",
+
+            //};
+            question.Status = 1;
+            //question.ProductId = 1;
+            if (ModelState.IsValid)
+            {
+                _context.Add(question);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", question.ProductId);
+            return View(question);
+
+            //_context.Add(question);
+            //await _context.SaveChangesAsync();
+            //return RedirectToAction(nameof(Index));
+
+            //return View();
+        }
+
+        public async Task<IActionResult> AddAnswer(int id)
+        {
+
+            AnswersController a = new AnswersController(_context);
+            return View(a.Edit(id));
+
         }
 
         // GET: Questions/Details/5

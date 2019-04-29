@@ -1,48 +1,42 @@
-﻿@model IEnumerable<GreatTrade.Models.Question>
+﻿
+@model Dictionary<int, string[]>
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h2>Index</h2>
+<link rel="stylesheet" type="text/css" href="~/css/questions.css">
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div id="container">
+    @await Html.PartialAsync("~/Views/Questions/MakeQuestions.cshtml", new GreatTrade.Models.Question())
+
+
+    <div class="containerQuestions">
+        <div id="titleQuestion">Preguntas de otros vendedores</div>
+        @foreach (var item in Model)
+        {
+            string[] arr = item.Value;
+            @*<label id="question"> arr[0]</label>*@
+            <label id="question">@Html.DisplayFor(modelItem => arr[0])</label>
+            <br />
+
+
+            @*<form asp-action="AddAnswer">
+                    <input asp-for="Description" id="inpQA" value=" " />
+                    <input type="submit" value="Contestar" class="btn btn-default" />
+                </form>*@
+            <input type="checkbox" checked />
+            @*<label id="answer">respuesta=  arr[1]</label>*@
+            <label id="answer"> @Html.DisplayFor(modelItem => arr[1])</label>
+            <a asp-action="Edit" asp-controller="Answers" asp-route-id="@item.Key">Contestar</a>
+
+            <br />
+
+
+            @*@await Html.PartialAsync("~/Views/Answers/Index.cshtml", new GreatTrade.Models.Answer())*@
+        }
+    </div>
+</div>
+@*@await Html.PartialAsync("~/Views/Answers/Index.cshtml", model = IEnumerable<GreatTrade.Models.Answer>)*@
+@*@await Html.PartialAsync("~/Views/Answers/Index.cshtml", new GreatTrade.Models.Answer())*@
+@*<partial name="" model="Model.Answer" />*@

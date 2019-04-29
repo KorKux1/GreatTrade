@@ -1,0 +1,19 @@
+﻿@*@model IEnumerable<GreatTradePreguntas.Models.Question>*@
+@model GreatTrade.Models.Question
+<link rel="stylesheet" type="text/css" href="~/css/questions.css">
+<h1 id="question_title"<center>Preguntas</center></h1>
+
+<form asp-action="MakeQuestions">
+    @*@Html.AntiForgeryToken()*@
+    <label asp-for="Description" id="makeQuestion">Realiza tu pregunta al vendedor</label>
+    @*@Html.LabelFor(model => model.Pregunta)*@
+    <br />
+    @*@Html.EditorFor(model => model.Pregunta)*@
+
+    <input asp-for="Description" id="inpQA" value=" " />
+
+    <input type="submit" value="Enviar" class="btn btn-default" />
+</form>
+
+
+

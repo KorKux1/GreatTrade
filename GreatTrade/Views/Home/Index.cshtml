@@ -145,7 +145,8 @@
                                     </div><!-- end item-media -->
                                     <h4><a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a></h4>
                                     <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
-                                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 04</a></small>
+                                    <small><a asp-controller="Questions" asp-action="Index" asp-route-id="@item.Id"><i class="fa fa-comment-o"></i> 04</a></small>
+
                                 </div><!-- end item-box -->
                             </div><!-- end col -->
 
