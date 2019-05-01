@@ -58,6 +58,8 @@ namespace GreatTrade.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
+            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id");
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Name");
             return View();
@@ -136,9 +138,9 @@ namespace GreatTrade.Controllers
             {
                 return NotFound();
             }
-            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", product.CityId);
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name", product.CityId);
             ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id", product.PublicationId);
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id", product.SubCategoryId);
+            ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Name", product.SubCategoryId);
             return View(product);
         }
 

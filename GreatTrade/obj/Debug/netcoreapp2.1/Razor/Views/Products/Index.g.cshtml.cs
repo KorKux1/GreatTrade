@@ -85,6 +85,12 @@ using GreatTrade.Models;
             BeginContext(141, 2, true);
             WriteLiteral("\r\n");
             EndContext();
+<<<<<<< HEAD
+            BeginContext(166, 37, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "755925a8bb4542bfa9fe8cffb7b53a06", async() => {
+                BeginContext(189, 10, true);
+                WriteLiteral("Create New");
+=======
             BeginContext(2649, 4, true);
             WriteLiteral("\r\n\r\n");
             EndContext();
@@ -131,6 +137,7 @@ using GreatTrade.Models;
     <![endif]-->
 
 ");
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
                 EndContext();
             }
             );
@@ -489,6 +496,51 @@ WriteAttributeValue("", 9545, Html.DisplayFor(modelItem => item.Publication.User
 
 #line default
 #line hidden
+<<<<<<< HEAD
+            EndContext();
+            BeginContext(2330, 55, true);
+            WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
+            EndContext();
+            BeginContext(2385, 53, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2340d78c180d422eb7e10b35aa3cdeb6", async() => {
+                BeginContext(2430, 4, true);
+                WriteLiteral("Edit");
+                EndContext();
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
+            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.Action = (string)__tagHelperAttribute_1.Value;
+            __tagHelperExecutionContext.AddTagHelperAttribute(__tagHelperAttribute_1);
+            if (__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues == null)
+            {
+                throw new InvalidOperationException(InvalidTagHelperIndexerAssignment("asp-route-id", "Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper", "RouteValues"));
+            }
+            BeginWriteTagHelperAttribute();
+#line 83 "D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\Views\Products\Index.cshtml"
+                                       WriteLiteral(item.Id);
+
+#line default
+#line hidden
+            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
+            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;
+            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(2438, 20, true);
+            WriteLiteral(" |\r\n                ");
+            EndContext();
+            BeginContext(2458, 59, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe94ed07dfe644c0a1d5bd556efd9458", async() => {
+                BeginContext(2506, 7, true);
+                WriteLiteral("Details");
+=======
                     EndContext();
                 }
                 );
@@ -516,6 +568,7 @@ WriteAttributeValue("", 9545, Html.DisplayFor(modelItem => item.Publication.User
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
                 EndContext();
                 BeginContext(10532, 350, true);
                 WriteLiteral(@"</h4>
@@ -531,6 +584,26 @@ WriteAttributeValue("", 9545, Html.DisplayFor(modelItem => item.Publication.User
 
 #line default
 #line hidden
+<<<<<<< HEAD
+            __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
+            __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"] = __tagHelperStringValueBuffer;
+            __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-id", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["id"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+            EndContext();
+            BeginContext(2517, 20, true);
+            WriteLiteral(" |\r\n                ");
+            EndContext();
+            BeginContext(2537, 57, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c8a9d738c4742e586d012df23ea5abf", async() => {
+                BeginContext(2584, 6, true);
+                WriteLiteral("Delete");
+=======
                 BeginContext(10911, 1830, true);
                 WriteLiteral(@"
 
@@ -628,6 +701,7 @@ WriteAttributeValue("", 9545, Html.DisplayFor(modelItem => item.Publication.User
                 EndContext();
                 BeginContext(12874, 2, true);
                 WriteLiteral("\r\n");
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
                 EndContext();
             }
             );

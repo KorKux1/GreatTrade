@@ -18,7 +18,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                             <div class="navbar-cell">
                                 <ul class="nav navbar-nav navbar-center">
-                                    <li><a class="active" href="index.html" title="">Home</a></li>
+                                    <li><a asp-controller="Home" asp-action="Index" class="active">Home</a></li>
                                     <li class="dropdown megamenu yamm-half hovermenu">
                                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">Features <b class="fa fa-angle-down"></b></a>
                                         <ul class="dropdown-menu">
@@ -111,6 +111,31 @@
                                             </li>
                                         </ul>
                                     </li><!-- end mega menu -->
+                                    <li class="dropdown megamenu yamm-half hovermenu">
+                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Administración <b class="fa fa-angle-down"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="yamm-content">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <div class="box">
+                                                                <h5>Market Categories</h5>
+                                                                <ul>
+                                                                    <li><a ><i class="fa fa-apple"></i>Agregar administrador</a></li>
+                                                                    <li><a asp-controller="Categories" asp-action="Create"><i class="fa fa-android"></i>Agregar Categorias</a></li>
+                                                                    <li><a asp-controller="SubCategories" asp-action="Create"><i class="fa fa-fonticons"></i>Agregar SubCategorias</a></li>
+                                                                    <li><a ><i class="fa fa-envelope-o"></i>Administrar Usuarios</a></li>
+                                                                    <li><a ><i class="fa fa-html5"></i>Administrar Productos</a></li>
+                                                                    <li><a ><i class="fa fa-gear"></i>Ver Reportes</a></li>
+                                                                    <li><a ><i class="fa fa-laptop"></i> Landing Templates</a></li>
+                                                                </ul>
+                                                            </div><!-- end box -->
+                                                        </div><!-- end col -->
+                                                    </div>
+                                                </div><!-- end ttmenu-content -->
+                                            </li>
+                                        </ul>
+                                    </li><!-- end mega menu -->
                                     <li><a href="forum.html" title="">Forum</a></li>
                                     <li><a href="blog.html" title="">Blog</a></li>
                                     <li><a href="contact.html" title="">Contact</a></li>
@@ -120,11 +145,12 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="upload/member.png" alt="" class="img-circle"> <span class="caret"></span></a>
                                         <ul class="dropdown-menu">
                                             <li class="dropdown-header">Profile</li>
-                                            <li><a href="edit-account.html">Edit Account</a></li>
+                                            <li><a asp-controller="Users" asp-action="Edit" asp-route-id="1">Edit Account</a></li>
+                                            <li><a asp-controller="Profiles" asp-action="Edit" asp-route-id="1" >Editar Perfil</a></li>
                                             <li><a href="#">Logout</a></li>
                                             <li><hr></li>
                                             <li class="dropdown-header">Dashboard</li>
-                                            <li><a href="public-profile.html">Public profile</a></li>
+                                            <li><a asp-controller="Profiles" asp-action="Details" asp-route-id="1">Public profile</a></li>
                                             <li><a href="sales.html">My Sales</a></li>
                                             <li><a href="messages.html">Messages</a></li>
                                             <li><a href="upload-item.html">Upload Item</a></li>

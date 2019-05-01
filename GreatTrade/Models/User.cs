@@ -45,6 +45,7 @@ namespace GreatTrade.Models
         /*
          * Indicate if the user is active
          */
+        [Display(Name ="Activo")]
         public bool IsActive { get; set; }
 
         /*
@@ -53,6 +54,7 @@ namespace GreatTrade.Models
         public virtual Profile Profile { get; set; }
         [Display(Name ="Ciudad")]
         public City City { get; set; }
+        [Display( Name ="Ciudad")]
         public int CityId { get; set; }
 
         [InverseProperty("Seller")]

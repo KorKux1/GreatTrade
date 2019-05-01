@@ -20,12 +20,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Insignia" class="control-label"></label>
-                <select asp-for="Insignia" class="form-control"></select>
+                <select  asp-items="Html.GetEnumSelectList<GreatTrade.Models.Enum.TypeInsignias>()" asp-for="Insignia" class="form-control"></select>
                 <span asp-validation-for="Insignia" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <select asp-for="Status" class="form-control"></select>
+                <select asp-items="Html.GetEnumSelectList<GreatTrade.Models.Enum.ProductStatus>()" asp-for="Status" class="form-control"></select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">

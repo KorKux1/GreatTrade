@@ -27,6 +27,7 @@ namespace GreatTrade.Models.Context
         public DbSet<Question> Questions { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<View> Views { get; set; }
 
         public GreatTradeContext(DbContextOptions<GreatTradeContext> options) : base(options) {
 
@@ -76,13 +77,12 @@ namespace GreatTrade.Models.Context
             };
 
             var categories = new List<Category>() {
-                new Category(){  Id= 1, Name="Tecnología", AlertId=1 },
-                new Category(){  Id= 2, Name="Ropa",  AlertId=1},
-                new Category(){  Id= 3, Name="Fantasia",  AlertId=1},
-                new Category(){  Id= 4, Name="Vehiculos",  AlertId=1},
-                new Category(){  Id= 5, Name="Hogar",  AlertId=1},
 
-
+                new Category(){  Id= 1, Name="Tecnología",  },
+                new Category(){  Id= 2, Name="Ropa",  },
+                new Category(){  Id= 3, Name="Fantasia",  },
+                new Category(){  Id= 4, Name="Vehiculos",},
+                new Category(){  Id= 5, Name="Hogar",  },
             };
 
             var alerts = new List<Alert>() {

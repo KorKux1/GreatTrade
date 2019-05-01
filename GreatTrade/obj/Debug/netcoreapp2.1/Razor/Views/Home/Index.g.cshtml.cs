@@ -106,16 +106,39 @@ using Microsoft.EntityFrameworkCore;
             BeginContext(438, 131, true);
             WriteLiteral("    <div class=\"boxr\">\r\n        <div class=\"notifications\">\r\n            <i class=\"fa fa-bell\"></i>\r\n            <span class=\"num\">");
             EndContext();
+<<<<<<< HEAD
+            BeginContext(484, 71, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8ce0462148c843eb8914bffd437bec33", async() => {
+            }
+            );
+            __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
+            __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_0);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_1);
+            __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_2);
+            await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
+            if (!__tagHelperExecutionContext.Output.IsContentModified)
+            {
+                await __tagHelperExecutionContext.SetOutputContentAsync();
+            }
+            Write(__tagHelperExecutionContext.Output);
+            __tagHelperExecutionContext = __tagHelperScopeManager.End();
+=======
             BeginContext(570, 13, false);
 #line 16 "C:\Users\nicol\Desktop\GreatTrade\GreatTrade\Views\Home\Index.cshtml"
                          Write(lista.Count());
 
 #line default
 #line hidden
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
             EndContext();
             BeginContext(583, 38, true);
             WriteLiteral("</span>\r\n            <ul class=\"ul\">\r\n");
             EndContext();
+<<<<<<< HEAD
+            BeginContext(987, 77, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a33d0efe3f7f49b6a61524a6489fdacf", async() => {
+=======
 #line 18 "C:\Users\nicol\Desktop\GreatTrade\GreatTrade\Views\Home\Index.cshtml"
                  for (int i = 0; i < lista.Count(); i++)
                 {
@@ -150,6 +173,7 @@ using Microsoft.EntityFrameworkCore;
 #line hidden
             BeginContext(996, 61, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "627d14b81cdb42aca62f6d9b45a820b3", async() => {
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -168,6 +192,10 @@ using Microsoft.EntityFrameworkCore;
             BeginContext(1057, 2, true);
             WriteLiteral("\r\n");
             EndContext();
+<<<<<<< HEAD
+            BeginContext(1520, 79, false);
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "37ed5e5e7606490db2f9db6d4980a4fe", async() => {
+=======
             BeginContext(1059, 14849, false);
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f4503d8687548dfa1393f7152f83d4d", async() => {
                 BeginContext(1065, 1072, true);
@@ -874,6 +902,7 @@ WriteAttributeValue("", 6619, Html.DisplayFor(modelItem => item.Publication.User
 
 ");
                 EndContext();
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper>();
