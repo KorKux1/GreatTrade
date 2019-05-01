@@ -110,38 +110,48 @@ namespace GreatTrade.Controllers
 
         public List<Product> GetRecommendedProducts(int userId)
         {
+            //Create default products to show
             List<Product> def = _context.Products.Include(k => k.City).Include(k => k.Publication.User.Profile).Include(k => k.SubCategory).Include(k => k.Photos).ToList();
+            //define my list of products
             List<Product> recom = new List<Product>();
-
-            var prod = _context.Transaction.Where(x => x.BuyerId == userId).Select(y => new { IdProd = y.ProductId }).ToList();
-            int p = prod[0].IdProd;
-            var commonUsers = _context.Transaction.Where(x => (x.ProductId == p && x.BuyerId != userId)).Select(y => new { IdB = y.BuyerId }).ToList();
-            /**
-            Console.WriteLine("Common users to User 2: ");
-            foreach(var x in commonUsers)
-            {
-                Console.Write(x.IdB);
-            }
-            */
+            //define aux array for commonProducts
             List<int> commonProd = new List<int>();
 
-            foreach (var x in commonUsers)
+            //get products bought by my user
+            var prod = _context.Transaction.Where(x => x.BuyerId == userId).Select(y => new { IdProd = y.ProductId }).ToList();
+
+            //loop wipes my products bought by my user
+            foreach(var pr in prod)
             {
-                int currUserId = x.IdB;
-                var commonP = _context.Transaction.Where(y => (y.BuyerId == currUserId && y.ProductId != p)).Select(w => new { idP = w.ProductId }).ToList();
-                foreach (var k in commonP)
+                //get current prod id
+                int p = pr.IdProd;
+                //get users that also bought the prod
+                var commonUsers = _context.Transaction.Where(x => (x.ProductId == p && x.BuyerId != userId)).Select(y => new { IdB = y.BuyerId }).ToList();
+
+                //wipe all the common users for the current prod
+                foreach (var x in commonUsers)
                 {
-                    commonProd.Add(k.idP);
+                    //get id of current user
+                    int currUserId = x.IdB;
+                    //get common prods that he bought
+                    var commonP = _context.Transaction.Where(y => (y.BuyerId == currUserId && y.ProductId != p)).Select(w => new { idP = w.ProductId }).ToList();
+                    //add the prod id to the aux array
+                    foreach (var k in commonP)
+                    {
+                        commonProd.Add(k.idP);
+                    }
                 }
             }
 
             Console.WriteLine("Recommended products for User 2: ");
+            //get my final common products as objects with each id
             foreach (var x in commonProd)
             {
                 Product r = (Product) _context.Products.Where(o => o.Id == x);
                 recom.Add(r);
             }
 
+               //if my list is empty, set my list as default
             if(recom.Count < 1)
             {
                 recom = def;
