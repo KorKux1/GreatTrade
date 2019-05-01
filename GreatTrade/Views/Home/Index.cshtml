@@ -1,12 +1,13 @@
 ﻿@model GreatTrade.Models.Context.GreatTradeContext
+@using GreatTrade.Controllers
 @using Microsoft.EntityFrameworkCore;
 
 
 @{
     ViewData["Title"] = "Home Page";
     IEnumerable<Notification> lista = Model.Notifications.Where(x => x.UserId == Model.UserActive().Id);
-    IEnumerable<Product> Products = Model.Products.Include(p => p.City).Include(p => p.Publication.User.Profile).Include(p => p.SubCategory).Include(p => p.Photos);
-
+    //  IEnumerable<Product> Products = Model.Products.Include(p => p.City).Include(p => p.Publication.User.Profile).Include(p => p.SubCategory).Include(p => p.Photos);
+    List<Product> Products = HomeController.GetRecommendedProducts(1);
 }
 @if (Model != null)
 {

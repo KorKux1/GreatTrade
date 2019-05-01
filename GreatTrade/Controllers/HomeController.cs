@@ -19,7 +19,6 @@ namespace GreatTrade.Controllers
             _context = context;
         }
 
-
         public IActionResult Index()
         {
             return View(_context);
@@ -109,7 +108,47 @@ namespace GreatTrade.Controllers
             }
         }
 
+        public List<Product> GetRecommendedProducts(int userId)
+        {
+            List<Product> def = _context.Products.Include(k => k.City).Include(k => k.Publication.User.Profile).Include(k => k.SubCategory).Include(k => k.Photos).ToList();
+            List<Product> recom = new List<Product>();
 
+            var prod = _context.Transaction.Where(x => x.BuyerId == userId).Select(y => new { IdProd = y.ProductId }).ToList();
+            int p = prod[0].IdProd;
+            var commonUsers = _context.Transaction.Where(x => (x.ProductId == p && x.BuyerId != userId)).Select(y => new { IdB = y.BuyerId }).ToList();
+            /**
+            Console.WriteLine("Common users to User 2: ");
+            foreach(var x in commonUsers)
+            {
+                Console.Write(x.IdB);
+            }
+            */
+            List<int> commonProd = new List<int>();
+
+            foreach (var x in commonUsers)
+            {
+                int currUserId = x.IdB;
+                var commonP = _context.Transaction.Where(y => (y.BuyerId == currUserId && y.ProductId != p)).Select(w => new { idP = w.ProductId }).ToList();
+                foreach (var k in commonP)
+                {
+                    commonProd.Add(k.idP);
+                }
+            }
+
+            Console.WriteLine("Recommended products for User 2: ");
+            foreach (var x in commonProd)
+            {
+                Product r = (Product) _context.Products.Where(o => o.Id == x);
+                recom.Add(r);
+            }
+
+            if(recom.Count < 1)
+            {
+                recom = def;
+            }
+
+            return recom;
+        }
 
     }
 }
