@@ -79,6 +79,10 @@ namespace GreatTrade.Models.Context
                 new Category(){  Id= 1, Name="Tecnología", AlertId=1 },
                 new Category(){  Id= 2, Name="Ropa",  AlertId=1},
                 new Category(){  Id= 3, Name="Fantasia",  AlertId=1},
+                new Category(){  Id= 4, Name="Vehiculos",  AlertId=1},
+                new Category(){  Id= 5, Name="Hogar",  AlertId=1},
+
+
             };
 
             var alerts = new List<Alert>() {
@@ -87,7 +91,14 @@ namespace GreatTrade.Models.Context
 
             var subcategories = new List<SubCategory>() {
                 new SubCategory(){ Id = 1, CategoryId=1, Name="Celulares" },
-                new SubCategory(){ Id = 2, CategoryId=2, Name="Vehiculos" }, 
+                new SubCategory(){ Id = 2, CategoryId=1, Name="Camaras" },
+                new SubCategory(){ Id = 3, CategoryId=1, Name="Drones" },
+                new SubCategory(){ Id = 4, CategoryId=1, Name="Ofimatica" },
+                new SubCategory(){ Id = 5, CategoryId=4, Name="Automoviles" },
+                new SubCategory(){ Id = 6, CategoryId=4, Name="Motocicletas" },
+                new SubCategory(){ Id = 7, CategoryId=5, Name="Suplementos" },
+
+
             };
 
             var products = new List<Product>() {
