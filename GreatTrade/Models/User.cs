@@ -45,6 +45,7 @@ namespace GreatTrade.Models
         /*
          * Indicate if the user is active
          */
+        [Display(Name ="Activo")]
         public bool IsActive { get; set; }
 
         /*

@@ -27,6 +27,7 @@ namespace GreatTrade.Models.Context
         public DbSet<Question> Questions { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<View> Views { get; set; }
 
         public GreatTradeContext(DbContextOptions<GreatTradeContext> options) : base(options) {
 

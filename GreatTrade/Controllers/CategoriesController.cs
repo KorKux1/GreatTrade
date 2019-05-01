@@ -18,7 +18,7 @@ namespace GreatTrade.Controllers
         {
             _context = context;
         }
-
+        [Route("Admin/Categories/")]
         // GET: Categories
         public async Task<IActionResult> Index()
         {
@@ -26,6 +26,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: Categories/Details/5
+        [Route("Admin/Categories/Details/")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,6 +45,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: Categories/Create
+        [Route("Admin/Categories/Create/")]
         public IActionResult Create()
         {
             return View();
@@ -54,6 +56,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Admin/Categories/Create/")]
         public async Task<IActionResult> Create([Bind("Name,Id")] Category category)
         {
             if (ModelState.IsValid)
@@ -66,6 +69,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: Categories/Edit/5
+        [Route("Admin/Categories/Edit/")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -86,6 +90,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Admin/Categories/Edit/")]
         public async Task<IActionResult> Edit(int id, [Bind("Name,Id")] Category category)
         {
             if (id != category.Id)
@@ -117,6 +122,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: Categories/Delete/5
+        [Route("Admin/Categories/Delete/")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -137,6 +143,7 @@ namespace GreatTrade.Controllers
         // POST: Categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Route("Admin/Categories/Delete/")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var category = await _context.Categories.FindAsync(id);

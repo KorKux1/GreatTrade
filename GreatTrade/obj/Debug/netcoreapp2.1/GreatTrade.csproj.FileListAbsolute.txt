@@ -88,11 +88,6 @@ D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netco
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Products\Details.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Products\Edit.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Products\Index.g.cshtml.cs
-D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Create.g.cshtml.cs
-D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Delete.g.cshtml.cs
-D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Details.g.cshtml.cs
-D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Edit.g.cshtml.cs
-D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Index.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Transactions\Create.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Transactions\Delete.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Transactions\Details.g.cshtml.cs
@@ -104,3 +99,13 @@ D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netco
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Details.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Edit.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Categories\Index.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Create.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Delete.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Details.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Edit.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Index.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Create.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Delete.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Details.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Edit.g.cshtml.cs
+D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Publications\Index.g.cshtml.cs

@@ -38,6 +38,7 @@ namespace GreatTrade.Controllers
                 ThenInclude(p=> p.Publications).
                 ThenInclude(pr => pr.Product).
                 ThenInclude(photo => photo.Photos).
+                Include(p=> p.User).ThenInclude(p=> p.Publications).ThenInclude(p=> p.Views).
                 Include(p=> p.User).ThenInclude(u => u.PurchaseTransactions).
                 Include(p => p.User).ThenInclude(u => u.SalesTransactions).
                 Include(p => p.User).ThenInclude(u => u.City).
