@@ -83,6 +83,8 @@ namespace GreatTrade.Controllers
                 return NotFound();
             }
             ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name", user.CityId);
+            ViewData["Roles"] = new SelectList(Enum.GetValues(typeof(Models.Enum.TypeRoles)));
+            ViewData["Paises"] = new SelectList(Enum.GetValues(typeof(Models.Enum.TypeCountries)));
             return View(user);
         }
 

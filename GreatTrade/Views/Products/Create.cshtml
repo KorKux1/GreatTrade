@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<<<<<<< HEAD
 <h2>Create</h2>
 
 <h4>Product</h4>
@@ -66,6 +67,234 @@
         </form>
     </div>
 </div>
+=======
+<script type="text/javascript" src="~/js/site.js"></script>
+<link href="~/css/site.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="~/lib/Tags/bootstrap-tagsinputxxx.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+<script src="~/lib/Tags/bootstrap-tagsinput.min.js"></script>
+<script src="~/lib/Tags/bootstrap-tagsinput-angular.min.js"></script>
+
+<!-- FAVICONS -->
+<link rel="shortcut icon" href="~/lib/theme/images/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="~/lib/theme/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="57x57" href="~/lib/theme/images/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="72x72" href="~/lib/theme/images/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="~/lib/theme/images/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="~/lib/theme/images/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="~/lib/theme/images/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="~/lib/theme/images/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="~/lib/theme/images/apple-touch-icon-152x152.png">
+
+<!-- TEMPLATE STYLES -->
+<link rel="stylesheet" type="text/css" href="~/lib/theme/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="~/lib/theme/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="~/lib/theme/style.css">
+
+<!-- CUSTOM STYLES -->
+<link rel="stylesheet" type="text/css" href="~/lib/theme/css/prettyPhoto.css">
+<link rel="stylesheet" type="text/css" href="~/lib/theme/css/flexslider.css">
+<link rel="stylesheet" type="text/css" href="~/lib/theme/css/animate.css">
+<link rel="stylesheet" type="text/css" href="~/lib/theme/css/responsive.css">
+<link rel="stylesheet" type="text/css" href="~/lib/theme/css/custom.css">
+
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<body class="nobg">
+
+    <!-- START SITE -->
+    <div id="wrapper">
+
+
+
+        <section class="section single-wrap">
+            <div class="container">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-sx-12 text-center">
+                            <h3>Publica tu producto</h3>
+                            <div class="bread">
+                                <ol class="breadcrumb">
+                                    <li><a href="#">Products</a></li>
+                                    <li class="active">Create</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-top">
+                    <div class="row">
+                        <div class="col-sx-6 col-sm-6">
+                            <div class="custommenu hidden-xs">
+                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="~/lib/theme/upload/fav.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-xs-12 cen-xs text-right">
+                            <ul class="list-inline social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content top -->
+
+                <div class="content-before">
+                    <div class="row">
+                        <div class="col-md-6 col-sx-12 cen-xs">
+                            <form class="dropForm">
+                                <div class="input-prepend">
+                                    <input type="text" class="form-control" placeholder="Search anything here.">
+                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content before -->
+
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="widget-title">
+                                <h4 class="display-4">Completa la información del producto</h4>
+                            </div><!-- end widget-title -->
+                            <form class="uploaditem" asp-action="Create" enctype="multipart/form-data" methoD="post">
+                                <div class="space">
+                                    <label>Categoria: </label>
+                                    <select asp-for="CategoryId" name="CategoryId" id="PCategory" class="form-control" asp-items="ViewBag.CategoryId">
+                                    </select>
+                                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                                </div>
+
+                                <div class="space">
+                                    <label>Subcategoria: </label>
+                                    <select asp-for="SubCategoryId" id="PSubCategory" name="SubCategoryId" class="form-control" asp-items="ViewBag.SubCategoryId">
+                                    </select>
+                                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+                                </div>
+
+                                <div class="space">
+                                    <label>Titulo del producto: </label>
+                                    <input asp-for="Title" name="Title" placeholder="Nombre del producto" class="form-control" id="PName" required="" type="text">
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+
+                                <div class="space">
+                                    <label>Agrega detalles a tu producto: </label>
+                                    <input asp-for="Description" class="form-control" placeholder="Description">
+                                </div>
+
+                                <div class="space">
+                                    <label>Tags: </label>
+                                    <div class="col-12 text-center">
+                                        <input asp-for="Tags" id="PTags" class="bootstrap-tagsinput" type="text" value="Ropa,Accesorios" data-role="tagsinput" />
+                                    </div>
+                                    <span asp-validation-for="Tags" class="text-danger"></span>
+                                </div>
+
+                                <div class="space text-center">
+                                    <label>Agrega una foto</label>
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-preview thumbnail"></div>
+                                        <br>
+                                        <span class="btn btn-primary btn-file">
+                                            <span class="fileupload-new">Select image</span>
+                                            <span class="fileupload-exists">Change</span>
+                                            <input asp-for="Photo" name="image" id="image" type="file" multiple="multiple">
+                                        </span>
+                                        <a href="#" class="btn btn-primary fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                    </div>
+                                </div>
+
+
+                                <div class="space">
+                                    <label>Denominacion: </label>
+                                    <select id="PCurrency" class="form-control">
+                                        <option value="" selected disabled hidden>Denominacion</option>
+                                        <option value="1">ARS</option>
+                                        <option value="2">COP</option>
+                                        <option value="3">MXP</option>
+                                        <option value="4">USD</option>
+                                    </select>
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3 text-center pt-5">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Precio</span>
+                                            </div>
+                                            <input asp-for="Price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                            <span asp-validation-for="Price" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-group mb-3 text-center pt-5">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">Cantidad de unidades</span>
+                                            </div>
+                                            <input asp-for="Units" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                        </div>
+                                        <span asp-validation-for="Units" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="space">
+                                    <label>Ciudades relacionadas: </label>
+                                    <div class="col-12 text-center">
+                                        <input asp-for="RelatedCities" class="bg-light" type="text" value="Cali,Medellin" data-role="tagsinput" />
+                                    </div>
+                                    <span asp-validation-for="RelatedCities" class="text-danger"></span>
+                                </div>
+
+                                <div class="space text-center ">
+                                    <div class=" pt-4">
+                                        <div class="">
+                                            <span>Venta Express</span>
+                                        </div>
+                                        <label class="switch " style=" position: relative;left: 45%;">
+                                            <input asp-for="IsExpress" id="check" type="checkbox" onclick="showHide()">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div class="row pt-4 py-xl-3 text-center" id="hidden" style="display:none">
+                                        <div class="col-12 text-center">
+                                            <span class="col-12">Fecha de vencimiento</span>
+                                            <input asp-for="ExpiryDate" value="2020-01-11T11:11:11" class="form-control text-center" type="datetime-local" />
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="space">
+                                    <input onclick="imprimir()" type="submit" value="Crear Producto" class="btn btn-primary btn-block" />
+                                </div>
+
+                            </form>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end content -->
+
+                <br>
+
+            </div><!-- end container -->
+        </section>
+
+    </div><!-- end wrapper -->
+    <!-- END SITE -->
+
+    <script src="~/lib/theme/js/jquery.min.js"></script>
+    <script src="~/lib/theme/js/bootstrap.js"></script>
+    <script src="~/lib/theme/js/custom.js"></script>
+
+</body>
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
 
 <div>
     <a asp-action="Index">Back to List</a>

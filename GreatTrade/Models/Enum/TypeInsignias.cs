@@ -8,6 +8,7 @@ namespace GreatTrade.Models.Enum
     public enum TypeInsignias
     {
         New,
+        VentaExpress,
         Top
     }
 }

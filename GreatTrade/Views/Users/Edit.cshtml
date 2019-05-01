@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/ProfileLayout.cshtml";
 }
 
+<<<<<<< HEAD
 <section class="section single-wrap">
     <div class="container">
         <div class="page-title">
@@ -18,6 +19,46 @@
                             <li class="active">Edit Account</li>
                         </ol>
                     </div>
+=======
+<h2>Edit</h2>
+
+<h4>User</h4>
+<hr />
+<div class="row section ">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label"></label>
+                <select asp-for="Role" class="form-control" asp-items="ViewBag.Roles"></select>
+                <span asp-validation-for="Role" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Country" class="control-label"></label>
+                <select asp-for="Country" class="form-control" asp-items="ViewBag.Paises"></select>
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                    </label>
+>>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
                 </div>
             </div>
         </div>

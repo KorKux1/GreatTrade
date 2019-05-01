@@ -17,6 +17,12 @@ namespace GreatTrade.Models
         public double Price { get; set; }   
         public int Units { get; set; }
 
+        public String Tags { get; set; }
+        public String Photo { get; set; }
+        public String RelatedCities { get; set; }
+        public Boolean IsExpress { get; set; }
+        public DateTime? ExpiryDate { get; set; }
+
         public List<Photo> Photos { get; set; }
 
         public int CityId { get; set; }
@@ -24,7 +30,11 @@ namespace GreatTrade.Models
 
         public Publication Publication { get; set; }
         public int PublicationId { get; set; }
+
         public List<Question> Questions { get; set; }
+
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
 
         public SubCategory SubCategory { get; set; }
         public int SubCategoryId { get; set; }
