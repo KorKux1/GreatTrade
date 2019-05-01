@@ -8,6 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using GreatTrade.Models;
 using GreatTrade.Models.Context;
 
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Net;
+
 namespace GreatTrade.Controllers
 {
     public class QuestionsController : Controller
@@ -34,9 +38,10 @@ namespace GreatTrade.Controllers
             foreach (var s in sqlQ)
             {
 
-                string[] arr = new string[2];
+                string[] arr = new string[3];
                 arr[0] = s.Description;
                 arr[1] = " ";
+                arr[2] = id+"";
                 Console.WriteLine();
                 myDict.Add(s.Id, arr);
             }
@@ -49,6 +54,48 @@ namespace GreatTrade.Controllers
             
             return View(myDict);
         }
+
+        public void SendEmail()
+        {
+            MailMessage email = new MailMessage();
+            SmtpClient smtp = new SmtpClient();
+            MailAddress mailTo = new MailAddress("jfcastillo1204@gmail.com");
+            MailAddress mailFrom = new MailAddress("proyectointroicesi@gmail.com");
+
+            email.To.Add(mailTo);
+            email.From = mailFrom;
+            email.Subject = "Notificacion de pregunta";
+            email.SubjectEncoding = System.Text.Encoding.UTF8;
+            email.Body = "Se ha realizado una pregunta en una de sus ventas";
+            email.IsBodyHtml = true;
+            email.Priority = MailPriority.Normal;
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 25;
+            smtp.Timeout = 50;
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = new NetworkCredential("proyectointroicesi@gmail.com", "proyectoicesi1234");
+
+
+            string output = "";
+            try
+            {
+                smtp.Send(email);
+                email.Dispose();
+                output = "Correo electrónico fue enviado satisfactoriamente.";
+            }
+            catch (SmtpException exm)
+            {
+                //throw exm.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                output = "Error enviando correo electrónico: " + ex.Message;
+            }
+
+            
+        }
+    
         // GET: Questions/MakeQuestions
         public IActionResult MakeQuestions()
         {
@@ -60,7 +107,7 @@ namespace GreatTrade.Controllers
         [HttpPost]
         public async Task<IActionResult> MakeQuestions([Bind("Description,Status,ProductId,Id")] Question question)
         {
-            Product p = _context.Products.Select(r => r).Where(a => a.Id)
+            //Product p = _context.Products.Select(r => r).Where(a => a.Id)
             if (_context.Questions.First() == null)
             {
                 question.Id = 1;
@@ -79,10 +126,12 @@ namespace GreatTrade.Controllers
             //question.ProductId = 1;
             if (ModelState.IsValid)
             {
+                SendEmail();
                 _context.Add(question);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", question.ProductId);
             return View(question);
 

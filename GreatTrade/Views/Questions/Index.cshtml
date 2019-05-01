@@ -28,7 +28,7 @@
             <input type="checkbox" checked />
             @*<label id="answer">respuesta=  arr[1]</label>*@
             <label id="answer"> @Html.DisplayFor(modelItem => arr[1])</label>
-            <a asp-action="Edit" asp-controller="Answers" asp-route-id="@item.Key">Contestar</a>
+            <a asp-action="Edit" asp-controller="Answers" asp-route-id="@item.Key" as>Contestar</a>
 
             <br />
 
