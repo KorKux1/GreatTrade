@@ -62,6 +62,8 @@ namespace GreatTrade.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(question);
+                Notification n = new Notification { Messasge = "Te han hecho una pregunta acerca del artículo: " + question.ProductId, Checked = false, UserId = _context.Users.First(x => x.Publications.Any(y=> y.Product.Id==question.ProductId)).Id };
+                _context.Notifications.Add(n);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

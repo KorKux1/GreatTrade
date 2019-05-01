@@ -65,7 +65,6 @@ namespace GreatTrade.Models.Context
                 new Publication(){ Id=8, UserId=2, },
                 new Publication(){ Id=9, UserId=3, },
                 new Publication(){ Id=10, UserId=5, },
-                new Publication(){ Id=11, UserId=2, },
             };
 
             var cities = new List<City>() {
@@ -80,6 +79,10 @@ namespace GreatTrade.Models.Context
                 new Category(){  Id= 1, Name="Tecnología", AlertId=1 },
                 new Category(){  Id= 2, Name="Ropa",  AlertId=1},
                 new Category(){  Id= 3, Name="Fantasia",  AlertId=1},
+                new Category(){  Id= 4, Name="Vehiculos",  AlertId=1},
+                new Category(){  Id= 5, Name="Hogar",  AlertId=1},
+
+
             };
 
             var alerts = new List<Alert>() {
@@ -88,29 +91,36 @@ namespace GreatTrade.Models.Context
 
             var subcategories = new List<SubCategory>() {
                 new SubCategory(){ Id = 1, CategoryId=1, Name="Celulares" },
-                new SubCategory(){ Id = 2, CategoryId=2, Name="Vehiculos" }, 
+                new SubCategory(){ Id = 2, CategoryId=1, Name="Camaras" },
+                new SubCategory(){ Id = 3, CategoryId=1, Name="Drones" },
+                new SubCategory(){ Id = 4, CategoryId=1, Name="Ofimatica" },
+                new SubCategory(){ Id = 5, CategoryId=4, Name="Automoviles" },
+                new SubCategory(){ Id = 6, CategoryId=4, Name="Motocicletas" },
+                new SubCategory(){ Id = 7, CategoryId=5, Name="Suplementos" },
+
+
             };
 
             var products = new List<Product>() {
-                new Product( ){ Id = 1, PublicationId=1, SubCategoryId = 1, Title="Samsung S7", Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=10, Price=700000,
+                new Product( ){ Id = 1, PublicationId=1, SubCategoryId = 1, Title="Samsung S7", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2017, 12, 1), Units=10, Price=700000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Samsung Galaxy S7", RelatedCities="Cali", Tags="Celulares,Tecnologia" },
-                new Product( ){ Id = 2, PublicationId=2, SubCategoryId = 1, Title="Carro 25000 km",Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=1, Price=80000000,
-                    Status = Enum.ProductStatus.Active, CityId=1,  Description="Modelo 2017", RelatedCities="Bogota", Tags="Automoviles" },
-                new Product( ){ Id = 3, PublicationId=3, SubCategoryId = 1, Title="Camara Gopro", Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=6, Price=2000000,
+                new Product( ){ Id = 2, PublicationId=2, SubCategoryId = 1, Title="Carro 25000 km",Insignia = Enum.TypeInsignias.New, Date= new DateTime(2019, 12, 1), Units=1, Price=80000000,
+                    Status = Enum.ProductStatus.Active, CityId=1,  Description="Modelo 2017", RelatedCities="Bogota", Tags="Automoviles", IsExpress = true, ExpiryDate = new DateTime(2019, 12, 1)},
+                new Product( ){ Id = 3, PublicationId=3, SubCategoryId = 1, Title="Camara Gopro", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2018, 12, 1), Units=6, Price=2000000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="24 Megapixeles", RelatedCities="Medellin" , Tags="Camaras"},
-                new Product( ){ Id = 4, PublicationId=4, SubCategoryId = 1, Title="Camisa Barcelona 2019", Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=10, Price=250000,
+                new Product( ){ Id = 4, PublicationId=4, SubCategoryId = 1, Title="Camisa Barcelona 2019", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2018, 12, 1), Units=10, Price=250000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Coleccion 2019", RelatedCities="Montevideo", Tags="Ropa"},
-                new Product( ){ Id = 5, PublicationId=5, SubCategoryId = 1, Title="Drone",Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=5, Price=900000,
+                new Product( ){ Id = 5, PublicationId=5, SubCategoryId = 1, Title="Drone",Insignia = Enum.TypeInsignias.New, Date= new DateTime(2017, 12, 1), Units=5, Price=900000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="1 mes de uso, con camara" , RelatedCities="Rio", Tags="Tecnologia"},
-                new Product( ){ Id = 6,PublicationId=6, SubCategoryId = 1, Title="Impresora 3D", Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=3, Price=2500000,
+                new Product( ){ Id = 6,PublicationId=6, SubCategoryId = 1, Title="Impresora 3D", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2017, 12, 1), Units=3, Price=2500000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="2 Meses de uso", RelatedCities="Barcelona", Tags="Tecnologia"},
-                new Product( ){ Id = 7,PublicationId=7, SubCategoryId = 1, Title="Balon de la Champions", Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=12, Price=150000,
+                new Product( ){ Id = 7,PublicationId=7, SubCategoryId = 1, Title="Balon de la Champions", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2016, 12, 1), Units=12, Price=150000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Nuevo" , RelatedCities="Cali", Tags="Deportes"},
-                new Product( ){ Id = 8,PublicationId=8, SubCategoryId = 1, Title="Tablet Generica",Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=10, Price=120000,
+                new Product( ){ Id = 8,PublicationId=8, SubCategoryId = 1, Title="Tablet Generica",Insignia = Enum.TypeInsignias.New, Date= new DateTime(2013, 12, 1), Units=10, Price=120000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Android 8.0" , RelatedCities="Bogota", Tags="Tecnologia"},
-                new Product( ){ Id = 9,PublicationId=9, SubCategoryId = 1, Title="Reloj Rolex", Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=2, Price=40000000,
+                new Product( ){ Id = 9,PublicationId=9, SubCategoryId = 1, Title="Reloj Rolex", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2019, 12, 1), Units=2, Price=40000000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Oro 18k" , RelatedCities="Medellin", Tags="Accesorios"},
-                 new Product( ){ Id = 10, PublicationId=10, SubCategoryId = 1, Title="Moto Suzuki", Insignia = Enum.TypeInsignias.New, Date= new DateTime(), Units=1, Price=150000000,
+                 new Product( ){ Id = 10, PublicationId=10, SubCategoryId = 1, Title="Moto Suzuki", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2018, 12, 1), Units=1, Price=150000000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Nueva de concesionario" , RelatedCities="Cali" , Tags="Vehiculos"},
             };
 
@@ -152,7 +162,7 @@ namespace GreatTrade.Models.Context
             {
                 new Notification(){ Id=1, UserId=1, Messasge="Carlos está interesado en tu producto", Checked=false},
                 new Notification(){ Id=2, UserId=1, Messasge="Notificación de prueba 1", Checked=true},
-                new Notification(){ Id=3, UserId=2, Messasge="Notificación 2", Checked=true},
+                new Notification(){ Id=3, UserId=2, Messasge="Notificación 2", Checked=false},
                 new Notification(){ Id=4, UserId=4, Messasge="Notificación 3", Checked=false},
                 new Notification(){ Id=5, UserId=3, Messasge="Roberto está interesado en tu producto", Checked=true},
                 new Notification(){ Id=6, UserId=5, Messasge="Sara está interesado en tu producto", Checked=false},

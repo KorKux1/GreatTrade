@@ -58,6 +58,8 @@ namespace GreatTrade.Controllers
             ViewData["RelatedCities"] = RelatedCities;
             ViewData["Tags"] = Tags;
             ViewData["Authors"] = Authors;
+
+
             var products = _context.Products.Include(p => p.Publication.User).Include(p => p.Photos)
                   .Include(p => p.SubCategory.Category).Include(p => p.City);
             var z = new List<Product>();
@@ -69,7 +71,7 @@ namespace GreatTrade.Controllers
             if (words != null)
             {
                 z = z.Where(x => x.Title.Contains(words) || x.Description.Contains(words)).ToList();
-                
+
             }
             if (RelatedCities != null)
             {
@@ -89,14 +91,22 @@ namespace GreatTrade.Controllers
                 z = z.Where(x => x.Publication.User.FirstName.Contains(Authors)).ToList();
 
             }
-            //if (PMin != 40 && PMax < 1000000000) {
+            if (PMin == 0) { PMin = 40; }
+            if (PMax == 0) { PMax = 1000000000; }
 
-            //    z = z.Where(x => x.Price>=PMin && x.Price<= PMax).ToList();
+            z = z.Where(x => x.Price >= PMin && x.Price <= PMax).ToList();
+            ViewData["PMin"] = PMin;
+            ViewData["PMax"] = PMax;
 
-            //}
             //if (DMin!= new DateTime(11, 01, 2018) && DMax != new DateTime(11, 01, 2020)) {
+            //if (DMin == null) { DMin = new DateTime() ; }
+            //if (DMax == null) { DMax = DateTime.Now; }
+            //z = z.Where(x => x.Date >= DMin && x.Date <= DMax).ToList();
+            //ViewData["DMin"] = DMin.ToString("MM/dd/yyyy hh:mm tt",
+            //          System.Globalization.CultureInfo.InvariantCulture);
+            //ViewData["DMax"] = DMax.ToString("MM/dd/yyyy hh:mm tt",
+            //          System.Globalization.CultureInfo.InvariantCulture);
 
-            //    z = z.Where(x => x.Date >= DMin && x.Date <= DMax).ToList();
 
             //}
 

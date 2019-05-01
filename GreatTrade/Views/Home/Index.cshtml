@@ -102,8 +102,6 @@
                         @foreach (var item in Products)
                         {
 
-
-
                             <div class="col-md-3 col-sm-6">
                                 <div class="item-box">
                                     <div class="item-media entry">
@@ -112,6 +110,8 @@
                                             @{
                                                 var url = "";
                                                 var a = item.Photos;
+
+
                                                 if (a != null && a.Count() > 0)
                                                 {
 
@@ -136,16 +136,28 @@
                                         <div class="theme__button">
                                             <p><a href="single-item.html" title=""> @Html.DisplayFor(modelItem => item.Price)</a></p>
                                             <!----<p>
-                            <a asp-action="Mostrar">
-                                ¿
-                            </a>
-                        </p>-->
+                <a asp-action="Mostrar">
+                    ¿
+                </a>
+            </p>-->
 
                                         </div>
                                     </div><!-- end item-media -->
                                     <h4><a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a></h4>
-                                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
-                                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 04</a></small>
+                                    @{
+                                        if (item.IsExpress)
+                                        {
+                                            <a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id" style="font-size:12px" class=""> Venta Express! </a>
+                                        }
+                                        else
+                                        {
+                                            <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
+                                            <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 04</a></small>
+                                        }
+
+                                    }
+
+
                                 </div><!-- end item-box -->
                             </div><!-- end col -->
 
