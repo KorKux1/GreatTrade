@@ -11,10 +11,7 @@
     <WebStackScaffolding_DbContextTypeFullName>GreatTrade.Models.Context.GreatTradeContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
-<<<<<<< HEAD
     <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
-=======
-    <ShowAllFiles>false</ShowAllFiles>
->>>>>>> 18bf58517e20c4307845b3dcdf4f49e165adb254
+    <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
 </Project>
