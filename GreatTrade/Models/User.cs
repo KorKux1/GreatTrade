@@ -10,6 +10,10 @@ namespace GreatTrade.Models
 {
 	public class User:ObjectBase {
 
+        public User()
+        {
+            Alerts = new List<Alert>();
+        }
         /*
          * This is the first name of the user
          */
