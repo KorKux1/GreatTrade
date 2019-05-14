@@ -24,6 +24,7 @@ namespace GreatTrade.Controllers
         }
 
         // GET: Questions
+        //[HttpGet("/Questions/{id}")]
         public async Task<IActionResult> Index(int id)
         {    
 
@@ -35,13 +36,14 @@ namespace GreatTrade.Controllers
                        select a;
 
             Dictionary<int, string[]> myDict = new Dictionary<int, string[]>();
+            ViewData["idProduct"] = id;
             foreach (var s in sqlQ)
             {
 
-                string[] arr = new string[3];
+                string[] arr = new string[2];
                 arr[0] = s.Description;
                 arr[1] = " ";
-                arr[2] = id+"";
+                //arr[2] = id+"";
                 Console.WriteLine();
                 myDict.Add(s.Id, arr);
             }
@@ -97,7 +99,7 @@ namespace GreatTrade.Controllers
         }
     
         // GET: Questions/MakeQuestions
-        public IActionResult MakeQuestions()
+        public IActionResult MakeQuestions(int id)
         {
             //var applicationDbContext = _context.Question.Include(q => q.Product);
             ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id");
@@ -129,17 +131,19 @@ namespace GreatTrade.Controllers
                 SendEmail();
                 _context.Add(question);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //return View(Index(question.ProductId));
+
+                return RedirectToAction("Index", "Questions" , new { id = question.ProductId });
             }
-            
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", question.ProductId);
-            return View(question);
+
+            //ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", question.ProductId);
+            return View(Index(question.ProductId));
 
             //_context.Add(question);
             //await _context.SaveChangesAsync();
             //return RedirectToAction(nameof(Index));
 
-            //return View();
+            return View();
         }
 
         public async Task<IActionResult> AddAnswer(int id)

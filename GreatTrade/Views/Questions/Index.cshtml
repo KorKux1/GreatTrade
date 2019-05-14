@@ -8,7 +8,10 @@
     <a asp-action="Create">Create New</a>
 </p>
 <div id="container">
-    @await Html.PartialAsync("~/Views/Questions/MakeQuestions.cshtml", new GreatTrade.Models.Question())
+    @await Html.PartialAsync("~/Views/Questions/MakeQuestions.cshtml", new GreatTrade.Models.Question(), new ViewDataDictionary(ViewData)
+                                 {
+                                     { "id", ViewData["idProduct"]}
+                                 })
 
 
     <div class="containerQuestions">

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using GreatTrade.Models;
 using GreatTrade.Models.Context;
 
+
 namespace GreatTrade.Controllers
 {
     public class AnswersController : Controller
@@ -98,11 +99,15 @@ namespace GreatTrade.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("Description,QuestionId,Id")] Answer answer)
         {
             answer.QuestionId = id;
+            var sqlProduct = from p in _context.Questions
+                       where p.Id == id
+                       select p.ProductId;
             if (ModelState.IsValid)
             {
                 _context.Add(answer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                
+                return RedirectToAction("Index", "Questions" , new { id = sqlProduct });
             }
             //ViewData["QuestionId"] = new SelectList(_context.Questions, "Id", "Id", answer.QuestionId);
             return View(answer);
