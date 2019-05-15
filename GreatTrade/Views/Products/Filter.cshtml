@@ -1,0 +1,298 @@
+﻿@model IEnumerable<GreatTrade.Models.Product>
+
+@{
+    ViewData["Title"] = "Filter";
+}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- SITE META -->
+    <title>Catalog | Responsive Marketplace Showcase Template</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
+    <!-- TEMPLATE STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <!-- START SITE -->
+    <div id="wrapper">
+        <nav class="hidden-xs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+            <h3><i class="fa fa-star-o"></i> Your Favorites</h3>
+            <ul>
+                <li>
+                    <img src="upload/item_01.jpg" alt="" class="alignleft img-responsive">
+                    <h4><a href="single-item.html">User Profile App</a></h4>
+                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 221</a></small>
+                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 05</a></small>
+                </li>
+                <li>
+                    <img src="upload/item_02.jpg" alt="" class="alignleft img-responsive">
+                    <h4><a href="single-item.html">Mail Application</a></h4>
+                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 435</a></small>
+                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 13</a></small>
+                </li>
+                <li>
+                    <img src="upload/item_03.jpg" alt="" class="alignleft img-responsive">
+                    <h4><a href="single-item.html">Showcase Podcast</a></h4>
+                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 551</a></small>
+                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
+                </li>
+                <li>
+                    <img src="upload/item_04.jpg" alt="" class="alignleft img-responsive">
+                    <h4><a href="single-item.html">Login Box (Custom)</a></h4>
+                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 412</a></small>
+                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 55</a></small>
+                </li>
+            </ul>
+            <a href="shop-favorites.html" class="btn btn-primary">Go to Favorites</a>
+        </nav>
+
+        <section class="section single-wrap">
+            <div class="container">
+                <div class="page-title public-profile-title">
+                    <div class="row">
+                        <div class="col-sx-12 text-center">
+                            <h3>Categorias</h3>
+                            <p>Busca y filtra los productos por las categorias que quieras</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-top">
+                    <div class="row">
+                        <div class="col-sx-6 col-sm-6">
+                            <div class="custommenu hidden-xs">
+                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="upload/fav.png" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-xs-12 cen-xs text-right">
+                            <div class="bread">
+                                <ol class="breadcrumb">
+                                    <li><a href="#">Home</a></li>
+                                    <li class="active">UI Design</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content top -->
+                <div class="content-before">
+                    <div class="row">
+                        <div class="col-md-12 col-sx-12 cen-xs">
+                            <form class="dropForm">
+                                <div class="input-prepend">
+                                    <div class="btn-group">
+                                        <select name="orderby" class="selectpicker">
+
+                                            <option>All Platforms</option>
+                                            <option>IOS Apps</option>
+                                            <option>Android Apps</option>
+                                            <option>UI Kits</option>
+                                            <option>Site Templates</option>
+                                            <option>WordPress Themes</option>
+                                        </select>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Search anything here.">
+                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-6 text-right hidden-xs">
+
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content before -->
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 pull-right">
+                            <div class="storelist panel panel-info">
+                                <div class="panel-body">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="form-group row wow fadeIn">
+                                            <div class="col-sm-2 col-xs-12">
+                                                <a href="single-item.html" class="screenshot" data-gal="@item.Photos.ElementAt(0).Route" title="@item.Title<span>@item.Price</span>"><img class="img-responsive img-thumbnail" src="@item.Photos.ElementAt(0).Route" alt=""></a>
+                                            </div>
+                                            <div class="col-sm-7 col-xs-12">
+                                                <h4><a href="single-item.html">@item.Title</a></h4>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-user"></i> HTMLBuys</a></li>
+                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
+                                                    <li><a href="#"><i class="fa fa-folder-open-o"></i> HTML</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-3 col-xs-12 text-center">
+                                                <ul>
+                                                    <li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
+                                                    <li><a href="public-profile.html" title="">213 Sales</a></li>
+                                                    <li>
+                                                        <div class="rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- end form-group -->
+                                    }
+
+                                </div><!-- end panel-body -->
+                            </div><!-- end storelist -->
+                        </div><!-- end col -->
+                        <div id="sidebar" class="col-md-3 col-xs-12">
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Subscribe Us</h4>
+                                </div><!-- end widget-title -->
+                                <div class="contact_form">
+                                    <form id="contactform" action="contact.php" name="contactform" method="post">
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                        <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+                                        <button type="submit" value="SEND" id="submit" class="btn btn-primary"> Subscribe</button>
+                                    </form>
+                                </div>
+                            </div><!-- end widget -->
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Recent Posts</h4>
+                                </div><!-- end widget-title -->
+                                <div class="shopwidget">
+                                    <ul class="shop-list">
+                                        <li>
+                                            <div class="alignleft">
+                                                <img src="upload/blog_01.jpg" alt="">
+                                            </div><!-- end entry -->
+                                            <h3><a href="#" title="">90+ Free Web App...</a></h3>
+                                            <small>22.12.2015</small>
+                                            <a class="new-price" href="">Read More</a>
+                                        </li>
+                                        <li>
+                                            <div class="alignleft">
+                                                <img src="upload/blog_02.jpg" alt="">
+                                            </div><!-- end entry -->
+                                            <h3><a href="#" title="">WordPress Custom...</a></h3>
+                                            <small>22.12.2015</small>
+                                            <a class="new-price" href="">Read More</a>
+                                        </li>
+                                        <li>
+                                            <div class="alignleft">
+                                                <img src="upload/blog_03.jpg" alt="">
+                                            </div><!-- end entry -->
+                                            <h3><a href="#" title="">How to Optimize...</a></h3>
+                                            <small>22.12.2015</small>
+                                            <a class="new-price" href="">Read More</a>
+                                        </li>
+                                    </ul><!-- end blog list -->
+                                </div><!-- end blogwidget -->
+                            </div><!-- end widget -->
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>SubCategories</h4>
+                                </div><!-- end widget-title -->
+                                <ul class="cats">
+                                    @foreach (var cat in ViewData["SubCategories"] as IEnumerable<SubCategory>)
+                                    {
+
+                                        <li><a asp-controller="Products" asp-action="Filter" asp-route-category="@cat.Category.Name" asp-route-subcategory="@cat.Name">@cat.Name @*<span>(@Model.Count(n=>n.SubCategory.Name.Equals(cat.Name)))</span>*@</a></li>
+
+
+                                    }
+
+
+                                </ul>
+                            </div><!-- end widget -->
+                        </div><!-- end col -->s
+                    </div><!-- end row -->
+                </div><!-- end content -->
+                <div class="content-after text-center boxs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav class="pagination-wrapper">
+                                <ul class="pagination">
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content after -->
+                <div class="content-message boxs">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1 text-center">
+                            <h2>See why over 10,000 designers and developers trust Catalog. Ready to take your marketplace to the next level?</h2>
+                            <a href="#" class="btn btn-default btn-lg">Join Today</a>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content message -->
+            </div><!-- end container -->
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-5">
+                        <div class="media cen-xs">
+                            <p>
+                                &copy; Catalog INC. 2016 - All Rights Reserverd.<br>
+                                Idea by <a class="madeby" href="http://showwp.com">Show WP</a> made with <i class="fa fa-heart"></i> coded with <i class="fa fa-html5"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-7">
+                        <ul class="list-inline text-right cen-xs">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Site Terms</a></li>
+                            <li><a href="#">Copyrights</a></li>
+                            <li><a href="#">License</a></li>
+                            <li><a href="#">Legal</a></li>
+                            <li><a class="topbutton" href="#">Back to top <i class="fa fa-angle-up"></i></a></li>
+                        </ul>
+                    </div>
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+    </div><!-- end wrapper -->
+    <!-- END SITE -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+</html>

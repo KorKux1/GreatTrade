@@ -20,10 +20,11 @@ namespace GreatTrade.Controllers
         }
 
         // GET: Transactions
-        public async Task<IActionResult> Index()
+        public IActionResult Index([Bind("")] int id)
         {
-            var greatTradeContext = _context.Transaction.Include(t => t.Buyer).Include(t => t.Product).Include(t => t.Seller);
-            return View(await greatTradeContext.ToListAsync());
+            var product = _context.Products.Include(x => x.Publication.User.SalesTransactions).First(i => i.Id == id);
+
+            return View(product);
         }
 
         // GET: Transactions/Details/5
@@ -167,6 +168,35 @@ namespace GreatTrade.Controllers
         private bool TransactionExists(int id)
         {
             return _context.Transaction.Any(e => e.Id == id);
+        }
+        public IActionResult contact_user(int id, int Raiting)
+        {
+            var product = _context.Products.Include(x => x.Publication.User.Profile.User.SalesTransactions).First(i => i.Id == id);
+
+
+            var trans = new Transaction();
+            trans.Id = 1;
+
+            if (product.Publication.User.SalesTransactions != null)
+            {
+                while (product.Publication.User.SalesTransactions.Select(x => x.Id).Contains(trans.Id))
+                {
+                    Random a = new Random();
+                    trans.Id = (int)a.Next(12, 10000);
+                }
+            }
+            trans.Seller = product.Publication.User;
+            trans.Product = product;
+            trans.ProductId = id;
+            trans.SellerId = product.Publication.UserId;
+            trans.Status = "Pendiente";
+            trans.BuyerId = _context.UserActive().Id;
+            trans.Buyer = _context.UserActive();
+            trans.Amount = Raiting;
+
+            product.Publication.User.SalesTransactions.Add(trans);
+            return View(trans);
+
         }
     }
 }

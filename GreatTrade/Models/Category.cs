@@ -10,7 +10,7 @@ namespace GreatTrade.Models
     {
         [Display(Name="Nombre")]
         public string Name { get; set; }
-        public List<Category> SubCategory { get; set; }
+        public List<SubCategory> SubCategories { get; set; }
         public List<Product> Products { get; set; }
     }
 }

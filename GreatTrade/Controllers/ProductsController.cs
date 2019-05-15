@@ -12,6 +12,7 @@ using System.IO;
 using System.Net.Mail;
 using EmailNotification.Resources.Constants;
 using System.Net;
+using System.Collections.Generic;
 
 namespace GreatTrade.Controllers
 {
@@ -281,6 +282,65 @@ namespace GreatTrade.Controllers
             {
 
             }
+        }
+        public IActionResult Filter(string category, string subcategory, string city)
+        {
+
+            ViewData["Subcategories"] = _context.Categories.Include(p => p.SubCategories).First(n => n.Name.Equals(category)).SubCategories.ToList();
+
+            var products = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile)
+              .Include(p => p.SubCategory).Include(p => p.Photos).Include(p => p.SubCategory.Category);
+
+            var filtrados = new List<Product>();
+            if (category != null)
+            {
+                filtrados = products.Where(x => x.SubCategory.Category.Name.Equals(category)).ToList();
+
+            }
+            if (subcategory != null)
+            {
+                filtrados = products.Where(x => x.SubCategory.Name.Equals(subcategory)).ToList();
+            }
+            if (city != null)
+            {
+                filtrados = products.Where(x => x.City.Name.Equals(city)).ToList();
+            }
+
+
+
+
+
+            return View(filtrados);
+
+        }
+        public IActionResult FilterDate(string rango)
+        {
+            List<Product> filtrados = null;
+            var products = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile)
+             .Include(p => p.SubCategory).Include(p => p.Photos).Include(p => p.SubCategory.Category);
+
+
+
+            switch (rango)
+            {
+                case "Un Dia":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 1).ToList();
+                    break;
+                case "Una Semana":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 7).ToList();
+                    break;
+                case "Dos Semanas":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 14).ToList();
+                    break;
+                case "Un Mes":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 30).ToList();
+                    break;
+                case "Dos Meses":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 60).ToList();
+                    break;
+            }
+
+            return View(filtrados);
         }
     }
 }
