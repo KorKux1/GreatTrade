@@ -30,7 +30,7 @@ namespace GreatTrade.Models.Context
         public DbSet<View> Views { get; set; }
 
         public GreatTradeContext(DbContextOptions<GreatTradeContext> options) : base(options) {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
@@ -44,15 +44,17 @@ namespace GreatTrade.Models.Context
                 new Profile(){ Id=3, UserId = 3, Description="Hola, soy una Humana", Avatar = "/images/avatar.jpg" },
                 new Profile(){ Id=4, UserId = 4, Avatar = "/images/avatar.jpg" },
                 new Profile(){ Id=5, UserId = 5, Avatar = "/images/avatar.jpg" },
+                new Profile(){ Id=6, UserId = 6, Avatar = "/images/avatar.jpg" },
             };
 
             var users = new List<User>()
             {
-               new User(){ Id = 1, FirstName= "KorKux", Role=Enum.TypeRoles.Administrator,  Email="korkux@globant.com",Country= Enum.TypeCountries.Colombia, CityId=3, }, 
-               new User(){ Id = 2, FirstName= "Sara", IsActive=true, Role=Enum.TypeRoles.Administrator ,LastName="Cabrera",Email="s.cabreara@globant.com",Country= Enum.TypeCountries.Colombia, CityId=2},
+               new User(){ Id = 1, FirstName= "KorKux", Role=Enum.TypeRoles.Administrator,  Email="korkux@globant.com",Country= Enum.TypeCountries.Colombia, CityId=3, },
+               new User(){ Id = 2, FirstName= "Sara", Role=Enum.TypeRoles.Administrator ,LastName="Cabrera",Email="s.cabreara@globant.com",Country= Enum.TypeCountries.Colombia, CityId=2},
                new User(){ Id = 3, FirstName= "Sara", LastName="Garcia",Email="sara_garcia@globant.com",Country= Enum.TypeCountries.Colombia, CityId=1},
                new User(){ Id = 4, FirstName= "Carlos", Role=Enum.TypeRoles.Administrator, LastName="Sanchez",Email="carlos.san@globant.com",Country= Enum.TypeCountries.Argentina, CityId=5},
                new User(){ Id = 5, FirstName= "Roberto", LastName="Diaz",Email="rdiaz@globant.com",Country= Enum.TypeCountries.Colombia, CityId=4},
+                new User(){ Id = 6, IsActive = true, FirstName= "Cristian", LastName="Molina",Email="crisfemoar2011@hotmail.com",Country= Enum.TypeCountries.Colombia, CityId=4},
             };
 
             var publications = new List<Publication>() {
@@ -84,9 +86,9 @@ namespace GreatTrade.Models.Context
                 new Category(){  Id= 5, Name="Entretenimiento",},
             };
 
-            var alerts = new List<Alert>() {
-                new Alert(){ Id=1,  }
-            };
+            var alerts = new List<Alert>(); //{
+               // new Alert(){ Id=0, ExpireDate = DateTime.Now, Periodicity = 2, RelatedCities = "medellin", Tags= "comida" }
+            //};
 
             var subcategories = new List<SubCategory>() {
                 new SubCategory(){ Id = 1, CategoryId=1, Name="Celulares" },
@@ -150,6 +152,7 @@ namespace GreatTrade.Models.Context
             var tags = new List<Tag>() {
                 new Tag(){  Id= 1, ProductId=1, Description="Samsung", AlertId=1},
             };
+            
 
             var transactions = new List<Transaction>() {
                 new Transaction(){ Id=1, BuyerId=1, SellerId=2, ProductId=3, },
@@ -209,6 +212,7 @@ namespace GreatTrade.Models.Context
                          .WithMany(t => t.AwayMatches)
                          .HasForeignKey(m => m.GuestTeamId)
                          .WillCascadeOnDelete(false);*/
+           
         }
 
         private List<Profile> GetProfiles(List<User> users)
@@ -287,12 +291,14 @@ namespace GreatTrade.Models.Context
             var temp = new List<Profile>();
             foreach (var user in users)
             {
-                var profile = new Profile();
-                profile.Id = user.Id;
-                profile.UserId = user.Id;
-                profile.Description = user.FullName() + " Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. " +
+                var profile = new Profile
+                {
+                    Id = user.Id,
+                    UserId = user.Id,
+                    Description = user.FullName() + " Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. " +
                     "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Pellentesque in ipsum id orci porta dapibus. " +
-                    "Proin eget tortor risus.";
+                    "Proin eget tortor risus."
+                };
                 temp.Add(profile);
             }
 
