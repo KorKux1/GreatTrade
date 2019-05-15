@@ -37,6 +37,8 @@ namespace GreatTrade.Controllers
 
             Dictionary<int, string[]> myDict = new Dictionary<int, string[]>();
             ViewData["idProduct"] = id;
+            
+            //ViewData["email"] = sqlEmail.First().Email;
             foreach (var s in sqlQ)
             {
 
@@ -57,18 +59,28 @@ namespace GreatTrade.Controllers
             return View(myDict);
         }
 
-        public void SendEmail()
+        public void SendEmail(int productId, string description)
         {
+            var sqlPublic = from p in _context.Products
+                            where p.Id == productId
+                            select p;
+            var sqlUs = from u in _context.Publication
+                        where u.Id == sqlPublic.First().PublicationId
+                        select u;
+            var sqlEmail = from e in _context.Users
+                           where e.Id == sqlUs.First().Id
+                           select e;
+            //var sql = _context.Users.Select(u => u.Email).Where(a=>a.)Products.First(p => p.Id == productId).
             MailMessage email = new MailMessage();
             SmtpClient smtp = new SmtpClient();
-            MailAddress mailTo = new MailAddress("jfcastillo1204@gmail.com");
+            MailAddress mailTo = new MailAddress(sqlEmail.First().Email);
             MailAddress mailFrom = new MailAddress("proyectointroicesi@gmail.com");
 
             email.To.Add(mailTo);
             email.From = mailFrom;
             email.Subject = "Notificacion de pregunta";
             email.SubjectEncoding = System.Text.Encoding.UTF8;
-            email.Body = "Se ha realizado una pregunta en una de sus ventas";
+            email.Body = "Se ha realizado la siguiente pregunta: "+description+"\n En el producto: "+sqlPublic.First().Title;
             email.IsBodyHtml = true;
             email.Priority = MailPriority.Normal;
             smtp.Host = "smtp.gmail.com";
@@ -128,7 +140,7 @@ namespace GreatTrade.Controllers
             //question.ProductId = 1;
             if (ModelState.IsValid)
             {
-                SendEmail();
+                SendEmail(question.ProductId, question.Description);
                 _context.Add(question);
                 await _context.SaveChangesAsync();
                 //return View(Index(question.ProductId));
