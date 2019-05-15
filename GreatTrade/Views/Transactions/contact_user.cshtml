@@ -1,0 +1,116 @@
+﻿@model GreatTrade.Models.Transaction
+<!--AQUI HICE MODIFICACIÓN-->
+
+
+
+
+<body>
+
+    <section class="section single-wrap">
+        <div class="container">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-sx-12 text-center">
+                        <img src="@Model.Seller.Profile.Avatar" class="img-circle" width="150" height="200">
+                        <h3>Contacta con @Model.Seller.FullName()</h3>
+                        <div class="bread">
+                            <ol class="breadcrumb">
+                                <li><a href="#">Home</a></li>
+                                <li class="active">Perfil</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-top">
+                <div class="row">
+                    <div class="col-sx-6 col-sm-6">
+                        <div class="custommenu hidden-xs">
+                            <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="~/upload/fav.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 cen-xs text-right">
+                        <ul class="list-inline social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div><!-- end row -->
+            </div><!-- end content top -->
+            <div class="content boxs">
+                <div class="row">
+
+                    <hr class="largehr">
+                    <div class="row text-center">
+                        <div class="col-sm-6">
+                            <div class="team-desc">
+                                <h4>Información del vendedor: </h4>
+                                <h4>@Model.Seller.FullName()</h4>
+                                <small>@Model.Seller.Role</small>
+
+                                <i class="fa fa-phone"></i> +57 3215822452 <br />
+                                <a href="mailto:@Model.Seller.Email?Subject=Compra%20del%20producto%20"> <i class="fa fa-envelope-o"></i> @Model.Seller.Email</a><br />
+                                <a href="@Model.Seller.Profile.Facebook"><i class="fa fa-facebook"> @Model.Seller.FirstName</i></a><br />
+
+
+
+                            </div><!-- end team-image -->
+                        </div><!-- end col -->
+
+
+
+
+
+                        <div class="col-sm-15">
+                            <div class="team-desc">
+                                <h4>Información del pedido: </h4>
+                                <h4>@Model.Product.Title</h4><br />
+
+                                <p>Precio: @Model.Product.Price</p>
+                                <p>Cantidad: @Model.Amount</p>
+
+                                <script>
+                                function mult() {
+
+                                   document.getElementById("ac").innerHTML = @Model.Product.Price*@Model.Amount;
+
+                                }
+
+                                </script>
+                                <h4>Total de compra:  7500000</h4><br />
+
+
+                            </div><!-- end team-image -->
+                        </div><!-- end col -->
+
+                    </div><!-- end row -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end content -->
+        <div class="content-after noborder text-center boxs">
+        </div><!-- end content after -->
+        <div class="content-message boxs">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 text-center">
+
+                </div>
+            </div><!-- end row -->
+        </div><!-- end content message -->
+
+    </section>
+
+    <!-- END SITE -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.js"></script>
+    <script src="~/js/custom.js"></script>
+    <!-- MAP & CONTACT -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="~/js/contact.js"></script>
+    <script src="~/js/map.js"></script>
+
+</body>
+

@@ -54,11 +54,13 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ExpireDate,Periodicity,RelatedCities,Id")] Alert alert)
+        public async Task<IActionResult> Create([Bind("ExpireDate,Periodicity,RelatedCities,Id,Tags")] Alert alert)
         {
             if (ModelState.IsValid)
             {
+                alert.UserId = _context.UserActive().Id;
                 _context.Add(alert);
+                int i = _context.UserActive().Alerts.Count();
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }

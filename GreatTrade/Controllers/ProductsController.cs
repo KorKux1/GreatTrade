@@ -9,6 +9,10 @@ using GreatTrade.Models.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using System.Net.Mail;
+using EmailNotification.Resources.Constants;
+using System.Net;
+using System.Collections.Generic;
 
 namespace GreatTrade.Controllers
 {
@@ -22,7 +26,6 @@ namespace GreatTrade.Controllers
         {
             _context = context;
             _environment = environment;
-
 
 
         }
@@ -118,7 +121,22 @@ namespace GreatTrade.Controllers
                 _context.Products.Add(product);
                 Notification n = new Notification { UserId = _context.UserActive().Id, Checked = false, Messasge = "Se ha añadido un producto: " + product.Title };
                 _context.Notifications.Add(n);
-                 await  _context.SaveChangesAsync();
+                var tags = product.Tags.Split(',');
+                var cities = product.RelatedCities.Split(',');
+                foreach(var x in _context.Alerts)
+                {
+                    var t = x.Tags.Split(',').Intersect(tags);
+                    var c = x.RelatedCities.Split(',').Intersect(cities);
+                    if (c.Count() != 0&&x.ExpireDate>DateTime.Now)
+                    {
+                        SendEmail(_context.Users.First(y=> y.Id==x.UserId).Email, "Hay un nuevo producto que te puede interesar: "+product.Title+".\nSe encuentra en la ciudad de "+c.First());
+                    }
+                    else if (t.Count() != 0&&x.ExpireDate > DateTime.Now)
+                    {
+                        SendEmail(_context.Users.First(y => y.Id == x.UserId).Email, "Hay un nuevo producto que te puede interesar: " + product.Title + ".\nSe encuentra en la categoría de " + t.First());
+                    }
+                }
+                await  _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             
@@ -237,6 +255,92 @@ namespace GreatTrade.Controllers
             //// ViewData["Name"] = _context.Product.First(m => m.Id == id).User.Name;
             return View(product);
             // return View(product);
+        }
+
+        public void SendEmail(string email, string msj)
+        {
+            System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
+            mmsg.To.Add(email);
+            mmsg.Subject = "Productos que te puedan interesar";
+            mmsg.SubjectEncoding = System.Text.Encoding.UTF8;
+            mmsg.Body = msj;
+            mmsg.BodyEncoding = System.Text.Encoding.UTF8;
+            mmsg.IsBodyHtml = true;
+            mmsg.From = new System.Net.Mail.MailAddress("greattradeglobant@gmail.com");
+            System.Net.Mail.SmtpClient cliente = new SmtpClient
+            {
+                Credentials = new System.Net.NetworkCredential("greattradeglobant@gmail.com", "greattrading.com"),
+                Port = 587,
+                EnableSsl = true,
+                Host = "smtp.gmail.com"
+            };
+            try
+            {
+                cliente.Send(mmsg);
+            }
+            catch
+            {
+
+            }
+        }
+        public IActionResult Filter(string category, string subcategory, string city)
+        {
+
+            ViewData["Subcategories"] = _context.Categories.Include(p => p.SubCategories).First(n => n.Name.Equals(category)).SubCategories.ToList();
+
+            var products = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile)
+              .Include(p => p.SubCategory).Include(p => p.Photos).Include(p => p.SubCategory.Category);
+
+            var filtrados = new List<Product>();
+            if (category != null)
+            {
+                filtrados = products.Where(x => x.SubCategory.Category.Name.Equals(category)).ToList();
+
+            }
+            if (subcategory != null)
+            {
+                filtrados = products.Where(x => x.SubCategory.Name.Equals(subcategory)).ToList();
+            }
+            if (city != null)
+            {
+                filtrados = products.Where(x => x.City.Name.Equals(city)).ToList();
+            }
+
+
+
+
+
+            return View(filtrados);
+
+        }
+        public IActionResult FilterDate(string rango)
+        {
+            List<Product> filtrados = null;
+            var products = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile)
+             .Include(p => p.SubCategory).Include(p => p.Photos).Include(p => p.SubCategory.Category);
+
+
+
+            switch (rango)
+            {
+                case "Un Dia":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 1).ToList();
+                    break;
+                case "Una Semana":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 7).ToList();
+                    break;
+                case "Dos Semanas":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 14).ToList();
+                    break;
+                case "Un Mes":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 30).ToList();
+                    break;
+                case "Dos Meses":
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 60).ToList();
+                    break;
+            }
+
+            return View(filtrados);
         }
     }
 }

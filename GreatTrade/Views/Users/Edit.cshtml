@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/ProfileLayout.cshtml";
 }
 
+<<<<<<< HEAD
 <section class="section single-wrap">
     <div class="container">
         <div class="page-title">
@@ -26,6 +27,8 @@
 <h4>User</h4>
 <hr />*@
 
+=======
+>>>>>>> 8783d88b9560a24da95943f4dd741135506eac37
 
         <div class="content boxs">
             <div class="row">
@@ -37,7 +40,6 @@
 
                     <div class="row">
                         <form asp-action="Edit">
-                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="form-group">
                                 <label asp-for="FirstName" class="control-label"></label>
                                 <input asp-for="FirstName" class="form-control" />
@@ -48,6 +50,7 @@
                                 <input asp-for="LastName" class="form-control" />
                                 <span asp-validation-for="LastName" class="text-danger"></span>
                             </div>
+
                             <div class="form-group">
                                 <label asp-for="Email" class="control-label"></label>
                                 <input asp-for="Email" class="form-control" />
@@ -90,8 +93,7 @@
         </div><!-- end content -->
         <br>
 
-    </div><!-- end container -->
-</section>
+
 
 <div>
     <a asp-action="Index">Back to List</a>
