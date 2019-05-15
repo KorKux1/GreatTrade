@@ -14,6 +14,9 @@ namespace GreatTrade.Models
         public int ProductId { get; set; }
 
 
+        public int Amount { get; set; }
+        public double TotalPurchase { get; set; }
+        public string Status { get; set; }
         public User Seller { get; set; }
         public User Buyer { get; set; }
         public Product Product { get; set; }
