@@ -58,6 +58,8 @@ namespace GreatTrade.Controllers
         // GET: Products/Create
         public IActionResult Create()
         {
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name");
+            ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id");
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Name");
             return View();
@@ -79,7 +81,11 @@ namespace GreatTrade.Controllers
                     product.Id = (int)a.Next(12, 10000);
                 }
 
-                product.PublicationId = 11;
+                User s = _context.UserActive();
+                Publication p = new Publication() { Id = product.Id, Status = Models.Enum.ProductStatus.Active,
+                    UserId =  s.Id, User = s};
+                _context.Publication.Add(p);
+                product.PublicationId = p.Id;
                 product.CityId = _context.UserActive().CityId;
                 product.Insignia = Models.Enum.TypeInsignias.New;
                 product.Date = (DateTime.Now);
@@ -90,13 +96,23 @@ namespace GreatTrade.Controllers
                     var fileName = Path.Combine(_environment.WebRootPath, "users", image.FileName);
 
                     await image.CopyToAsync(new FileStream(fileName, FileMode.Create));
-                    Photo  a = new Photo() { ProductId = product.Id, Route = "/users/" + image.FileName };
-                    _context.Add(a);
+
+                    int PId = 11;
+                    while (_context.Photos.Select(x => x.Id).Contains(PId))
+                    {
+                        Random b = new Random();
+                        PId = (int)b.Next(12, 10000);
+                    }
+
+                    Photo  a = new Photo() { Id=PId, ProductId = product.Id, Route = "/users/" + image.FileName };
+                    _context.Photos.Add(a);
                 }
 
                 if (product.IsExpress == false)
                 {
                     product.ExpiryDate = null;
+                }
+                else {
                     product.Insignia = Models.Enum.TypeInsignias.VentaExpress;
                 }
                 _context.Products.Add(product);
@@ -122,9 +138,9 @@ namespace GreatTrade.Controllers
             {
                 return NotFound();
             }
-            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Id", product.CityId);
+            ViewData["CityId"] = new SelectList(_context.Cities, "Id", "Name", product.CityId);
             ViewData["PublicationId"] = new SelectList(_context.Set<Publication>(), "Id", "Id", product.PublicationId);
-            ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Id", product.SubCategoryId);
+            ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Name", product.SubCategoryId);
             return View(product);
         }
 

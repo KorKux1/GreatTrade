@@ -9,7 +9,6 @@ namespace GreatTrade.Models
 
         public DateTime ExpireDate { get; set; }
         public int Periodicity { get; set; }
-        public List<Category> Categories { get; set; }
         public String RelatedCities { get; set; }
         public List<Tag> Tags { get; set; }
 

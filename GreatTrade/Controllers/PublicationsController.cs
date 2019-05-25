@@ -22,7 +22,7 @@ namespace GreatTrade.Controllers
         // GET: Publications
         public async Task<IActionResult> Index()
         {
-            var greatTradeContext = _context.Publication.Include(p => p.User);
+            var greatTradeContext = _context.Publication.Include(p => p.Product).Include(p=> p.User);
             return View(await greatTradeContext.ToListAsync());
         }
 
@@ -42,6 +42,15 @@ namespace GreatTrade.Controllers
                 return NotFound();
             }
 
+            var user_login = await _context.Users.FirstOrDefaultAsync(m => m.Id == 1);
+
+            if (user_login.Id == 1)
+            {
+                var view = new View() { Id = _context.Views.Count() + 1, UserId = user_login.Id, PublicationId = publication.Id };
+                _context.Add(view);
+                await _context.SaveChangesAsync();
+            }
+
             return View(publication);
         }
 
@@ -57,7 +66,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Id")] Publication publication)
+        public async Task<IActionResult> Create([Bind("UserId,Status,Id")] Publication publication)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +100,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Id")] Publication publication)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Status,Id")] Publication publication)
         {
             if (id != publication.Id)
             {

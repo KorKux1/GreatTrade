@@ -186,13 +186,13 @@
                                 <div class="col-lg-6">
                                     <p>
                                         <label for="minInput">min</label>
-                                        <input name="PMin" type="number" value="40" data-decimals="2" min="0" max="2000000" step="" />
+                                        <input name="PMin" type="number" value="@ViewBag.PMin" data-decimals="2" min="0" max="2000000" step="" />
                                     </p>
                                 </div>
                                 <div class="col-lg-6">
                                     <p>
                                         <label for="maxInput">max</label>
-                                        <input name="Pmax" type="number" value="1000000000" data-decimals="2" min="2000000" max="1000000000" step="" />
+                                        <input name="Pmax" type="number" value="@ViewBag.PMax" data-decimals="2" min="2000000" max="1000000000" step="" />
                                     </p>
                                 </div>
                             </div>
@@ -202,11 +202,11 @@
                                 </div><!-- end widget-title -->
                                 <div class="col-12 text-center">
                                     <span class="col-12">Desde</span>
-                                    <input name="DMin" value="2018-01-11T11:11:11" class="form-control text-center" type="datetime-local" />
+                                    <input name="DMin" value="@ViewBag.DMin" class="form-control text-center" type="datetime-local" />
                                 </div>
                                 <div class="col-12 text-center">
                                     <span class="col-12">Hasta</span>
-                                    <input name="DMax" value="2020-01-11T11:11:11" class="form-control text-center" type="datetime-local" />
+                                    <input name="DMax" value="@ViewBag.DMax" class="form-control text-center" type="datetime-local" />
                                 </div>
                                 <span class="text-danger"></span>
                             </div>

@@ -9,7 +9,7 @@
                     <img src="@Model.Product.Photos.FirstOrDefault().Route" alt="" class="img-responsive" />
                 }
                 <div class="theme__button">
-                    <p><a href="single-item.html" title="">@Model.Product.Price</a></p>
+                    <p><a href="single-item.html" title="">$@Model.Product.Price</a></p>
                 </div>
             }
 
@@ -25,16 +25,13 @@
                             <i class="fa fa-eye"></i>@Model.Views.Count()
                         </a>
                     }
-                    else
-                    {
+                    else {
                         <a href="single-item.html">
                             <i class="fa fa-eye"></i>0
                         </a>
                     }
                 </small>
-
             }
-
             <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
             </div>
     </div><!-- end item-box -->

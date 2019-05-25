@@ -27,6 +27,11 @@ namespace GreatTrade.Models
          [Display(Name ="Descripción")]
         public string Description { get; set; }
 
+        /*
+         * This is the interests of the user
+         */
+        public string Interests { get; set; }
+
         /**
          * Url of User's Facebook Profile 
          */

@@ -38,6 +38,7 @@ namespace GreatTrade.Controllers
                 ThenInclude(p=> p.Publications).
                 ThenInclude(pr => pr.Product).
                 ThenInclude(photo => photo.Photos).
+                Include(p=> p.User).ThenInclude(p=> p.Publications).ThenInclude(p=> p.Views).
                 Include(p=> p.User).ThenInclude(u => u.PurchaseTransactions).
                 Include(p => p.User).ThenInclude(u => u.SalesTransactions).
                 Include(p => p.User).ThenInclude(u => u.City).
@@ -98,7 +99,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Description,Facebook,Twitter,Instagram,Avatar,Id")] Profile profile)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Description,Interests,Avatar,Facebook,Twitter,Instagram,Id")] Profile profile)
         {
             if (id != profile.Id)
             {
