@@ -27,28 +27,29 @@ namespace GreatTrade.Controllers
         //[HttpGet("/Questions/{id}")]
         public async Task<IActionResult> Index(int id)
         {    
-
+            //Consulta todas las preguntas que tiene un producto
             var sqlQ = from q in _context.Questions
                        where q.ProductId == id
                        select q;
+            //Consulta todas las respuestas que tienen las preguntas del producto anterior
             var sqlA = from a in _context.Answers
                        where a.Question.ProductId == id
                        select a;
-
+            //Diccionario para pasar las preguntas y las respuestas a estas, la key es el Id de la pregunta
+            //El arreglo representa en su primera posicion la pregunta, y en la segunda la respuesta
             Dictionary<int, string[]> myDict = new Dictionary<int, string[]>();
+            //Pasa el id del producto al view.
             ViewData["idProduct"] = id;
             
-            //ViewData["email"] = sqlEmail.First().Email;
+            //Recorre la consulta de las preguntas y las agrega al arreglo y al diccionario, dejando la casilla de respuesta vacia.
             foreach (var s in sqlQ)
             {
-
                 string[] arr = new string[2];
                 arr[0] = s.Description;
                 arr[1] = " ";
-                //arr[2] = id+"";
-                Console.WriteLine();
                 myDict.Add(s.Id, arr);
             }
+            //Recorre la consulta de respuestas y las agrega al arreglo de la pregunta correspondiente, accediendo a esta mediante el ID.
             foreach (var a in sqlA)
             {
 
@@ -61,6 +62,8 @@ namespace GreatTrade.Controllers
 
         public void SendEmail(int productId, string description)
         {
+
+            //Consultas para llegar el email del vendedor
             var sqlPublic = from p in _context.Products
                             where p.Id == productId
                             select p;
@@ -70,7 +73,7 @@ namespace GreatTrade.Controllers
             var sqlEmail = from e in _context.Users
                            where e.Id == sqlUs.First().Id
                            select e;
-            //var sql = _context.Users.Select(u => u.Email).Where(a=>a.)Products.First(p => p.Id == productId).
+            
             MailMessage email = new MailMessage();
             SmtpClient smtp = new SmtpClient();
             MailAddress mailTo = new MailAddress(sqlEmail.First().Email);
@@ -112,16 +115,14 @@ namespace GreatTrade.Controllers
     
         // GET: Questions/MakeQuestions
         public IActionResult MakeQuestions(int id)
-        {
-            //var applicationDbContext = _context.Question.Include(q => q.Product);
+        {            
             ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id");
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> MakeQuestions([Bind("Description,Status,ProductId,Id")] Question question)
-        {
-            //Product p = _context.Products.Select(r => r).Where(a => a.Id)
+        {            
             if (_context.Questions.First() == null)
             {
                 question.Id = 1;
@@ -131,31 +132,23 @@ namespace GreatTrade.Controllers
                 question.Id = _context.Questions.Last().Id + 1;
             }
 
-            //question.Answer = new Answer
-            //{
-            //    Description = "Yes",
-
-            //};
+            
             question.Status = 1;
-            //question.ProductId = 1;
+            
             if (ModelState.IsValid)
             {
                 SendEmail(question.ProductId, question.Description);
                 _context.Add(question);
                 await _context.SaveChangesAsync();
-                //return View(Index(question.ProductId));
+               
 
                 return RedirectToAction("Index", "Questions" , new { id = question.ProductId });
             }
 
-            //ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", question.ProductId);
+            
             return View(Index(question.ProductId));
 
-            //_context.Add(question);
-            //await _context.SaveChangesAsync();
-            //return RedirectToAction(nameof(Index));
-
-            return View();
+            
         }
 
         public async Task<IActionResult> AddAnswer(int id)

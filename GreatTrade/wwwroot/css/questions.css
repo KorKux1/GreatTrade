@@ -2,6 +2,12 @@
 	QUESTIONS MODULE
 ******************************************/
 
+#questDesc {
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
 #question_title {
     color: #1A6FC5;
     text-align: center;

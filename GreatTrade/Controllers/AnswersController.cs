@@ -73,17 +73,10 @@ namespace GreatTrade.Controllers
         // GET: Answers/Edit/5
         public async Task<IActionResult> Edit(int id)
         {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
-
-            //var answer = await _context.Answers.FindAsync(id);
-            //if (answer == null)
-            //{
-            //    return NotFound();
-            //}
-            //ViewData["QuestionId"] = new SelectList(_context.Questions, "Id", "Id", answer.QuestionId);
+            var sqlQ = from q in _context.Questions
+                                                  where q.Id == id
+                                                  select q;
+            ViewData["QuestionDesc"] = sqlQ.First().Description;
             Answer answer = new Answer
             {
                 QuestionId = id
@@ -109,31 +102,8 @@ namespace GreatTrade.Controllers
                 
                 return RedirectToAction("Index", "Questions" , new { id = sqlProduct });
             }
-            //ViewData["QuestionId"] = new SelectList(_context.Questions, "Id", "Id", answer.QuestionId);
+            
             return View(answer);
-
-            //if (ModelState.IsValid)
-            //{
-            //    try
-            //    {
-            //        _context.Update(answer);
-            //        await _context.SaveChangesAsync();
-            //    }
-            //    catch (DbUpdateConcurrencyException)
-            //    {
-            //        if (!AnswerExists(answer.Id))
-            //        {
-            //            return NotFound();
-            //        }
-            //        else
-            //        {
-            //            throw;
-            //        }
-            //    }
-            //    return RedirectToAction(nameof(Index));
-            //}
-            //ViewData["QuestionId"] = new SelectList(_context.Questions, "Id", "Id", answer.QuestionId);
-            //return View(answer);
         }
 
         // GET: Answers/Delete/5

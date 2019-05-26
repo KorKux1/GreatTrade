@@ -5,10 +5,9 @@
 <link rel="stylesheet" type="text/css" href="~/css/questions.css">
 
 <p>
-    <a asp-action="Create">Create New</a>
+   
 </p>
 <div id="container">
-    @*<p>@ViewData["email"]</p>*@
     @await Html.PartialAsync("~/Views/Questions/MakeQuestions.cshtml", new GreatTrade.Models.Question(), new ViewDataDictionary(ViewData)
                                  {
                                      { "id", ViewData["idProduct"]}
@@ -20,27 +19,16 @@
         @foreach (var item in Model)
         {
             string[] arr = item.Value;
-            @*<label id="question"> arr[0]</label>*@
+            
             <label id="question">@Html.DisplayFor(modelItem => arr[0])</label>
             <br />
-
-
-            @*<form asp-action="AddAnswer">
-                    <input asp-for="Description" id="inpQA" value=" " />
-                    <input type="submit" value="Contestar" class="btn btn-default" />
-                </form>*@
+            
             <input type="checkbox" checked />
-            @*<label id="answer">respuesta=  arr[1]</label>*@
             <label id="answer"> @Html.DisplayFor(modelItem => arr[1])</label>
             <a asp-action="Edit" asp-controller="Answers" asp-route-id="@item.Key" as>Contestar</a>
 
             <br />
-
-
-            @*@await Html.PartialAsync("~/Views/Answers/Index.cshtml", new GreatTrade.Models.Answer())*@
         }
     </div>
 </div>
-@*@await Html.PartialAsync("~/Views/Answers/Index.cshtml", model = IEnumerable<GreatTrade.Models.Answer>)*@
-@*@await Html.PartialAsync("~/Views/Answers/Index.cshtml", new GreatTrade.Models.Answer())*@
-@*<partial name="" model="Model.Answer" />*@
+

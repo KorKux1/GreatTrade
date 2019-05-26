@@ -216,3 +216,8 @@ D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.pdb
 D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csproj.CopyComplete
 D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\AddAnswer.g.cshtml.cs
 D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\MakeQuestions.g.cshtml.cs
+D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Create.g.cshtml.cs
+D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Delete.g.cshtml.cs
+D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Details.g.cshtml.cs
+D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Edit.g.cshtml.cs
+D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Index.g.cshtml.cs

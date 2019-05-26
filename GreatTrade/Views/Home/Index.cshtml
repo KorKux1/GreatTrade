@@ -109,20 +109,20 @@
 
                                         <a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id">
                                             @{
-                                            var url = "";
-                                            var a = item.Photos;
+                                                var url = "";
+                                                var a = item.Photos;
 
 
-                                            if (a != null && a.Count() > 0)
-                                            {
+                                                if (a != null && a.Count() > 0)
+                                                {
 
-                                            url = a.ElementAt(0).Route;
+                                                    url = a.ElementAt(0).Route;
 
-                                            }
-                                            else
-                                            {
-                                            url = "/lib/theme/upload/item_01.jpg";
-                                            }
+                                                }
+                                                else
+                                                {
+                                                    url = "/lib/theme/upload/item_01.jpg";
+                                                }
                                             }
                                             <img src="@url" alt="" class="img-responsive">
                                         </a>
@@ -146,16 +146,20 @@
                                     </div><!-- end item-media -->
                                     <h4><a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a></h4>
                                     @{
-                                    if (item.IsExpress)
-                                    {
-                                    <a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id" style="font-size:12px" class=""> Venta Express! </a>
-                                    }
-                                    else
-                                    {
-                                        <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
-                                        <small><a asp-controller="Questions" asp-action="Index" asp-route-id="@item.Id"><i class="fa fa-comment-o"></i> 04</a></small>                             
-                                    
-                                    }
+                                        if (item.IsExpress)
+                                        {
+                                            <a asp-controller="Products" asp-action="ShowProduct" asp-route-id="@item.Id" style="font-size:12px" class=""> Venta Express! </a>
+                                        }
+                                        else
+                                        {
+                                            var sqlQ = from q in Model.Questions
+                                                       where q.ProductId == item.Id
+                                                       select q;
+
+                                            <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
+                                            <small><a asp-controller="Questions" asp-action="Index" asp-route-id="@item.Id"><i class="fa fa-comment-o"></i> @sqlQ.ToList().Count</a></small>
+                                            
+                                        }
 
                                     }
 
