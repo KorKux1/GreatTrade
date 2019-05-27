@@ -78,7 +78,7 @@ using GreatTrade.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(97, 13514, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e9341a2c592644d99a9efff78cec9fc5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2424b9a5fab46089f18d895a3684d49", async() => {
                 BeginContext(103, 1710, true);
                 WriteLiteral(@"
     <!-- START SITE -->
@@ -121,12 +121,12 @@ using GreatTrade.Models;
                                 ");
                 EndContext();
                 BeginContext(1813, 645, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c55b359852ec4acabbbdaea0ecb57c22", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5c4c25bd7bfe4921b311d481a2b659a2", async() => {
                     BeginContext(1843, 122, true);
                     WriteLiteral("\r\n                                    <select name=\"rango\" class=\"selectpicker\">\r\n                                        ");
                     EndContext();
                     BeginContext(1965, 38, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "143464f9c4fc49b49c2be8b17e4af1b8", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11617d7d46ab42d3830d8461bda20360", async() => {
                         BeginContext(1988, 6, true);
                         WriteLiteral("Un Dia");
                         EndContext();
@@ -148,7 +148,7 @@ using GreatTrade.Models;
                     WriteLiteral("\r\n                                        ");
                     EndContext();
                     BeginContext(2045, 40, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c6abade27734400bb14b03d05f5f665", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e74810066a144f30b62bc0703cca2808", async() => {
                         BeginContext(2068, 8, true);
                         WriteLiteral("IOS Apps");
                         EndContext();
@@ -170,7 +170,7 @@ using GreatTrade.Models;
                     WriteLiteral("\r\n                                        ");
                     EndContext();
                     BeginContext(2127, 29, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8a6d7b8644744ee18d0705d5835eedb7", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d7858a0a6bc9492798732c2a0cda8e73", async() => {
                         BeginContext(2135, 12, true);
                         WriteLiteral("Android Apps");
                         EndContext();
@@ -190,7 +190,7 @@ using GreatTrade.Models;
                     WriteLiteral("\r\n                                        ");
                     EndContext();
                     BeginContext(2198, 24, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "01ed82c53cab45c79eafc7f2db1dbe43", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f769d399906f47f89c81bb74e624b837", async() => {
                         BeginContext(2206, 7, true);
                         WriteLiteral("UI Kits");
                         EndContext();
@@ -210,7 +210,7 @@ using GreatTrade.Models;
                     WriteLiteral("\r\n                                        ");
                     EndContext();
                     BeginContext(2264, 31, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47186dffa6c04974a3c1fdc14b1f928d", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d3b0198d90824d1db9c0f940f8d168b1", async() => {
                         BeginContext(2272, 14, true);
                         WriteLiteral("Site Templates");
                         EndContext();
@@ -230,7 +230,7 @@ using GreatTrade.Models;
                     WriteLiteral("\r\n                                        ");
                     EndContext();
                     BeginContext(2337, 33, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "247923f4be5044c99709edccb99cc53f", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7898784638df4203958397952c41b499", async() => {
                         BeginContext(2345, 16, true);
                         WriteLiteral("WordPress Themes");
                         EndContext();
@@ -295,7 +295,7 @@ using GreatTrade.Models;
                                         <li><");
                 EndContext();
                 BeginContext(3380, 116, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47bb2684b48e4f06aa609aa86e622a43", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "97c00a523ae94f6b846bdbebdc166d2d", async() => {
                     BeginContext(3458, 34, true);
                     WriteLiteral("<i class=\"fa fa-apple\"></i> Un Dia");
                     EndContext();
@@ -325,7 +325,7 @@ using GreatTrade.Models;
                 WriteLiteral("</li>\r\n                                        <li><");
                 EndContext();
                 BeginContext(3548, 123, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8d6f5fb94bb14b45bc8c56c294388938", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "532f478700cf4687b5180411ba082219", async() => {
                     BeginContext(3630, 37, true);
                     WriteLiteral("<i class=\"fa fa-apple\"></i>Una Semana");
                     EndContext();
@@ -355,7 +355,7 @@ using GreatTrade.Models;
                 WriteLiteral("</li>\r\n                                        <li><");
                 EndContext();
                 BeginContext(3723, 126, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8028ca28386d43648af81cbb83dd52b9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44f2c7b7582244618d05944b5c52d90f", async() => {
                     BeginContext(3806, 39, true);
                     WriteLiteral("<i class=\"fa fa-apple\"></i> Dos Semanas");
                     EndContext();
@@ -385,7 +385,7 @@ using GreatTrade.Models;
                 WriteLiteral("</li>\r\n                                        <li><");
                 EndContext();
                 BeginContext(3901, 116, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "91462ccc00664e8b805ed7c5839228c0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7bcbc791796d4e6fb1d1edeeee61ff8f", async() => {
                     BeginContext(3979, 34, true);
                     WriteLiteral("<i class=\"fa fa-apple\"></i> Un Mes");
                     EndContext();
@@ -415,7 +415,7 @@ using GreatTrade.Models;
                 WriteLiteral("</li>\r\n                                        <li><");
                 EndContext();
                 BeginContext(4069, 121, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d1d0e77b4be4a1799b64a1eea0eaee4", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fa7f30c1f7cd4c69ae4d1ace992cc134", async() => {
                     BeginContext(4150, 36, true);
                     WriteLiteral("<i class=\"fa fa-apple\"></i>Dos Meses");
                     EndContext();
@@ -590,7 +590,7 @@ WriteAttributeValue("", 4876, item.Photos.ElementAt(0).Route, 4876, 31, false);
                                 ");
                 EndContext();
                 BeginContext(7537, 487, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1bfdcceabf9342578c42fd5ca0ef01f9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "086c8f7661a64feebd12fd08aa714d24", async() => {
                     BeginContext(7614, 403, true);
                     WriteLiteral(@"
                                     <input type=""text"" name=""name"" id=""name"" class=""form-control"" placeholder=""Name"">

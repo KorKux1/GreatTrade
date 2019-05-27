@@ -206,21 +206,21 @@
                             <div class="col-md-3 col-sm-6">
                                 <div class="item-box">
                                     <div class="item-media entry">
-                                    
+
                                         <a asp-action="ShowProduct" asp-route-id="@item.Id">
                                             @{
                                                 var url = "";
                                                 var a = item.Photos;
-                                                if (a != null && a.Count()>0) {
+                                                if (a != null && a.Count() > 0)
+                                                {
 
-                                                        url = a.ElementAt(0).Route;
-
+                                                    url = a.ElementAt(0).Route;
                                                 }
                                                 else
                                                 {
                                                     url = "/lib/theme/upload/item_01.jpg";
                                                 }
-                                             }
+                                            }
                                             <img src="@url" alt="" class="img-responsive">
                                         </a>
                                         <div class="magnifier">
@@ -233,12 +233,9 @@
                                         </div>
                                         <div class="theme__button">
                                             <p><a href="single-item.html" title=""> @Html.DisplayFor(modelItem => item.Price)</a></p>
-                                            <!----<p>
-                                    <a asp-action="Mostrar">
-                                        ¿
-                                    </a>
-                                </p>-->
-
+                                        </div>
+                                        <div class="theme__button">
+                                            <p><a href="single-item.html" title=""> @Html.DisplayFor(modelItem => item.Price)</a></p>
                                         </div>
                                     </div><!-- end item-media -->
                                     <h4><a asp-action="ShowProduct" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Title)</a></h4>
