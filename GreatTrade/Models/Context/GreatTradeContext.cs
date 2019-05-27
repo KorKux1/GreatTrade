@@ -155,10 +155,10 @@ namespace GreatTrade.Models.Context
             };
             
 
-            //var transactions = new List<Transaction>() {
-            //    new Transaction(){ Id=1, BuyerId=1, SellerId=2, ProductId=3, Status="Vendido" },
-            //    new Transaction(){ Id=2, BuyerId=2, SellerId=1, ProductId=1,Status="Vendido" },
-            //};
+            var transactions = new List<Transaction>() {
+                new Transaction(){ Id=1, BuyerId=1, SellerId=2, ProductId=3, Status="Vendido" },
+                new Transaction(){ Id=2, BuyerId=2, SellerId=1, ProductId=1,Status="Vendido" },
+            };
 
 
 
@@ -179,7 +179,7 @@ namespace GreatTrade.Models.Context
             modelBuilder.Entity<User>().HasData(users.ToArray());
             modelBuilder.Entity<Profile>().HasData(profiles.ToArray());
             modelBuilder.Entity<Publication>().HasData(publications.ToArray());
-          //  modelBuilder.Entity<Transaction>().HasData(transactions.ToArray());
+           modelBuilder.Entity<Transaction>().HasData(transactions.ToArray());
             modelBuilder.Entity<Photo>().HasData(photos.ToArray());
 
             modelBuilder.Entity<Alert>().HasData(alerts.ToArray());

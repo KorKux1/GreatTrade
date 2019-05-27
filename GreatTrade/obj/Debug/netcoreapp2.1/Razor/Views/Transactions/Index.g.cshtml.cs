@@ -65,7 +65,7 @@ using GreatTrade.Models;
             WriteLiteral("\r\n\r\n\r\n");
             EndContext();
             BeginContext(40, 5862, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "992bcf36aaf444ee81da4b6c2f8192c5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cd6de7d7a52c42728135085e2d7f1b50", async() => {
                 BeginContext(59, 1685, true);
                 WriteLiteral(@"
     <!-- START SITE -->
@@ -117,7 +117,7 @@ using GreatTrade.Models;
                 WriteLiteral("</h4>\r\n                            </div><!-- end widget-title -->\r\n                            ");
                 EndContext();
                 BeginContext(1852, 3629, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "efbdce37c4134684863e4468678c3ff9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd8cb9ccfcec46cfb3b4829c14534cc2", async() => {
                     BeginContext(1947, 1481, true);
                     WriteLiteral(@"
 
@@ -253,7 +253,7 @@ WriteAttributeValue("", 4851, Model.Price, 4851, 12, false);
                                 ");
                     EndContext();
                     BeginContext(5267, 173, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0139a13ae6ae43098c29f741140cedc0", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("button", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3f7fc562877a4c228e397b4598d5a73e", async() => {
                         BeginContext(5416, 15, true);
                         WriteLiteral("Terminar Compra");
                         EndContext();

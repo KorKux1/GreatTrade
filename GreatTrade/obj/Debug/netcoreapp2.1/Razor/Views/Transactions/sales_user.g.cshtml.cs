@@ -84,7 +84,7 @@ using GreatTrade.Models;
 ");
             EndContext();
             BeginContext(431, 1898, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9dec50b4a7c405eaaffb94d56cb0532", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2169b4366adf4a8ea7d09494f050fa35", async() => {
                 BeginContext(437, 1885, true);
                 WriteLiteral(@"
 
@@ -143,7 +143,7 @@ using GreatTrade.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(2331, 11620, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2badf4b3cbdc49b7afa11dbef98a70a2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b85c50c38f1649f89d6f3e966c51ff78", async() => {
                 BeginContext(2337, 4153, true);
                 WriteLiteral(@"
 
@@ -229,12 +229,12 @@ using GreatTrade.Models;
                 WriteLiteral("ol-md-12 col-sx-12 cen-xs\">\r\n                            ");
                 EndContext();
                 BeginContext(6490, 857, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a7cc6771745e403c9677ded582247558", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6261968f7e7545cca14b7a0f1116990a", async() => {
                     BeginContext(6513, 254, true);
                     WriteLiteral("\r\n                                <div class=\"input-prepend\">\r\n                                    <div class=\"btn-group\">\r\n                                        <select name=\"orderby\" class=\"selectpicker\">\r\n                                            ");
                     EndContext();
                     BeginContext(6767, 29, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82ecb7d844574829a8c5ce76ef592297", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6bcfdb1b3f664d6c84352abc43ec1d6c", async() => {
                         BeginContext(6775, 12, true);
                         WriteLiteral("Buscar por: ");
                         EndContext();
@@ -254,7 +254,7 @@ using GreatTrade.Models;
                     WriteLiteral("\r\n                                            ");
                     EndContext();
                     BeginContext(6842, 26, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2540568579a14eb8a5ea4627e79085ad", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "626131c9bcb840cf8748d74200abaa0e", async() => {
                         BeginContext(6850, 9, true);
                         WriteLiteral("Comprador");
                         EndContext();
@@ -274,7 +274,7 @@ using GreatTrade.Models;
                     WriteLiteral("\r\n                                            ");
                     EndContext();
                     BeginContext(6914, 25, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bc317629ed2b42b1b4051aecf6a4b866", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f6454debb23f41acace354968c528dbc", async() => {
                         BeginContext(6922, 8, true);
                         WriteLiteral("Artículo");
                         EndContext();
@@ -470,7 +470,7 @@ WriteAttributeValue("", 8773, item.Buyer.Email, 8773, 17, false);
                 WriteLiteral("                                            <div class=\"col-xs-12\">\r\n\r\n                                                ");
                 EndContext();
                 BeginContext(10158, 238, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5bc748abcb5248068522c3488b517334", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "11e57f13f9a54f5fa27575eca118483b", async() => {
                     BeginContext(10385, 7, true);
                     WriteLiteral("Aprobar");
                     EndContext();
@@ -544,7 +544,7 @@ WriteAttributeValue("", 8773, item.Buyer.Email, 8773, 17, false);
                 WriteLiteral("\r\n                                                ");
                 EndContext();
                 BeginContext(10446, 218, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "758970c718074b3ab9ca623688cacca9", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dc62dc67ada640a09f9ca128d4ec0886", async() => {
                     BeginContext(10652, 8, true);
                     WriteLiteral("Rechazar");
                     EndContext();
