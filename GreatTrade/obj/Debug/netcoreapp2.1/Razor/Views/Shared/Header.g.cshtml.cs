@@ -82,7 +82,7 @@ using GreatTrade.Models;
             WriteLiteral(" <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-2\">\r\n                            <div class=\"navbar-cell\">\r\n                                <ul class=\"nav navbar-nav navbar-center\">\r\n                                    <li>");
             EndContext();
             BeginContext(1269, 67, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5a0da5259a2b408a99933f6fb6d862a6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ffb5355772074e8e90ccb563e6aa0981", async() => {
                 BeginContext(1328, 4, true);
                 WriteLiteral("Home");
                 EndContext();
@@ -220,7 +220,7 @@ using GreatTrade.Models;
                                                                     <li>");
             EndContext();
             BeginContext(11354, 102, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fe7f5da8df33446a95a311c4be1ada5c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd05afb7896d42b08eb4f9659b07640f", async() => {
                 BeginContext(11405, 47, true);
                 WriteLiteral("<i class=\"fa fa-android\"></i>Agregar Categorias");
                 EndContext();
@@ -244,7 +244,7 @@ using GreatTrade.Models;
             WriteLiteral("</li>\r\n                                                                    <li>");
             EndContext();
             BeginContext(11535, 110, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "223ed467be0d41c7956d9ce5fed940de", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ce020b0215ca403399c5bb08bd7cc97d", async() => {
                 BeginContext(11589, 52, true);
                 WriteLiteral("<i class=\"fa fa-fonticons\"></i>Agregar SubCategorias");
                 EndContext();
@@ -291,7 +291,7 @@ using GreatTrade.Models;
                                             <li>");
             EndContext();
             BeginContext(13625, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fd931b9a857244a59037cf2bf97a8529", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c84cee9c5fd4eb0be524069ab057c27", async() => {
                 BeginContext(13686, 12, true);
                 WriteLiteral("Edit Account");
                 EndContext();
@@ -321,7 +321,7 @@ using GreatTrade.Models;
             WriteLiteral("</li>\r\n                                            <li>");
             EndContext();
             BeginContext(13757, 82, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "68a0ae7d735b4e838b0b7fae67023ae7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "860db1e11c2a42368067c30fccd88dcd", async() => {
                 BeginContext(13822, 13, true);
                 WriteLiteral("Editar Perfil");
                 EndContext();
@@ -355,7 +355,7 @@ using GreatTrade.Models;
                                             <li>");
             EndContext();
             BeginContext(14118, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d07b9e9ac4004a9eb952d28e4553a622", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47e41066dbfe42a9a11f64f5dd5ecb4a", async() => {
                 BeginContext(14185, 14, true);
                 WriteLiteral("Public profile");
                 EndContext();
