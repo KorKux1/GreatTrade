@@ -1,48 +1,131 @@
-﻿@model IEnumerable<GreatTrade.Models.Transaction>
+﻿@model GreatTrade.Models.Product
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h2>Index</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Seller)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Buyer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Seller.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Buyer.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<body class="nobg">
+    <!-- START SITE -->
+    <div id="wrapper">
+
+
+        <section class="section single-wrap">
+            <div class="container">
+
+                <div class="content-top">
+                    <div class="row">
+                        <div class="col-sx-6 col-sm-6">
+
+                        </div>
+                        <div class="col-sm-6 col-xs-12 cen-xs text-right">
+                            <ul class="list-inline social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content top -->
+                <div class="content-before">
+                    <div class="row">
+                        <div class="col-md-6 col-sx-12 cen-xs">
+
+                        </div>
+                    </div><!-- end row -->
+                </div><!-- end content before -->
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="widget-title">
+                                <h4>Proceso de compra de @Model.Title</h4>
+                            </div><!-- end widget-title -->
+                            <form class="uploaditem" asp-action="contact_user" enctype="multipart/form-data" method="post">
+
+
+                                <div class="space">
+                                    <label>Dirección de Residencia</label> <!-- AQUI HICE MODIFICACIÓN -->
+                                    <input name="Direction" placeholder="Direccion de Residencia" class="form-control" id="PDireccion" required type="text">
+
+                                </div>
+                                <div class="space">
+                                    <!--AQUÍ TAMBIÉN HICE MODIFICACIÓN-->
+                                    <label>Correo Electronico</label>
+                                    <input name="emailT" placeholder="&#64ejemplo.com" class="form-control" id="PEmail" type="email" required>
+
+                                </div>
+                                <div class="space">
+                                    <!--AQUÍ TAMBIÉN HICE MODIFICACIÓN-->
+
+                                    <label>Teléfono de Contacto</label>
+                                    <input name="Phone" placeholder="Teléfono de Contacto" class="form-control" id="PTelefono" type="tel" required title="Contiene únicamente valores numéricos. Ejemplo +34 971 123456)">
+
+                                </div>
+
+                                <script>
+
+                                    function fetch() {
+                                        var get = document.querySelector("[type=number]").value;
+                                        var sum = parseInt(get)*@Model.Price;
+                                        document.getElementById("put").value = sum;
+                                    }
+
+                                    function total() {
+
+                                        var get2 = document.getElementById("raiting").value;
+                                        document.getElementById("putt").value = get2;
+
+                                    }
+
+                                    function capturar() {
+
+                                        var get3 = document.getElementById("Raiting").value;
+                                        return get3;
+
+                                    }
+
+                                    let musiv = capturar();
+
+                                </script>
+
+                                <div class="space">
+                                    <label>Elige tu unidad: [ 1 - @Model.Units Disponibles ] </label>
+                                    <input type="number" min="1" max="@Model.Units" name="Raiting" id="Raiting" value="1" pattern="[1-@Model.Units]" autofocus onchange="fetch()" /><br /><br />
+                                    <label>Precio por unidad: @Model.Price</label><br />
+                                    <label>Total de compra:  <output id="put"></output></label>
+
+
+
+                                </div>
+
+
+
+                                <div class="space">
+
+                                </div>
+
+
+                                <div class="space">
+
+                                </div>
+
+                                <!--AQUÍ HICE MODIFICACIÓN-->
+
+                                <button asp-controller="Transactions" asp-action="contact_user" asp-route-id="@Model.Id" type="submit" id="submit" class="btn btn-primary btn-block">Terminar Compra</button>
+
+
+                            </form>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end content -->
+                <br>
+
+            </div><!-- end container -->
+        </section>
+
+    </div><!-- end wrapper -->
+    <!-- END SITE -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/custom.js"></script>
+</body>
