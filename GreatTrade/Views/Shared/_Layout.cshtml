@@ -123,14 +123,14 @@
                                                 </ul>
                                             </li><!-- end mega menu -->
                                             <li class="dropdown megamenu yamm-half hovermenu">
-                                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Market <b class="fa fa-angle-down"></b></a>
+                                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Filtrar <b class="fa fa-angle-down"></b></a>
                                                 <ul class="dropdown-menu">
                                                     <li>
                                                         <div class="yamm-content">
                                                             <div class="row">
                                                                 <div class="col-md-6 col-sm-6">
                                                                     <div class="box">
-                                                                        <h5>Market Categories</h5>
+                                                                        <h5> Categorias</h5>
                                                                         <ul>
 
 
@@ -139,7 +139,7 @@
                                                                             <li><<a asp-controller="Products" asp-action="Filter" asp-route-category="Accesorios"><i class="fa fa-glass"></i> Accesorios</a></li>
                                                                             <li><<a asp-controller="Products" asp-action="Filter" asp-route-category="Entretenimiento"><i class="fa fa-gamepad"></i> Entretenimiento</a></li>
                                                                             <li><<a asp-controller="Products" asp-action="Filter" asp-route-category="Ropa"><i class="fa fa-child"></i> Ropa</a></li>
-                                                                            <li><<a asp-controller="Products" asp-action="Filter" asp-route-category="Ropa"><i class="fa fa-child"></i> Fecha</a></li>
+                                                                            <li><<a asp-controller="Products" asp-action="FilterDate"><i class="fa fa-child"></i> Fecha</a></li>
 
 
                                                                         </ul>
@@ -147,7 +147,7 @@
                                                                 </div><!-- end col -->
                                                                 <div class="col-md-6 col-sm-6">
                                                                     <div class="box">
-                                                                        <h5>Market Cities</h5>
+                                                                        <h5>Ciudades</h5>
                                                                         <ul>
 
 
@@ -181,11 +181,12 @@
                                                 <ul class="dropdown-menu">
                                                     <li class="dropdown-header">Profile</li>
                                                     <li><a href="edit-account.html">Edit Account</a></li>
-                                                    <li><a href="#">Logout</a></li>
+                                                    <li><a a asp-controller="Home" asp-action="Login">Cerrar Sesion</a></li>
                                                     <li><hr></li>
                                                     <li class="dropdown-header">Dashboard</li>
                                                     <li><a href="public-profile.html">Public profile</a></li>
-                                                    <li><a asp-controller="Products" asp-action="Index">My Sales</a></li>
+                                                    <li><a asp-controller="Users" asp-action="MySales">Mis ventas</a></li>
+                                                    <li><a asp-controller="Transactions" asp-action="sales_user">Ventas Pendientes</a></li>
                                                     <li><a href="upload-item.html">Upload Item</a></li>
                                                     <li class="dropdown-header">Notificaciones</li>
 

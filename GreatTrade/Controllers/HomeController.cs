@@ -18,12 +18,49 @@ namespace GreatTrade.Controllers
         {
             _context = context;
         }
-
-
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View(_context);
         }
+
+        public IActionResult Index(string email, string password)
+        {
+
+
+            if (email == null && password == null)
+            {
+                return View(_context);
+            }
+            else
+            {
+                if (_context.Users.First(p => p.Email.Equals(email)) == null)
+                {
+                    ViewData["ERROR"] = "No existe un usuario con ese correo";
+                    return RedirectToAction(nameof(Login));
+
+
+                }
+                else
+                {
+                    var user = _context.Users.First(p => p.Email.Equals(email));
+                    if (user != null && user.Email.Equals(password))
+                    {
+                        ViewData["Usuario"] = user.FirstName;
+                        _context.Users.First(x => x.IsActive).IsActive = false;
+                        user.IsActive = true;
+
+                        ViewData["UsuarioAct"] = _context.UserActive().FirstName;
+                        _context.SaveChanges();
+                        return View(_context);
+                    }
+                    else
+
+                        return RedirectToAction(nameof(Login));
+                }
+
+            }
+        }
+
 
         public IActionResult About()
 		{

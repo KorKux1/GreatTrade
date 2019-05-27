@@ -28,6 +28,7 @@ namespace GreatTrade.Models.Context
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<View> Views { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         public GreatTradeContext(DbContextOptions<GreatTradeContext> options) : base(options) {
             
@@ -49,12 +50,12 @@ namespace GreatTrade.Models.Context
 
             var users = new List<User>()
             {
-               new User(){ Id = 1, FirstName= "KorKux", Role=Enum.TypeRoles.Administrator,  Email="korkux@globant.com",Country= Enum.TypeCountries.Colombia, CityId=3, },
+               new User(){ Id = 1,IsActive = true, FirstName= "KorKux", Role=Enum.TypeRoles.Administrator,  Email="korkux@globant.com",Country= Enum.TypeCountries.Colombia, CityId=3, },
                new User(){ Id = 2, FirstName= "Sara", Role=Enum.TypeRoles.Administrator ,LastName="Cabrera",Email="s.cabreara@globant.com",Country= Enum.TypeCountries.Colombia, CityId=2},
                new User(){ Id = 3, FirstName= "Sara", LastName="Garcia",Email="sara_garcia@globant.com",Country= Enum.TypeCountries.Colombia, CityId=1},
                new User(){ Id = 4, FirstName= "Carlos", Role=Enum.TypeRoles.Administrator, LastName="Sanchez",Email="carlos.san@globant.com",Country= Enum.TypeCountries.Argentina, CityId=5},
                new User(){ Id = 5, FirstName= "Roberto", LastName="Diaz",Email="rdiaz@globant.com",Country= Enum.TypeCountries.Colombia, CityId=4},
-                new User(){ Id = 6, IsActive = true, FirstName= "Cristian", LastName="Molina",Email="crisfemoar2011@hotmail.com",Country= Enum.TypeCountries.Colombia, CityId=4},
+                new User(){ Id = 6,  FirstName= "Cristian", LastName="Molina",Email="crisfemoar2011@hotmail.com",Country= Enum.TypeCountries.Colombia, CityId=4},
             };
 
             var publications = new List<Publication>() {
@@ -103,9 +104,9 @@ namespace GreatTrade.Models.Context
             };
 
             var products = new List<Product>() {
-               new Product( ){ Id = 1, PublicationId=1, SubCategoryId = 1, Title="Samsung S7", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2019,04,30), Units=10, Price=700000,
+               new Product( ){ Id = 1, PublicationId=1, SubCategoryId = 1, Title="Samsung S7", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2019,05,24), Units=10, Price=700000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Samsung Galaxy S7", RelatedCities="Cali", Tags="Celulares,Tecnologia" },
-                new Product( ){ Id = 2, PublicationId=2, SubCategoryId = 8, Title="Carro 25000 km",Insignia = Enum.TypeInsignias.New, Date= new DateTime(2019,04,17), Units=1, Price=80000000,
+                new Product( ){ Id = 2, PublicationId=2, SubCategoryId = 8, Title="Carro 25000 km",Insignia = Enum.TypeInsignias.New, Date= new DateTime(2019,04,24), Units=1, Price=80000000,
                     Status = Enum.ProductStatus.Active, CityId=1,  Description="Modelo 2017", RelatedCities="Bogota", Tags="Automoviles" },
                 new Product( ){ Id = 3, PublicationId=3, SubCategoryId = 9, Title="Camara Gopro", Insignia = Enum.TypeInsignias.New, Date= new DateTime(2019,03,01), Units=6, Price=2000000,
                     Status = Enum.ProductStatus.Active, CityId=2,  Description="24 Megapixeles", RelatedCities="Medellin" , Tags="Camaras"},
@@ -154,10 +155,10 @@ namespace GreatTrade.Models.Context
             };
             
 
-            var transactions = new List<Transaction>() {
-                new Transaction(){ Id=1, BuyerId=1, SellerId=2, ProductId=3, },
-                new Transaction(){ Id=2, BuyerId=2, SellerId=1, ProductId=1, },
-            };
+            //var transactions = new List<Transaction>() {
+            //    new Transaction(){ Id=1, BuyerId=1, SellerId=2, ProductId=3, Status="Vendido" },
+            //    new Transaction(){ Id=2, BuyerId=2, SellerId=1, ProductId=1,Status="Vendido" },
+            //};
 
 
 
@@ -178,7 +179,7 @@ namespace GreatTrade.Models.Context
             modelBuilder.Entity<User>().HasData(users.ToArray());
             modelBuilder.Entity<Profile>().HasData(profiles.ToArray());
             modelBuilder.Entity<Publication>().HasData(publications.ToArray());
-            modelBuilder.Entity<Transaction>().HasData(transactions.ToArray());
+          //  modelBuilder.Entity<Transaction>().HasData(transactions.ToArray());
             modelBuilder.Entity<Photo>().HasData(photos.ToArray());
 
             modelBuilder.Entity<Alert>().HasData(alerts.ToArray());

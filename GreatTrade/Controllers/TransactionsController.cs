@@ -169,33 +169,109 @@ namespace GreatTrade.Controllers
         {
             return _context.Transaction.Any(e => e.Id == id);
         }
-        public IActionResult contact_user(int id, int Raiting)
+        public IActionResult contact_user(int id, int Raiting, double put)
         {
-            var product = _context.Products.Include(x => x.Publication.User.Profile.User.SalesTransactions).First(i => i.Id == id);
+            var product = _context.Products.Include(x => x.Publication.User.Profile.User.SalesTransactions).Include(p => p.Publication.User).First(i => i.Id == id);
 
-
-            var trans = new Transaction();
-            trans.Id = 1;
-
-            if (product.Publication.User.SalesTransactions != null)
+            if (product.Publication.UserId != _context.UserActive().Id)
             {
-                while (product.Publication.User.SalesTransactions.Select(x => x.Id).Contains(trans.Id))
+
+                var trans = new Transaction();
+                trans.Id = 1;
+                var noti = new Notification();
+                noti.Id = 1;
+
+
+                while (_context.Transaction.Select(a => a.Id).ToList().Contains(trans.Id))
                 {
                     Random a = new Random();
-                    trans.Id = (int)a.Next(12, 10000);
-                }
-            }
-            trans.Seller = product.Publication.User;
-            trans.Product = product;
-            trans.ProductId = id;
-            trans.SellerId = product.Publication.UserId;
-            trans.Status = "Pendiente";
-            trans.BuyerId = _context.UserActive().Id;
-            trans.Buyer = _context.UserActive();
-            trans.Amount = Raiting;
+                    trans.Id = (int)a.Next(3, 10000);
 
-            product.Publication.User.SalesTransactions.Add(trans);
-            return View(trans);
+                }
+
+                while (_context.Notifications.Select(a => a.Id).ToList().Contains(noti.Id))
+                {
+                    Random a = new Random();
+                    noti.Id = (int)a.Next(3, 10000);
+                }
+
+
+                trans.Seller = product.Publication.User;
+                trans.Product = product;
+                trans.ProductId = id;
+                trans.SellerId = product.Publication.UserId;
+                trans.Status = "Pendiente";
+                trans.BuyerId = _context.UserActive().Id;
+                trans.Buyer = _context.UserActive();
+                trans.Amount = Raiting;
+                trans.TotalPurchase = put;
+
+                noti.Messasge = trans.Buyer.FirstName + " " + "está interesado en tu producto";
+                noti.Type = 1;
+                noti.UserId = trans.SellerId;
+                noti.Checked = false;
+
+
+
+                if (ModelState.IsValid)
+                {
+                    _context.Add(noti);
+                    _context.Add(trans);
+                    _context.SaveChanges();
+
+                }
+                return View(trans);
+            }
+            else
+            {
+                ViewData["ERROR"] = "No puedes comprar tus productos";
+                return RedirectToAction("Error", "Transactions");
+            }
+
+
+        }
+
+        public async Task<IActionResult> tablas()
+        {
+            var greatTradeContext = _context.Transactions.Include(u => u.Buyer).Include(a => a.Product);
+            return View(await greatTradeContext.ToListAsync());
+        }
+        public IActionResult sales_user(bool wasAccepted, bool wasRejected, int idT, int id, int amount)
+        {
+            if (wasAccepted)
+            {
+                var tE = _context.Transaction.First(a => a.Id == idT);
+                _context.Products.Include(t => t.Publication.User).First(t => t.Id == id).Units = (_context.Products.Include(t => t.Publication.User).First(t => t.Id == id).Units - amount);
+
+                if (_context.Products.Include(t => t.Publication.User).First(t => t.Id == id).Units <= 0)
+                {
+
+                    var product = _context.Products.Include(t => t.Publication.User).First(t => t.Id == id);
+                    _context.Products.Include(t => t.Publication.User).First(t => t.Id == id).Status = Models.Enum.ProductStatus.Finished;
+                    _context.Products.Remove(product);
+                }
+
+                _context.Transaction.First(a => a.Id == idT).Status = "Vendido";
+                _context.SaveChanges();
+            }
+
+            if (wasRejected)
+            {
+                var tE = _context.Transaction.First(a => a.Id == idT);
+                _context.Transaction.First(a => a.Id == idT).Status = "Rechazado";
+                _context.SaveChanges();
+
+            }
+
+            var user = _context.UserActive();
+            var pend = _context.Transaction.Include(a => a.Product.Photos).Include(b => b.Buyer).
+                Where(t => t.SellerId == user.Id && t.Status.Equals("Pendiente")).ToList();
+
+            return View(pend);
+        }
+        public IActionResult Error()
+        {
+            return View();
 
         }
     }
