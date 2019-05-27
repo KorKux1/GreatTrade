@@ -290,7 +290,7 @@ WriteAttributeValue("", 1476, Model.Twitter, 1476, 14, false);
             WriteLiteral("                                            ");
             EndContext();
             BeginContext(3999, 52, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "514837a11180444babc919c63496df4d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cd5662b0778a48139896d9006da58825", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -352,7 +352,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = publication;
             WriteLiteral("                                                ");
             EndContext();
             BeginContext(4818, 69, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "4c1ce549e9f14600b056232a7c92e14a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "0e372940fd7245bdb0feb7b1f060931b", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -407,7 +407,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = purchase.Product.
             WriteLiteral("                                        ");
             EndContext();
             BeginContext(5440, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "277255d0b2644d5088f59f98346fb73e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "828bb07870894cdfa66615215c6819a7", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -490,7 +490,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = sale.Product.Publ
             WriteLiteral("    </div><!-- end container -->\r\n</section>\r\n\r\n<div>\r\n    ");
             EndContext();
             BeginContext(7056, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8ae3f0f50ae943ff83f6f78dfeef1574", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "98921723a1074124b623e4e7bc7a0ac0", async() => {
                 BeginContext(7102, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -525,7 +525,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = sale.Product.Publ
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(7118, 38, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a399e560259b453daa7e21fdd2cf917f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c97b7682f6d424a8f97fea50b1ae912", async() => {
                 BeginContext(7140, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

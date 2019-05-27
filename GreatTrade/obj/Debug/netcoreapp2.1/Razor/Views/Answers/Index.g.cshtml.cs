@@ -68,7 +68,7 @@ using GreatTrade.Models;
 #line default
 #line hidden
             BeginContext(136, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f0e226dcc1034e54ab26858408ada4b4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d2497afb407e4b069cc6d29d9851bc43", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -88,7 +88,7 @@ using GreatTrade.Models;
             WriteLiteral("\r\n<h2>Index</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(231, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8aaaccab7af445ab9c580b64174c4f07", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0eddf2dbf77c4a5b865df7fc290afcc6", async() => {
                 BeginContext(254, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -159,7 +159,7 @@ using GreatTrade.Models;
             WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1049, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfa2e6f35de54ffc85ada6bad7ca0b96", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f2e3deeb84254c8581e7499f46c67257", async() => {
                 BeginContext(1094, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -194,7 +194,7 @@ using GreatTrade.Models;
             WriteLiteral(" |\r\n                        ");
             EndContext();
             BeginContext(1130, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a203d037aafb47678450aa2d45be4963", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2089620f2fd14dc8a1911f3a95ba2d65", async() => {
                 BeginContext(1178, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -229,7 +229,7 @@ using GreatTrade.Models;
             WriteLiteral(" |\r\n                        ");
             EndContext();
             BeginContext(1217, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b47298ce88224929aee3829744e08a7e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "efbf89de562345419f288b97e6d928e3", async() => {
                 BeginContext(1264, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

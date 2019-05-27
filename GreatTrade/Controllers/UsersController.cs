@@ -158,14 +158,14 @@ namespace GreatTrade.Controllers
         {
             return _context.Users.Any(e => e.Id == id);
         }
-        public IActionResult SelectProfile()
+        public IActionResult MySales()
         {
             var user = _context.Users.Include(u => u.SalesTransactions).Include(u => u.Publications).First(u => u.IsActive == true);
             ViewData["SaleTransactions"] = _context.Transaction.Where(t => t.BuyerId == user.Id);
 
             ViewData["Products"] = _context.UserActive().SalesTransactions.Select(p => p.Product).ToList();
             var us = _context.UserActive();
-            var pp = _context.Transaction.Include(r => r.Product.Photos).Include(u => u.Buyer).Where(t => t.SellerId == us.Id).ToList();
+            var pp = _context.Transaction.Include(r => r.Product.Photos).Include(u => u.Buyer).Where(t => t.SellerId == us.Id).Where(t=>t.Status.Equals("Vendido")).ToList();
 
 
             return View(pp);

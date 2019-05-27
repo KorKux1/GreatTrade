@@ -62,7 +62,7 @@ using GreatTrade.Models;
             WriteLiteral("\r\n\r\n");
             EndContext();
             BeginContext(40, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "a7bcd69d0daf4de4a1d085b17592bac2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "9832f40359ee486295c72def6f49e71c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -129,7 +129,7 @@ Write(await Html.PartialAsync("~/Views/Questions/MakeQuestions.cshtml", new Grea
             WriteLiteral("</label>\r\n            ");
             EndContext();
             BeginContext(895, 87, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "939eaa99c4df4db98695341987080d9a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "16568170de064e80bb63bff8bf012738", async() => {
                 BeginContext(969, 9, true);
                 WriteLiteral("Contestar");
                 EndContext();

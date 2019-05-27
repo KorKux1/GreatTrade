@@ -1,0 +1,45 @@
+﻿@model IEnumerable<GreatTrade.Models.Transaction>
+@{
+    ViewData["Title"] = "tablas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Index</h2>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                buyer Name
+            </th>
+            <th>
+                Seller name
+            </th>
+            <th>
+                product
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Buyer.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seller.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product.Title)
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+

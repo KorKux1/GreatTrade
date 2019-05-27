@@ -61,7 +61,7 @@ using GreatTrade.Models;
             WriteLiteral("<!--AQUI HICE MODIFICACIÓN-->\r\n\r\n\r\n\r\n\r\n");
             EndContext();
             BeginContext(77, 4684, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "634b0723c7664cd0beca12f2ca6fbfb6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4055a65052d549fb83ea9da4283635d8", async() => {
                 BeginContext(83, 238, true);
                 WriteLiteral("\r\n\r\n    <section class=\"section single-wrap\">\r\n        <div class=\"container\">\r\n            <div class=\"page-title\">\r\n                <div class=\"row\">\r\n                    <div class=\"col-sx-12 text-center\">\r\n                        <img");
                 EndContext();
@@ -100,7 +100,7 @@ WriteAttributeValue("", 327, Model.Seller.Profile.Avatar, 327, 28, false);
                             <a id=""showLeft"" href=""#"" title="""" class=""bt-menu-trigger""><i class=""fa fa-bars""></i> ");
                 EndContext();
                 BeginContext(1140, 35, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "e0f14da7f51a4019a9e4467360a1dea6", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "829f08d9848d49daa96207cb70d930de", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -294,7 +294,7 @@ WriteAttributeValue("", 2794, Model.Seller.Profile.Facebook, 2794, 30, false);
     ");
                 EndContext();
                 BeginContext(4426, 42, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d50994695dcc49e2bc31407762a2d08a", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "039e32dff74f4cd79902b813121494d2", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -312,7 +312,7 @@ WriteAttributeValue("", 2794, Model.Seller.Profile.Facebook, 2794, 30, false);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(4474, 41, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "153effb1088047b382fd2d7b4731f72c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dab04a6c03714305bb4452bb37053a8b", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -330,7 +330,7 @@ WriteAttributeValue("", 2794, Model.Seller.Profile.Facebook, 2794, 30, false);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(4521, 38, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e09770d4bc4e407d9ec1a9128abf890c", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "587c8c012fe54ca085cc1ed030bab2a5", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -348,7 +348,7 @@ WriteAttributeValue("", 2794, Model.Seller.Profile.Facebook, 2794, 30, false);
                 WriteLiteral("\r\n    <!-- MAP & CONTACT -->\r\n    <script src=\"http://maps.google.com/maps/api/js?sensor=false\"></script>\r\n    ");
                 EndContext();
                 BeginContext(4670, 39, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ebffad4cfa684673ad14cc106fc0953f", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8069950fba30492ab3e4c00696bbfcd1", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -366,7 +366,7 @@ WriteAttributeValue("", 2794, Model.Seller.Profile.Facebook, 2794, 30, false);
                 WriteLiteral("\r\n    ");
                 EndContext();
                 BeginContext(4715, 35, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53d2afdc63d64785919718ba80e684de", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1b9281b6e6c4b73bd5c12dfc2e2eece", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

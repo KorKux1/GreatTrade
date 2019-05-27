@@ -1,8 +1,11 @@
-﻿@model IEnumerable<GreatTrade.Models.Product>
+﻿@model IEnumerable<GreatTrade.Models.Transaction>
 
 @{
-    ViewData["Title"] = "Filter";
+    ViewData["Title"] = "Ventas Pendientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -10,15 +13,19 @@
 <!--[if (gte IE 9)|!(IE)]><!-->
 <html lang="en">
 <!--<![endif]-->
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
     <!-- SITE META -->
     <title>Catalog | Responsive Marketplace Showcase Template</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
+
     <!-- FAVICONS -->
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -29,23 +36,28 @@
     <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
+
     <!-- TEMPLATE STYLES -->
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+
     <!-- CUSTOM STYLES -->
     <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
-    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
     <link rel="stylesheet" type="text/css" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
 </head>
 <body>
+
     <!-- START SITE -->
     <div id="wrapper">
+
         <nav class="hidden-xs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
             <h3><i class="fa fa-star-o"></i> Your Favorites</h3>
             <ul>
@@ -77,33 +89,45 @@
             <a href="shop-favorites.html" class="btn btn-primary">Go to Favorites</a>
         </nav>
 
+
+
         <section class="section single-wrap">
             <div class="container">
-                <div class="page-title public-profile-title">
+                <div class="page-title">
                     <div class="row">
                         <div class="col-sx-12 text-center">
-                            <h3>Categorias</h3>
-                            <p>Busca y filtra los productos por las categorias que quieras</p>
+                            <h3>Ventas Pendientes</h3>
+                            <div class="bread">
+                                <ol class="breadcrumb">
+                                    <li><a href="#">Inicio</a></li>
+                                    <li class="active">Volver</li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
+
                 <div class="content-top">
                     <div class="row">
                         <div class="col-sx-6 col-sm-6">
                             <div class="custommenu hidden-xs">
-                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="~/lib/theme/upload/fav.png" alt=""></a>
+                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="upload/fav.png" alt=""></a>
                             </div>
                         </div>
+
                         <div class="col-sm-6 col-xs-12 cen-xs text-right">
-                            <div class="bread">
-                                <ol class="breadcrumb">
-                                    <li><a href="#">Home</a></li>
-                                    <li class="active">UI Design</li>
-                                </ol>
-                            </div>
+                            <ul class="list-inline social">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
                         </div>
                     </div><!-- end row -->
                 </div><!-- end content top -->
+
                 <div class="content-before">
                     <div class="row">
                         <div class="col-md-12 col-sx-12 cen-xs">
@@ -111,92 +135,71 @@
                                 <div class="input-prepend">
                                     <div class="btn-group">
                                         <select name="orderby" class="selectpicker">
-
-                                            <option>All Platforms</option>
-                                            <option>IOS Apps</option>
-                                            <option>Android Apps</option>
-                                            <option>UI Kits</option>
-                                            <option>Site Templates</option>
-                                            <option>WordPress Themes</option>
+                                            <option>Buscar por: </option>
+                                            <option>Comprador</option>
+                                            <option>Artículo</option>
                                         </select>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Search anything here.">
+                                    <input type="text" class="form-control" placeholder="Buscar venta pendiente">
                                     <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
                                 </div>
                             </form>
-                        </div>
-                        <div class="col-md-6 text-right hidden-xs">
-
                         </div>
                     </div><!-- end row -->
                 </div><!-- end content before -->
                 <div class="content boxs">
                     <div class="row">
-                        <div class="col-md-9 col-sm-12 pull-right">
+                        <div class="col-md-12 col-sm-12">
                             <div class="storelist panel panel-info">
                                 <div class="panel-body">
-                                    @foreach (var item in Model)
-                                    {
-                                        <div class="form-group row wow fadeIn">
-                                            <div class="col-sm-2 col-xs-12">
-                                                <a href="single-item.html" class="screenshot" data-gal="@item.Photos.ElementAt(0).Route" title="@item.Title<span>@item.Price</span>"><img class="img-responsive img-thumbnail" src="@item.Photos.ElementAt(0).Route" alt=""></a>
-                                            </div>
-                                            <div class="col-sm-7 col-xs-12">
-                                                <h4><a href="single-item.html">@item.Title</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-user"></i> HTMLBuys</a></li>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="#"><i class="fa fa-folder-open-o"></i> HTML</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-sm-3 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
-                                                    <li><a href="public-profile.html" title="">213 Sales</a></li>
-                                                    <li>
-                                                        <div class="rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                    }
-
-                                </div><!-- end panel-body -->
-                            </div><!-- end storelist -->
-                        </div><!-- end col -->
-                        <div id="sidebar" class="col-md-3 col-xs-12">
-                            
-                            
-                            <div class="widget">
-                                <div class="widget-title">
-                                    <h4>SubCategories</h4>
-                                </div><!-- end widget-title -->
-                                <ul class="cats">
-                                    @if (ViewData["SubCategories"] != null)
-                                    {
+                                    <div class="form-group row wow fadeIn">
 
 
-                                        @foreach (var cat in ViewData["SubCategories"] as IEnumerable<SubCategory>)
+                                        @foreach (var item in Model)
                                         {
+                                            <div class="col-sm-2 col-xs-12">
+                                                <a href="single-item.html" class="screenshot" data-gal="@item.Product.Photos.ElementAt(0).Route" title="@item.Product.Description"><img class="img-responsive img-thumbnail" src=@item.Product.Photos.ElementAt(0).Route alt=""></a>
+                                            </div>
+                                            <div class="col-sm-5 col-xs-12">
+                                                <h4><a href="#">@item.Product.Title</a></h4>
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-user"></i> @item.Buyer.FirstName</a></li>
+                                                    <li><a href="mailto:@item.Buyer.Email"><i class="fa fa-envelope-o"></i> @item.Buyer.Email</a></li>
+                                                    <li><a href="#"><i class="fa fa-mobile-phone"></i> +57 320 5478961</a></li>
+                                                    <li><a href="#"><i class="fa fa-folder-open-o"></i>@item.Status</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-sm-2 col-xs-12">
+                                                <h4>Detalles</h4>
+                                                <ul>
 
-                                            <li><a asp-controller="Products" asp-action="Filter" asp-route-category="@cat.Category.Name" asp-route-subcategory="@cat.Name">@cat.Name @*<span>(@Model.Count(n=>n.SubCategory.Name.Equals(cat.Name)))</span>*@</a></li>
+                                                    <li><a href="#"><i class="fa fa-trademark"></i> @item.Id</a></li>
+                                                    <li><a href="#"><i class="fa fa-sort-amount-asc"></i> @item.Amount</a></li>
+                                                    <li><a href="#"><i class="fa fa-money"></i> @item.TotalPurchase</a></li>
+                                                    <li><a href="#"><i class="fa fa-calendar-times-o"></i> @item.Product.Date</a></li>
+
+                                                </ul>
+
+                                            </div>
+
+                                            <div class="col-xs-12">
+
+                                                <a asp-action="sales_user" asp-route-wasAccepted="@true" asp-route-wasRejected="@false" asp-route-idT="@item.Id" asp-route-id="@item.Product.Id" asp-route-amount="@item.Amount" type="submit" id="submit" class="btn btn-success">Aprobar</a>
+                                                <a asp-action="sales_user" asp-route-wasAccepted="@false" asp-route-wasRejected="@true" asp-route-idT="@item.Id" asp-route-id="@item.Product.Id" type="submit" id="submit" class="btn btn-success btn-danger">Rechazar</a>
+
+                                            </div>
+
 
 
                                         }
-                                    }
 
-
-                                    </ul>
-                            </div><!-- end widget -->
+                                    </div><!-- end form-group -->
+                                </div><!-- end panel body -->
+                            </div><!-- end storelist -->
                         </div><!-- end col -->
                     </div><!-- end row -->
                 </div><!-- end content -->
+
                 <div class="content-after text-center boxs">
                     <div class="row">
                         <div class="col-md-12">
@@ -217,16 +220,15 @@
                         </div>
                     </div><!-- end row -->
                 </div><!-- end content after -->
+
                 <div class="content-message boxs">
                     <div class="row">
-                        <div class="col-md-10 col-md-offset-1 text-center">
-                            <h2>See why over 10,000 designers and developers trust Catalog. Ready to take your marketplace to the next level?</h2>
-                            <a href="#" class="btn btn-default btn-lg">Join Today</a>
-                        </div>
+
                     </div><!-- end row -->
                 </div><!-- end content message -->
             </div><!-- end container -->
         </section>
+
         <footer class="footer">
             <div class="container">
                 <div class="row">
@@ -253,8 +255,10 @@
         </footer><!-- end footer -->
     </div><!-- end wrapper -->
     <!-- END SITE -->
+
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
+
 </body>
 </html>
