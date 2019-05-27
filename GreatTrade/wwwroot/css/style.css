@@ -1083,6 +1083,25 @@ a {
     opacity: 0;
 }
 
+.theme__insignia {
+    background-color: #1976D2;
+    top: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 45px;
+    outline: 0 none !important;
+    position: absolute;
+    height: 45px;
+    right: 5px;
+    text-align: center;
+    transition: all 200ms ease 0s;
+    width: 45px;
+    z-index: 10;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
 .theme__button a {
     color: #ffffff !important;
 }

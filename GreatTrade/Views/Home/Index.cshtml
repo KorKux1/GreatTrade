@@ -1,4 +1,5 @@
 ﻿@model GreatTrade.Models.Context.GreatTradeContext
+@using GreatTrade.Controllers
 @using Microsoft.EntityFrameworkCore;
 
 
@@ -6,7 +7,7 @@
     ViewData["Title"] = "Home Page";
     IEnumerable<Notification> lista = Model.Notifications.Where(x => x.UserId == Model.UserActive().Id);
     IEnumerable<Product> Products = Model.Products.Include(p => p.City).Include(p => p.Publication.User.Profile).Include(p => p.SubCategory).Include(p => p.Photos);
-
+    //List<Product> Products = HomeController.GetRecommendedProducts(1);
 }
 @if (Model != null)
 {
@@ -136,10 +137,19 @@
                                         <div class="theme__button">
                                             <p><a href="single-item.html" title=""> @Html.DisplayFor(modelItem => item.Price)</a></p>
                                             <!----<p>
-                <a asp-action="Mostrar">
-                    ¿
-                </a>
-            </p>-->
+            <a asp-action="Mostrar">
+                ¿
+            </a>
+        </p>-->
+
+                                        </div>
+                                        <div class="theme__insignia">
+                                            <p><a href="single-item.html" title=""> @Html.DisplayFor(modelItem => item.Insignia)</a></p>
+                                            <!----<p>
+            <a asp-action="Mostrar">
+                ¿
+            </a>
+        </p>-->
 
                                         </div>
                                     </div><!-- end item-media -->
@@ -151,11 +161,18 @@
                                         }
                                         else
                                         {
+                                            var sqlQ = from q in Model.Questions
+                                                       where q.ProductId == item.Id
+                                                       select q;
+
                                             <small><a href="single-item.html"><i class="fa fa-eye"></i> 31</a></small>
-                                            <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 04</a></small>
+                                            <small><a asp-controller="Questions" asp-action="Index" asp-route-id="@item.Id"><i class="fa fa-comment-o"></i> @sqlQ.ToList().Count</a></small>
+                                            
                                         }
 
                                     }
+
+
 
 
                                 </div><!-- end item-box -->
