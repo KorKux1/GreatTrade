@@ -15,7 +15,7 @@
                     <div class="bread">
                         <ol class="breadcrumb">
                             <li><a href="#">Home</a></li>
-                            <li class="active">Forum</li>
+                            <li class="active">Ranking</li>
                         </ol>
                     </div>
                 </div>
@@ -87,23 +87,38 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach(var item in Model)
+                                                    @for (int i = 0; i < Model.Count(); i++)
                                                     {
-                                                    <tr>
-                                                        <th scope="row">@ViewData["count"]</th>
-                                                        <td>@item.FirstOrDefault().FullName()</td>
-                                                        <td>@item.FirstOrDefault().Country</td>
-                                                        <td>
-                                                            @if (item.FirstOrDefault().SalesTransactions != null)
-                                                            {
-                                                                @item.FirstOrDefault().SalesTransactions.Count()
-                                                            }
-                                                        </td>
-                                                    </tr>
+                                                        <tr>
+                                                            <th scope="row">@i</th>
+                                                            <td>@Model.ToList().ElementAt(i).FirstOrDefault().FullName()</td>
+                                                            <td>@Model.ToList().ElementAt(i).FirstOrDefault().Country</td>
+                                                            <td>
+                                                                @if (@Model.ToList().ElementAt(i).FirstOrDefault().SalesTransactions != null)
+                                                                {
+                                                                    @Model.ToList().ElementAt(i).FirstOrDefault().SalesTransactions.Count()
+                                                                }
+                                                            </td>
+                                                        </tr>
+                                                    }
+
+                                                    @*@foreach (var item in Model)
+                                                    {
+                                                        <tr>
+                                                            <th scope="row">@item.FirstOrDefault().</th>
+                                                            <td>@item.FirstOrDefault().FullName()</td>
+                                                            <td>@item.FirstOrDefault().Country</td>
+                                                            <td>
+                                                                @if (item.FirstOrDefault().SalesTransactions != null)
+                                                                {
+                                                                    @item.FirstOrDefault().SalesTransactions.Count()
+                                                                }
+                                                            </td>
+                                                        </tr>
 
 
-                                                     }
-                                                    </tbody>
+                                                    }*@
+                                                </tbody>
                                             </table>
 
                                         </ul><!-- end bbp forums -->
