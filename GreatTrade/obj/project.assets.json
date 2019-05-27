@@ -5520,7 +5520,7 @@
       ]
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
-      "sha512": "fe1+dpy+eM4IX1zodsvkihO1Spuj0NecfStWzvkYoMo7/ziOsqSv4vFK36ZpBfHa4gpdCEwaU46EPzdq+ZDYhQ==",
+      "sha512": "ab4+TZw3Sxqrr5TwrwVyABeQkhSxYMJXgG6yZw7T+r6Vz+hcOt+pK79o15ESG7kZvWAK9wRG7emnTIia5O6R1Q==",
       "type": "package",
       "path": "microsoft.aspnetcore.razor.design/2.1.2",
       "hasTools": true,
@@ -8437,7 +8437,6 @@
       "path": "system.composition.convention/1.0.31",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.Convention.dll",
@@ -8480,7 +8479,6 @@
       "path": "system.composition.typedparts/1.0.31",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/System.Composition.TypedParts.dll",
@@ -8606,7 +8604,6 @@
       "path": "system.diagnostics.contracts/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -10197,7 +10194,6 @@
       "path": "system.reflection.emit.ilgeneration/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12095,7 +12091,6 @@
       "path": "system.threading.tasks.parallel/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -12536,39 +12531,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\FELIPE PC\\.nuget\\packages\\": {},
-=======
     "C:\\Users\\ASUS\\.nuget\\packages\\": {},
->>>>>>> origin/master
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\Repositorios\\GreatTrade\\GreatTrade\\GreatTrade.csproj",
-      "projectName": "GreatTrade",
-      "projectPath": "D:\\Repositorios\\GreatTrade\\GreatTrade\\GreatTrade.csproj",
-      "packagesPath": "C:\\Users\\FELIPE PC\\.nuget\\packages\\",
-      "outputPath": "D:\\Repositorios\\GreatTrade\\GreatTrade\\obj\\",
-=======
       "projectUniqueName": "D:\\Estudio\\Integrador\\2019-1\\Trabajo Final\\GreatTrade\\GreatTrade\\GreatTrade.csproj",
       "projectName": "GreatTrade",
       "projectPath": "D:\\Estudio\\Integrador\\2019-1\\Trabajo Final\\GreatTrade\\GreatTrade\\GreatTrade.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
       "outputPath": "D:\\Estudio\\Integrador\\2019-1\\Trabajo Final\\GreatTrade\\GreatTrade\\obj\\",
->>>>>>> origin/master
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\FELIPE PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> origin/master
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12624,5 +12603,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\Estudio\\Integrador\\2019-1\\Trabajo Final\\GreatTrade\\GreatTrade\\obj\\GreatTrade.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
