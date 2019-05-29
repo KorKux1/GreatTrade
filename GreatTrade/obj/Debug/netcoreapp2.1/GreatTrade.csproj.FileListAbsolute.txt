@@ -115,3 +115,4 @@ C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.
 C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.dll
 C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.pdb
 C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csproj.CopyComplete
+C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csprojAssemblyReference.cache
