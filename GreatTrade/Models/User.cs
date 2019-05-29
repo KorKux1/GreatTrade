@@ -73,6 +73,7 @@ namespace GreatTrade.Models
         public List<Alert> Alerts { get; set; }
 
 
+
         public string FullName()
         {
             return FirstName + " " + LastName;

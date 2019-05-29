@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GreatTrade.Models;
 using GreatTrade.Models.Context;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace GreatTrade.Controllers
 {
@@ -14,9 +17,14 @@ namespace GreatTrade.Controllers
     {
         private readonly GreatTradeContext _context;
 
-        public ProfilesController(GreatTradeContext context)
+        private readonly IHostingEnvironment _environment;
+
+
+        public ProfilesController(GreatTradeContext context, IHostingEnvironment environment)
         {
             _context = context;
+            _environment = environment;
+
         }
 
         // GET: Profiles
@@ -99,7 +107,7 @@ namespace GreatTrade.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Description,Interests,Avatar,Facebook,Twitter,Instagram,Id")] Profile profile)
+        public async Task<IActionResult> Edit(int id, [Bind("UserId,Description,Interests,Facebook,Twitter,Instagram,Id")] Profile profile, IFormFile image)
         {
             if (id != profile.Id)
             {
@@ -110,6 +118,14 @@ namespace GreatTrade.Controllers
             {
                 try
                 {
+
+                    if (image != null && image.Length > 0)
+                    {
+                        var fileName = Path.Combine(_environment.WebRootPath, "avatars", image.FileName);
+
+                        await image.CopyToAsync(new FileStream(fileName, FileMode.Create));
+                        profile.Avatar = "/avatars/" + image.FileName;  
+                    }
                     _context.Update(profile);
                     await _context.SaveChangesAsync();
                 }

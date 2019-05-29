@@ -67,7 +67,7 @@ namespace GreatTrade.Controllers
             ViewData["SubCategoryId"] = new SelectList(_context.SubCategories, "Id", "Name");
             return View();
         }
-
+       
         // POST: Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -285,9 +285,10 @@ namespace GreatTrade.Controllers
         }
         public IActionResult Filter(string category, string subcategory, string city)
         {
-
-            ViewData["Subcategories"] = _context.Categories.Include(p => p.SubCategories).First(n => n.Name.Equals(category)).SubCategories.ToList();
-
+            if (subcategory != null & category != null)
+            {
+                ViewData["Subcategories"] = _context.Categories.Include(p => p.SubCategories).First(n => n.Name.Equals(category)).SubCategories.ToList();
+            }
             var products = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile)
               .Include(p => p.SubCategory).Include(p => p.Photos).Include(p => p.SubCategory.Category);
 
@@ -315,6 +316,7 @@ namespace GreatTrade.Controllers
         }
         public IActionResult FilterDate(string rango)
         {
+            
             List<Product> filtrados = null;
             var products = _context.Products.Include(p => p.City).Include(p => p.Publication.User.Profile)
              .Include(p => p.SubCategory).Include(p => p.Photos).Include(p => p.SubCategory.Category);

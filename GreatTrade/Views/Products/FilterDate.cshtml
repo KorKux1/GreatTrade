@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "FilterDate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <body>
@@ -13,7 +14,7 @@
                 <div class="page-title public-profile-title">
                     <div class="row">
                         <div class="col-sx-12 text-center">
-                            <h3>Categorias</h3>
+                            <h3>Categorías</h3>
                             <p>Busca y filtra los productos por las categorias que quieras</p>
                         </div>
                     </div>
@@ -22,7 +23,7 @@
                     <div class="row">
                         <div class="col-sx-6 col-sm-6">
                             <div class="custommenu hidden-xs">
-                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="upload/fav.png" alt=""></a>
+                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="~/lib/theme/upload/fav.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-sm-6 col-xs-12 cen-xs text-right">
@@ -35,183 +36,106 @@
                         </div>
                     </div><!-- end row -->
                 </div><!-- end content top -->
-                <div class="content-before">
-                    <div class="row">
-                        <div class="col-md-12 col-sx-12 cen-xs">
-
-
-                            <div class="box">
-                                <form asp-action="FilterDate">
-                                    <select name="rango" class="selectpicker">
-                                        <option value="Un Dia">Un Dia</option>
-                                        <option value="Un Dia">IOS Apps</option>
-                                        <option>Android Apps</option>
-                                        <option>UI Kits</option>
-                                        <option>Site Templates</option>
-                                        <option>WordPress Themes</option>
-                                    </select>
-                                </form>
-
-
-
-                            </div>
-                            <input type="text" class="form-control" placeholder="Search anything here.">
-                            <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
-                        </div>
-
-                    </div>
-                    <div class="col-md-6 text-right hidden-xs">
-
-                    </div>
-                </div><!-- end row -->
-            </div><!-- end content before -->
+               
             <div class="content boxs">
                 <div class="row">
                     <div class="col-md-9 col-sm-12 pull-right">
+                        <h4>Seleccione un rango de fechas</h4>
                         <div class="storelist panel panel-info">
                             <div class="panel-body">
-                                <div class="contact_form">
+                               
+                                <div class="dropdown megamenu yamm-half hovermenu">
+
+                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"> Fechas <b class="fa fa-angle-down"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                
+                                                    <div class="col-md-12 col-sx-12 cen-xs">
+                                                       
+                                                            
+                                                            <ul>
 
 
-                                    <ul>
+                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Dia"><h5>Un Dia</h5> </a></li>
+                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Una Semana"> <h5>Una Semana</h5></a></li>
+                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Semanas"><h5>Dos Semanas</h5></a></li>
+                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Mes"> <h5>Un Mes</h5></a></li>
+                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Meses"><h5>Dos Meses</h5></a></li>
+                                                                
 
 
-                                        <li><<a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Dia"><i class="fa fa-apple"></i> Un Dia</a></li>
-                                        <li><<a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Una Semana"><i class="fa fa-apple"></i>Una Semana</a></li>
-                                        <li><<a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Semanas"><i class="fa fa-apple"></i> Dos Semanas</a></li>
-                                        <li><<a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Mes"><i class="fa fa-apple"></i> Un Mes</a></li>
-                                        <li><<a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Meses"><i class="fa fa-apple"></i>Dos Meses</a></li>
-
-                                    </ul>
-
-                                </div>
-
-                                @if (Model != null)
-                                {
-
-
-                                    @foreach (var item in Model)
-                                    {
-
-
-
-                                        <div class="form-group row wow fadeIn">
-                                            <div class="col-sm-2 col-xs-12">
-                                                <a href="single-item.html" class="screenshot" data-gal="@item.Photos.ElementAt(0).Route" title="@item.Title<span>@item.Price</span>"><img class="img-responsive img-thumbnail" src="@item.Photos.ElementAt(0).Route" alt=""></a>
-                                            </div>
-                                            <div class="col-sm-7 col-xs-12">
-                                                <h4><a href="single-item.html">@item.Title</a></h4>
-                                                <ul>
-                                                    <li><a href="#"><i class="fa fa-user"></i> @item.Category</a></li>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> @item.Price</a></li>
-                                                    <li><a><i class="fa fa-folder-open-o"></i> @item.Date</a></li>
+                                                            </ul>
+                                                      
+                                                    </div><!-- end col -->
+                                                    
+                                                </div>
                                                 </ul>
-                                            </div>
-                                            <div class="col-sm-3 col-xs-12 text-center">
-                                                <ul>
-                                                    <li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
-                                                    <li><a href="public-profile.html" title="">213 Sales</a></li>
-                                                    <li>
-                                                        <div class="rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div><!-- end form-group -->
-                                    }
-                                }
+                                    </div>
+                                    
 
 
-                            </div><!-- end panel-body -->
-                        </div><!-- end storelist -->
-                    </div><!-- end col -->
+                                                    @if (Model != null)
+
+                                                    {
+
+                                                       
+                                                        @foreach (var item in Model)
+                                                        {
+
+
+
+                                                            <div class="form-group row wow fadeIn">
+                                                                <div class="col-sm-2 col-xs-12">
+                                                                    <a href="single-item.html" class="screenshot" data-gal="@item.Photos.ElementAt(0).Route" title="@item.Title<span>@item.Price</span>"><img class="img-responsive img-thumbnail" src="@item.Photos.ElementAt(0).Route" alt=""></a>
+                                                                </div>
+                                                                <div class="col-sm-7 col-xs-12">
+                                                                    <h4><a href="single-item.html">@item.Title</a></h4>
+                                                                    <ul>
+                                                                        <li><a href="#"><i class="fa fa-user"></i> @item.Category</a></li>
+                                                                        <li><a href="#"><i class="fa fa-envelope-o"></i> @item.Price</a></li>
+                                                                        <li><a><i class="fa fa-folder-open-o"></i> @item.Date</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="col-sm-3 col-xs-12 text-center">
+                                                                    <ul>
+                                                                        <li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
+                                                                        <li><a href="public-profile.html" title="">213 Sales</a></li>
+                                                                        <li>
+                                                                            <div class="rating">
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div><!-- end form-group -->
+                                                        }
+                                                    }
+
+
+                                                </div><!-- end panel-body -->
+                                            </div><!-- end storelist -->
+</div><!-- end col -->
                     <div id="sidebar" class="col-md-3 col-xs-12">
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h4>Subscribe Us</h4>
-                            </div><!-- end widget-title -->
-                            <div class="contact_form">
-                                <form id="contactform" action="contact.php" name="contactform" method="post">
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
-                                    <input type="text" name="email" id="email" class="form-control" placeholder="Email">
-                                    <button type="submit" value="SEND" id="submit" class="btn btn-primary"> Subscribe</button>
-                                </form>
-                            </div>
-                        </div><!-- end widget -->
+                        
                         <div class="widget">
                             <div class="widget-title">
                                 <h4>Recent Posts</h4>
                             </div><!-- end widget-title -->
                             <div class="shopwidget">
-                                <ul class="shop-list">
-                                    <li>
-                                        <div class="alignleft">
-                                            <img src="upload/blog_01.jpg" alt="">
-                                        </div><!-- end entry -->
-                                        <h3><a href="#" title="">90+ Free Web App...</a></h3>
-                                        <small>22.12.2015</small>
-                                        <a class="new-price" href="">Read More</a>
-                                    </li>
-                                    <li>
-                                        <div class="alignleft">
-                                            <img src="upload/blog_02.jpg" alt="">
-                                        </div><!-- end entry -->
-                                        <h3><a href="#" title="">WordPress Custom...</a></h3>
-                                        <small>22.12.2015</small>
-                                        <a class="new-price" href="">Read More</a>
-                                    </li>
-                                    <li>
-                                        <div class="alignleft">
-                                            <img src="upload/blog_03.jpg" alt="">
-                                        </div><!-- end entry -->
-                                        <h3><a href="#" title="">How to Optimize...</a></h3>
-                                        <small>22.12.2015</small>
-                                        <a class="new-price" href="">Read More</a>
-                                    </li>
-                                </ul><!-- end blog list -->
+                               
                             </div><!-- end blogwidget -->
                         </div><!-- end widget -->
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h4>SubCategories</h4>
-                            </div><!-- end widget-title -->
-
-                        </div><!-- end widget -->
-                    </div><!-- end col -->s
+                       
+                    </div><!-- end col -->
                 </div><!-- end row -->
             </div><!-- end content -->
-            <div class="content-after text-center boxs">
-                <div class="row">
-                    <div class="col-md-12">
-                        <nav class="pagination-wrapper">
-                            <ul class="pagination">
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div><!-- end row -->
-            </div><!-- end content after -->
-            <div class="content-message boxs">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 text-center">
-                        <h2>See why over 10,000 designers and developers trust Catalog. Ready to take your marketplace to the next level?</h2>
-                        <a href="#" class="btn btn-default btn-lg">Join Today</a>
-                    </div>
-                </div><!-- end row -->
+          
+               
             </div><!-- end content message -->
     </div><!-- end container -->
     </section>

@@ -91,7 +91,7 @@
                     <div class="row">
                         <div class="col-sx-6 col-sm-6">
                             <div class="custommenu hidden-xs">
-                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="upload/fav.png" alt=""></a>
+                                <a id="showLeft" href="#" title="" class="bt-menu-trigger"><i class="fa fa-bars"></i> <img src="~/lib/theme/upload/fav.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-sm-6 col-xs-12 cen-xs text-right">
@@ -171,68 +171,30 @@
                             </div><!-- end storelist -->
                         </div><!-- end col -->
                         <div id="sidebar" class="col-md-3 col-xs-12">
-                            <div class="widget">
-                                <div class="widget-title">
-                                    <h4>Subscribe Us</h4>
-                                </div><!-- end widget-title -->
-                                <div class="contact_form">
-                                    <form id="contactform" action="contact.php" name="contactform" method="post">
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Name">
-                                        <input type="text" name="email" id="email" class="form-control" placeholder="Email">
-                                        <button type="submit" value="SEND" id="submit" class="btn btn-primary"> Subscribe</button>
-                                    </form>
-                                </div>
-                            </div><!-- end widget -->
-                            <div class="widget">
-                                <div class="widget-title">
-                                    <h4>Recent Posts</h4>
-                                </div><!-- end widget-title -->
-                                <div class="shopwidget">
-                                    <ul class="shop-list">
-                                        <li>
-                                            <div class="alignleft">
-                                                <img src="upload/blog_01.jpg" alt="">
-                                            </div><!-- end entry -->
-                                            <h3><a href="#" title="">90+ Free Web App...</a></h3>
-                                            <small>22.12.2015</small>
-                                            <a class="new-price" href="">Read More</a>
-                                        </li>
-                                        <li>
-                                            <div class="alignleft">
-                                                <img src="upload/blog_02.jpg" alt="">
-                                            </div><!-- end entry -->
-                                            <h3><a href="#" title="">WordPress Custom...</a></h3>
-                                            <small>22.12.2015</small>
-                                            <a class="new-price" href="">Read More</a>
-                                        </li>
-                                        <li>
-                                            <div class="alignleft">
-                                                <img src="upload/blog_03.jpg" alt="">
-                                            </div><!-- end entry -->
-                                            <h3><a href="#" title="">How to Optimize...</a></h3>
-                                            <small>22.12.2015</small>
-                                            <a class="new-price" href="">Read More</a>
-                                        </li>
-                                    </ul><!-- end blog list -->
-                                </div><!-- end blogwidget -->
-                            </div><!-- end widget -->
+                            
+                            
                             <div class="widget">
                                 <div class="widget-title">
                                     <h4>SubCategories</h4>
                                 </div><!-- end widget-title -->
                                 <ul class="cats">
-                                    @foreach (var cat in ViewData["SubCategories"] as IEnumerable<SubCategory>)
+                                    @if (ViewData["SubCategories"] != null)
                                     {
 
-                                        <li><a asp-controller="Products" asp-action="Filter" asp-route-category="@cat.Category.Name" asp-route-subcategory="@cat.Name">@cat.Name @*<span>(@Model.Count(n=>n.SubCategory.Name.Equals(cat.Name)))</span>*@</a></li>
+
+                                        @foreach (var cat in ViewData["SubCategories"] as IEnumerable<SubCategory>)
+                                        {
+
+                                            <li><a asp-controller="Products" asp-action="Filter" asp-route-category="@cat.Category.Name" asp-route-subcategory="@cat.Name">@cat.Name @*<span>(@Model.Count(n=>n.SubCategory.Name.Equals(cat.Name)))</span>*@</a></li>
 
 
+                                        }
                                     }
 
 
-                                </ul>
+                                    </ul>
                             </div><!-- end widget -->
-                        </div><!-- end col -->s
+                        </div><!-- end col -->
                     </div><!-- end row -->
                 </div><!-- end content -->
                 <div class="content-after text-center boxs">

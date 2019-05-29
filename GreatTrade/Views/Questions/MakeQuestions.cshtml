@@ -1,0 +1,20 @@
+﻿@*@model IEnumerable<GreatTradePreguntas.Models.Question>*@
+@model GreatTrade.Models.Question
+<link rel="stylesheet" type="text/css" href="~/css/questions.css">
+<h1 id="question_title"<center>Preguntas</center></h1>
+
+<form asp-action="MakeQuestions">
+    
+   
+    <label asp-for="Description" id="makeQuestion">Realiza tu pregunta al vendedor</label>
+    
+    <br />
+   
+    <input asp-for="Description" id="inpQA" value=" " />
+
+    <input type="hidden" asp-for="ProductId" value="@ViewData["id"]"/>
+    <input type="submit" value="Enviar" class="btn btn-default" />
+</form>
+
+
+

@@ -19,11 +19,56 @@ namespace GreatTrade.Controllers
             _context = context;
         }
 
-
-        public IActionResult Index()
+        public IActionResult Login()
         {
             return View(_context);
         }
+
+
+        public IActionResult Index()
+
+        {
+            return View(_context);
+        }
+
+        public IActionResult Index(string email, string password)
+        {
+
+
+            if (email == null && password == null)
+            {
+                return View(_context);
+            }
+            else
+            {
+                if (_context.Users.First(p => p.Email.Equals(email)) == null)
+                {
+                    ViewData["ERROR"] = "No existe un usuario con ese correo";
+                    return RedirectToAction(nameof(Login));
+
+
+                }
+                else
+                {
+                    var user = _context.Users.First(p => p.Email.Equals(email));
+                    if (user != null && user.Email.Equals(password))
+                    {
+                        ViewData["Usuario"] = user.FirstName;
+                        _context.Users.First(x => x.IsActive).IsActive = false;
+                        user.IsActive = true;
+
+                        ViewData["UsuarioAct"] = _context.UserActive().FirstName;
+                        _context.SaveChanges();
+                        return View(_context);
+                    }
+                    else
+
+                        return RedirectToAction(nameof(Login));
+                }
+
+            }
+        }
+
 
         public IActionResult About()
 		{
@@ -119,7 +164,57 @@ namespace GreatTrade.Controllers
             }
         }
 
+        public List<Product> GetRecommendedProducts(int userId)
+        {
+            //Create default products to show
+            List<Product> def = _context.Products.Include(k => k.City).Include(k => k.Publication.User.Profile).Include(k => k.SubCategory).Include(k => k.Photos).ToList();
+            //define my list of products
+            List<Product> recom = new List<Product>();
+            //define aux array for commonProducts
+            List<int> commonProd = new List<int>();
 
+            //get products bought by my user
+            var prod = _context.Transaction.Where(x => x.BuyerId == userId).Select(y => new { IdProd = y.ProductId }).ToList();
+
+            //loop wipes my products bought by my user
+            foreach(var pr in prod)
+            {
+                //get current prod id
+                int p = pr.IdProd;
+                //get users that also bought the prod
+                var commonUsers = _context.Transaction.Where(x => (x.ProductId == p && x.BuyerId != userId)).Select(y => new { IdB = y.BuyerId }).ToList();
+
+                //wipe all the common users for the current prod
+                foreach (var x in commonUsers)
+                {
+                    //get id of current user
+                    int currUserId = x.IdB;
+                    //get common prods that he bought
+                    var commonP = _context.Transaction.Where(y => (y.BuyerId == currUserId && y.ProductId != p)).Select(w => new { idP = w.ProductId }).ToList();
+                    //add the prod id to the aux array
+                    foreach (var k in commonP)
+                    {
+                        commonProd.Add(k.idP);
+                    }
+                }
+            }
+
+            Console.WriteLine("Recommended products for User 2: ");
+            //get my final common products as objects with each id
+            foreach (var x in commonProd)
+            {
+                Product r = (Product) _context.Products.Where(o => o.Id == x);
+                recom.Add(r);
+            }
+
+               //if my list is empty, set my list as default
+            if(recom.Count < 1)
+            {
+                recom = def;
+            }
+
+            return recom;
+        }
 
     }
 }

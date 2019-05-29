@@ -92,12 +92,13 @@
                                     <label>Elige tu unidad: [ 1 - @Model.Units Disponibles ] </label>
                                     <input type="number" min="1" max="@Model.Units" name="Raiting" id="Raiting" value="1" pattern="[1-@Model.Units]" autofocus onchange="fetch()" /><br /><br />
                                     <label>Precio por unidad: @Model.Price</label><br />
-                                    <label>Total de compra:  <output id="put"></output></label>
+                                    <label>Total de Compra: </label><br /> <!--Todo está bien-->
+                                    <input type="text" name="put" id="put" readonly="readonly" value="@Model.Price" autofocus onchange="fetch()" /> <!-- Todo está bien -->
+
 
 
 
                                 </div>
-
 
 
                                 <div class="space">
