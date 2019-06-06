@@ -25,11 +25,11 @@ namespace GreatTrade.Controllers
         }
 
 
-        public IActionResult Index()
+        //public IActionResult Index()
 
-        {
-            return View(_context);
-        }
+        //{
+        //    return View(_context);
+        //}
 
         public IActionResult Index(string email, string password)
         {

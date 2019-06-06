@@ -110,6 +110,9 @@ C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.
 C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.pdb
 C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csproj.CopyComplete
 <<<<<<< HEAD
+C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csprojAssemblyReference.cache
+=======
+<<<<<<< HEAD
 C:\Users\Laura\git\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.deps.json
 C:\Users\Laura\git\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.runtimeconfig.json
 C:\Users\Laura\git\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.runtimeconfig.dev.json
@@ -589,3 +592,4 @@ D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netco
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\AddAnswer.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\MakeQuestions.g.cshtml.cs
 >>>>>>> 1776885387188bf7afff76248d52e349dc9dca5f
+>>>>>>> 5b64f131f445712400fd38fbc05689a77a22085b
