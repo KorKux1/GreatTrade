@@ -112,7 +112,6 @@ C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.
 <<<<<<< HEAD
 C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csprojAssemblyReference.cache
 =======
-<<<<<<< HEAD
 C:\Users\Laura\git\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.deps.json
 C:\Users\Laura\git\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.runtimeconfig.json
 C:\Users\Laura\git\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.runtimeconfig.dev.json
@@ -236,9 +235,6 @@ C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Tra
 C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Transactions\tablas.g.cshtml.cs
 C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Transactions\Error.g.cshtml.cs
 C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.g.cshtml.cs
-=======
-<<<<<<< HEAD
-C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csprojAssemblyReference.cache
 C:\Users\nicol\Desktop\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Home\Search.g.cshtml.cs
 D:\Repositorios\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.deps.json
 D:\Repositorios\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.runtimeconfig.json
@@ -355,7 +351,6 @@ D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\
 D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Details.g.cshtml.cs
 D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Edit.g.cshtml.cs
 D:\Repositorios\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Views\Index.g.cshtml.cs
-=======
 C:\Users\crisf\source\repos\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.deps.json
 C:\Users\crisf\source\repos\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.runtimeconfig.json
 C:\Users\crisf\source\repos\GreatTrade\GreatTrade\bin\Debug\netcoreapp2.1\GreatTrade.runtimeconfig.dev.json
@@ -586,11 +581,11 @@ D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netco
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.pdb
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\GreatTrade.csproj.CopyComplete
 >>>>>>> origin/master
-<<<<<<< HEAD
 >>>>>>> f53eaea599deaf57ba1167c1eed371b37ae21e4c
-=======
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\AddAnswer.g.cshtml.cs
 D:\Estudio\Integrador\2019-1\Trabajo Final\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\MakeQuestions.g.cshtml.cs
 >>>>>>> 1776885387188bf7afff76248d52e349dc9dca5f
 >>>>>>> 5b64f131f445712400fd38fbc05689a77a22085b
-
+C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\AddAnswer.g.cshtml.cs
+C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Questions\MakeQuestions.g.cshtml.cs
+C:\Users\Laura\git\GreatTrade\GreatTrade\obj\Debug\netcoreapp2.1\Razor\Views\Ranking\Index.g.cshtml.cs
