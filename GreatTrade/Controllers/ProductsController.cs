@@ -285,7 +285,7 @@ namespace GreatTrade.Controllers
         }
         public IActionResult Filter(string category, string subcategory, string city)
         {
-            if (subcategory != null & category != null)
+            if ( category != null)
             {
                 ViewData["Subcategories"] = _context.Categories.Include(p => p.SubCategories).First(n => n.Name.Equals(category)).SubCategories.ToList();
             }
@@ -326,19 +326,19 @@ namespace GreatTrade.Controllers
             switch (rango)
             {
                 case "Un Dia":
-                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 1).ToList();
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days <= 1).ToList();
                     break;
                 case "Una Semana":
-                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 7).ToList();
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days <= 7).ToList();
                     break;
                 case "Dos Semanas":
-                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 14).ToList();
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days <= 14).ToList();
                     break;
                 case "Un Mes":
-                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 30).ToList();
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days <= 30).ToList();
                     break;
                 case "Dos Meses":
-                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days == 60).ToList();
+                    filtrados = products.Where(x => (DateTime.Today - x.Date).Days <= 60).ToList();
                     break;
             }
 

@@ -36,136 +36,113 @@
                         </div>
                     </div><!-- end row -->
                 </div><!-- end content top -->
-               
-            <div class="content boxs">
-                <div class="row">
-                    <div class="col-md-9 col-sm-12 pull-right">
-                        <h4>Seleccione un rango de fechas</h4>
-                        <div class="storelist panel panel-info">
-                            <div class="panel-body">
-                               
-                                <div class="dropdown megamenu yamm-half hovermenu">
 
-                                    <a href="#" data-toggle="dropdown" class="dropdown-toggle"> Fechas <b class="fa fa-angle-down"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li>
-                                            <div class="yamm-content">
-                                                
+                <div class="content boxs">
+                    <div class="row">
+                        <div class="col-md-9 col-sm-12 pull-right">
+                            <h4>Seleccione un rango de fechas</h4>
+                            <div class="storelist panel panel-info">
+                                <div class="panel-body">
+
+                                    <div class="dropdown megamenu yamm-half hovermenu">
+
+                                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"> Fechas <b class="fa fa-angle-down"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="yamm-content">
+
                                                     <div class="col-md-12 col-sx-12 cen-xs">
-                                                       
-                                                            
-                                                            <ul>
 
 
-                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Dia"><h5>Un Dia</h5> </a></li>
-                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Una Semana"> <h5>Una Semana</h5></a></li>
-                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Semanas"><h5>Dos Semanas</h5></a></li>
-                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Mes"> <h5>Un Mes</h5></a></li>
-                                                                <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Meses"><h5>Dos Meses</h5></a></li>
-                                                                
+                                                        <ul>
 
 
-                                                            </ul>
-                                                      
+                                                            <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Dia"><h5>Un Dia</h5> </a></li>
+                                                            <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Una Semana"> <h5>Una Semana</h5></a></li>
+                                                            <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Semanas"><h5>Dos Semanas</h5></a></li>
+                                                            <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Un Mes"> <h5>Un Mes</h5></a></li>
+                                                            <li><a asp-controller="Products" asp-action="FilterDate" asp-route-rango="Dos Meses"><h5>Dos Meses</h5></a></li>
+
+
+
+                                                        </ul>
+
                                                     </div><!-- end col -->
-                                                    
+
                                                 </div>
-                                                </ul>
+                                        </ul>
                                     </div>
-                                    
-
-
-                                                    @if (Model != null)
-
-                                                    {
-
-                                                       
-                                                        @foreach (var item in Model)
-                                                        {
 
 
 
-                                                            <div class="form-group row wow fadeIn">
-                                                                <div class="col-sm-2 col-xs-12">
-                                                                    <a href="single-item.html" class="screenshot" data-gal="@item.Photos.ElementAt(0).Route" title="@item.Title<span>@item.Price</span>"><img class="img-responsive img-thumbnail" src="@item.Photos.ElementAt(0).Route" alt=""></a>
-                                                                </div>
-                                                                <div class="col-sm-7 col-xs-12">
-                                                                    <h4><a href="single-item.html">@item.Title</a></h4>
-                                                                    <ul>
-                                                                        <li><a href="#"><i class="fa fa-user"></i> @item.Category</a></li>
-                                                                        <li><a href="#"><i class="fa fa-envelope-o"></i> @item.Price</a></li>
-                                                                        <li><a><i class="fa fa-folder-open-o"></i> @item.Date</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="col-sm-3 col-xs-12 text-center">
-                                                                    <ul>
-                                                                        <li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
-                                                                        <li><a href="public-profile.html" title="">213 Sales</a></li>
-                                                                        <li>
-                                                                            <div class="rating">
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                                <i class="fa fa-star"></i>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- end form-group -->
-                                                        }
-                                                    }
+                                    @if (Model != null)
+
+                                    {
 
 
-                                                </div><!-- end panel-body -->
-                                            </div><!-- end storelist -->
-</div><!-- end col -->
-                    <div id="sidebar" class="col-md-3 col-xs-12">
-                        
-                        <div class="widget">
-                            <div class="widget-title">
-                                <h4>Recent Posts</h4>
-                            </div><!-- end widget-title -->
-                            <div class="shopwidget">
-                               
-                            </div><!-- end blogwidget -->
-                        </div><!-- end widget -->
-                       
-                    </div><!-- end col -->
-                </div><!-- end row -->
-            </div><!-- end content -->
-          
-               
+                                        @foreach (var item in Model)
+                                        {
+
+
+
+                                            <div class="form-group row wow fadeIn">
+                                                <div class="col-sm-2 col-xs-12">
+                                                    <a href="single-item.html" class="screenshot" data-gal="@item.Photos.ElementAt(0).Route" title="@item.Title<span>@item.Price</span>"><img class="img-responsive img-thumbnail" src="@item.Photos.ElementAt(0).Route" alt=""></a>
+                                                </div>
+                                                <div class="col-sm-7 col-xs-12">
+                                                    <h4><a href="single-item.html">@item.Title</a></h4>
+                                                    <ul>
+                                                        <li><a href="#"><i class="fa fa-folder-open-o"></i> @item.SubCategory.Name</a></li>
+                                                        <li><a href="#"><i class="fa fa-money"></i> @item.Price</a></li>
+                                                        <li><a><i class="fa fa-calendar-times-o"></i> @item.Date</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-sm-3 col-xs-12 text-center">
+                                                    <ul>
+                                                        <li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
+                                                        <li><a href="public-profile.html" title="">213 Sales</a></li>
+                                                        <li>
+                                                            <div class="rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!-- end form-group -->
+                                        }
+                                    }
+
+
+                                </div><!-- end panel-body -->
+                            </div><!-- end storelist -->
+
+                        </div><!-- end col -->
+                        <div id="sidebar" class="col-md-3 col-xs-12">
+
+                            <div class="widget">
+                                <div class="widget-title">
+                                    <h4>Recent Posts</h4>
+                                </div><!-- end widget-title -->
+                                <div class="shopwidget">
+
+                                </div><!-- end blogwidget -->
+                            </div><!-- end widget -->
+
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end content -->
+
+
             </div><!-- end content message -->
+        </section>
     </div><!-- end container -->
-    </section>
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 col-lg-5">
-                    <div class="media cen-xs">
-                        <p>
-                            &copy; Catalog INC. 2016 - All Rights Reserverd.<br>
-                            Idea by <a class="madeby" href="http://showwp.com">Show WP</a> made with <i class="fa fa-heart"></i> coded with <i class="fa fa-html5"></i>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-7">
-                    <ul class="list-inline text-right cen-xs">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Site Terms</a></li>
-                        <li><a href="#">Copyrights</a></li>
-                        <li><a href="#">License</a></li>
-                        <li><a href="#">Legal</a></li>
-                        <li><a class="topbutton" href="#">Back to top <i class="fa fa-angle-up"></i></a></li>
-                    </ul>
-                </div>
-            </div><!-- end row -->
-        </div><!-- end container -->
-    </footer><!-- end footer -->
-    </div><!-- end wrapper -->
-    <!-- END SITE -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/custom.js"></script>
+    
+
+
+
+
 </body>

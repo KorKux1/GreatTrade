@@ -2,80 +2,13 @@
 
 @{
     ViewData["Title"] = "Filter";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- SITE META -->
-    <title>Catalog | Responsive Marketplace Showcase Template</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta name="keywords" content="">
-    <!-- FAVICONS -->
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="images/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="images/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="images/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="images/apple-touch-icon-152x152.png">
-    <!-- TEMPLATE STYLES -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- CUSTOM STYLES -->
-    <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
-    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-</head>
+
 <body>
     <!-- START SITE -->
     <div id="wrapper">
-        <nav class="hidden-xs cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-            <h3><i class="fa fa-star-o"></i> Your Favorites</h3>
-            <ul>
-                <li>
-                    <img src="upload/item_01.jpg" alt="" class="alignleft img-responsive">
-                    <h4><a href="single-item.html">User Profile App</a></h4>
-                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 221</a></small>
-                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 05</a></small>
-                </li>
-                <li>
-                    <img src="upload/item_02.jpg" alt="" class="alignleft img-responsive">
-                    <h4><a href="single-item.html">Mail Application</a></h4>
-                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 435</a></small>
-                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 13</a></small>
-                </li>
-                <li>
-                    <img src="upload/item_03.jpg" alt="" class="alignleft img-responsive">
-                    <h4><a href="single-item.html">Showcase Podcast</a></h4>
-                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 551</a></small>
-                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 12</a></small>
-                </li>
-                <li>
-                    <img src="upload/item_04.jpg" alt="" class="alignleft img-responsive">
-                    <h4><a href="single-item.html">Login Box (Custom)</a></h4>
-                    <small><a href="single-item.html"><i class="fa fa-eye"></i> 412</a></small>
-                    <small><a href="single-item.html"><i class="fa fa-comment-o"></i> 55</a></small>
-                </li>
-            </ul>
-            <a href="shop-favorites.html" class="btn btn-primary">Go to Favorites</a>
-        </nav>
+       
 
         <section class="section single-wrap">
             <div class="container">
@@ -98,7 +31,7 @@
                             <div class="bread">
                                 <ol class="breadcrumb">
                                     <li><a href="#">Home</a></li>
-                                    <li class="active">UI Design</li>
+                                  
                                 </ol>
                             </div>
                         </div>
@@ -106,25 +39,7 @@
                 </div><!-- end content top -->
                 <div class="content-before">
                     <div class="row">
-                        <div class="col-md-12 col-sx-12 cen-xs">
-                            <form class="dropForm">
-                                <div class="input-prepend">
-                                    <div class="btn-group">
-                                        <select name="orderby" class="selectpicker">
-
-                                            <option>All Platforms</option>
-                                            <option>IOS Apps</option>
-                                            <option>Android Apps</option>
-                                            <option>UI Kits</option>
-                                            <option>Site Templates</option>
-                                            <option>WordPress Themes</option>
-                                        </select>
-                                    </div>
-                                    <input type="text" class="form-control" placeholder="Search anything here.">
-                                    <button class="btn btn-primary" tabindex="-1"><i class="fa fa-search"></i></button>
-                                </div>
-                            </form>
-                        </div>
+                       
                         <div class="col-md-6 text-right hidden-xs">
 
                         </div>
@@ -144,24 +59,15 @@
                                             <div class="col-sm-7 col-xs-12">
                                                 <h4><a href="single-item.html">@item.Title</a></h4>
                                                 <ul>
-                                                    <li><a href="#"><i class="fa fa-user"></i> HTMLBuys</a></li>
-                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> Get Support</a></li>
-                                                    <li><a href="#"><i class="fa fa-folder-open-o"></i> HTML</a></li>
+                                                    <li><a href="#"><i class="fa fa-money"></i> @item.Price</a></li>
+                                                    <li><a href="#"><i class="fa fa-envelope-o"></i> @item.Status</a></li>
+                                                    <li><a href="#"><i class="fa fa-folder-open-o"></i> @item.SubCategory.Name</a></li>
                                                 </ul>
                                             </div>
                                             <div class="col-sm-3 col-xs-12 text-center">
                                                 <ul>
                                                     <li><a href="#" class="btn btn-primary btn-block">Buy Now</a></li>
-                                                    <li><a href="public-profile.html" title="">213 Sales</a></li>
-                                                    <li>
-                                                        <div class="rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                    </li>
+                                                    
                                                 </ul>
                                             </div>
                                         </div><!-- end form-group -->
@@ -177,6 +83,7 @@
                                 <div class="widget-title">
                                     <h4>SubCategories</h4>
                                 </div><!-- end widget-title -->
+                                
                                 <ul class="cats">
                                     @if (ViewData["SubCategories"] != null)
                                     {
@@ -192,7 +99,7 @@
                                     }
 
 
-                                    </ul>
+                                </ul>
                             </div><!-- end widget -->
                         </div><!-- end col -->
                     </div><!-- end row -->
@@ -252,9 +159,5 @@
             </div><!-- end container -->
         </footer><!-- end footer -->
     </div><!-- end wrapper -->
-    <!-- END SITE -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/custom.js"></script>
+   
 </body>
-</html>
