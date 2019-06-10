@@ -65,7 +65,8 @@ namespace GreatTrade.Models.Context
                new User(){ Id = 3, FirstName= "Sara", LastName="Garcia",Email="sara_garcia@globant.com",Country= Enum.TypeCountries.Colombia, CityId=1},
                new User(){ Id = 4, FirstName= "Carlos", Role=Enum.TypeRoles.Administrator, LastName="Sanchez",Email="carlos.san@globant.com",Country= Enum.TypeCountries.Argentina, CityId=5},
                new User(){ Id = 5, FirstName= "Roberto", LastName="Diaz",Email="rdiaz@globant.com",Country= Enum.TypeCountries.Colombia, CityId=4},
-                new User(){ Id = 6,  FirstName= "Cristian", LastName="Molina",Email="crisfemoar2011@hotmail.com",Country= Enum.TypeCountries.Colombia, CityId=4},
+               new User(){ Id = 6,  FirstName= "Cristian", LastName="Molina",Email="crisfemoar2011@hotmail.com",Country= Enum.TypeCountries.Colombia, CityId=4},
+               new User(){ Id = 7,  FirstName= "Mayumi", LastName="Tamura",Email="maythermyself@gmail.com ",Country= Enum.TypeCountries.Colombia, CityId=4},
             };
 
             var publications = new List<Publication>() {
@@ -152,7 +153,7 @@ namespace GreatTrade.Models.Context
             };
 
             var questions = new List<Question>() {
-                new Question(){ Id=1,  Description="¿Cómo hago para comprar este producto?", ProductId=1 },
+                new Question(){ Id=1,  Description="¿Cómo hago para comprar este producto?", UserId=2, ProductId=1 },
             };
 
             var answers = new List<Answer>()

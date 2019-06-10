@@ -4,28 +4,30 @@
 
 <link rel="stylesheet" type="text/css" href="~/css/questions.css">
 
-<p>
-   
-</p>
+
 <div id="container">
     @await Html.PartialAsync("~/Views/Questions/MakeQuestions.cshtml", new GreatTrade.Models.Question(), new ViewDataDictionary(ViewData)
                                  {
                                      { "id", ViewData["idProduct"]}
                                  })
 
-
+   
     <div class="containerQuestions">
         <div id="titleQuestion">Preguntas de otros vendedores</div>
         @foreach (var item in Model)
         {
             string[] arr = item.Value;
-            
+
             <label id="question">@Html.DisplayFor(modelItem => arr[0])</label>
             <br />
-            
+
             <input type="checkbox" checked />
             <label id="answer"> @Html.DisplayFor(modelItem => arr[1])</label>
-            <a asp-action="Edit" asp-controller="Answers" asp-route-id="@item.Key" as>Contestar</a>
+            if (ViewData["owner"] == "true")
+            {
+                <a asp-action="Edit" asp-controller="Answers" asp-route-id="@item.Key" id = "contestar" as>   Contestar</a>
+            }
+
 
             <br />
         }
