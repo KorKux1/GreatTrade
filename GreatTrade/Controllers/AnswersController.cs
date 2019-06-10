@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GreatTrade.Models;
 using GreatTrade.Models.Context;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace GreatTrade.Controllers
 {
@@ -98,12 +99,65 @@ namespace GreatTrade.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(answer);
+                SendEmail(id, answer.Description);
                 await _context.SaveChangesAsync();
                 
                 return RedirectToAction("Index", "Questions" , new { id = sqlProduct });
             }
             
             return View(answer);
+        }
+
+        public void SendEmail(int idQuestion, string description)
+        {
+
+            //Consultas para llegar del usuario que hizo la pregunta
+            var sqlQuestion = from p in _context.Questions
+                            where p.Id == idQuestion
+                              select p;
+            
+            var sqlEmail = from e in _context.Users
+                           where e.Id == sqlQuestion.First().Id
+                           select e;
+
+            MailMessage email = new MailMessage();
+            SmtpClient smtp = new SmtpClient();
+            MailAddress mailTo = new MailAddress(sqlEmail.First().Email);
+            //Cambiar correo para enviarlo desde otro diferente
+            MailAddress mailFrom = new MailAddress("proyectointroicesi@gmail.com");
+
+            email.To.Add(mailTo);
+            email.From = mailFrom;
+            email.Subject = "Notificacion de respuesta";
+            email.SubjectEncoding = System.Text.Encoding.UTF8;
+            email.Body = "Se ha contestando la siguiente pregunta: " + sqlQuestion.First().Description + "\n Con la respuesta: " + description;
+            email.IsBodyHtml = true;
+            email.Priority = MailPriority.Normal;
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 25;
+            smtp.Timeout = 50;
+            smtp.EnableSsl = true;
+            smtp.UseDefaultCredentials = true;
+            smtp.Credentials = new NetworkCredential("proyectointroicesi@gmail.com", "proyectoicesi1234");
+
+
+            string output = "";
+            try
+            {
+                smtp.Send(email);
+                email.Dispose();
+                output = "Correo electrónico fue enviado satisfactoriamente.";
+            }
+            catch (SmtpException exm)
+            {
+                //throw exm.Message.ToString();
+            }
+            catch (Exception ex)
+            {
+                output = "Error enviando correo electrónico: " + ex.Message;
+            }
+
+
         }
 
         // GET: Answers/Delete/5

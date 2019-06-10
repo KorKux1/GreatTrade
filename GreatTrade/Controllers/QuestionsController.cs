@@ -25,8 +25,10 @@ namespace GreatTrade.Controllers
 
         // GET: Questions
         //[HttpGet("/Questions/{id}")]
-        public async Task<IActionResult> Index(int id)
-        {    
+        public IActionResult Index(int id)
+        {
+
+            
             //Consulta todas las preguntas que tiene un producto
             var sqlQ = from q in _context.Questions
                        where q.ProductId == id
@@ -35,12 +37,39 @@ namespace GreatTrade.Controllers
             var sqlA = from a in _context.Answers
                        where a.Question.ProductId == id
                        select a;
+
+            //Consulas para llegar al usuario del producto
+
+            var sqlPublic = from p in _context.Products
+                            where p.Id == id
+                            select p;
+            var sqlUs = from u in _context.Publication
+                        where u.Id == sqlPublic.First().PublicationId
+                        select u;
+            var sqlEmail = from e in _context.Users
+                           where e.Id == sqlUs.First().Id
+                           select e;
+            
+
+            if (sqlEmail.Count()>0)
+            {
+                if (_context.UserActive().Id == sqlEmail.First().Id)
+                {
+                    ViewData["owner"] = "true";
+                }
+                else
+                {
+                    ViewData["owner"] = "false";
+                }
+            }
+            
+
             //Diccionario para pasar las preguntas y las respuestas a estas, la key es el Id de la pregunta
             //El arreglo representa en su primera posicion la pregunta, y en la segunda la respuesta
             Dictionary<int, string[]> myDict = new Dictionary<int, string[]>();
             //Pasa el id del producto al view.
             ViewData["idProduct"] = id;
-            
+
             //Recorre la consulta de las preguntas y las agrega al arreglo y al diccionario, dejando la casilla de respuesta vacia.
             foreach (var s in sqlQ)
             {
@@ -56,7 +85,7 @@ namespace GreatTrade.Controllers
                 string[] arr = myDict[a.QuestionId];
                 arr[1] = a.Description;
             }
-            
+
             return View(myDict);
         }
 
@@ -77,6 +106,7 @@ namespace GreatTrade.Controllers
             MailMessage email = new MailMessage();
             SmtpClient smtp = new SmtpClient();
             MailAddress mailTo = new MailAddress(sqlEmail.First().Email);
+            //Cambiar correo para enviarlo desde otro diferente
             MailAddress mailFrom = new MailAddress("proyectointroicesi@gmail.com");
 
             email.To.Add(mailTo);
@@ -134,7 +164,8 @@ namespace GreatTrade.Controllers
 
             
             question.Status = 1;
-            
+            question.UserId = _context.UserActive().Id;
+
             if (ModelState.IsValid)
             {
                 SendEmail(question.ProductId, question.Description);
